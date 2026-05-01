@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مساعد التغذية الطبية</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --teal:#085041;--teal-mid:#0F6E56;--teal-light:#1D9E75;--teal-pale:#E1F5EE;--teal-pale2:#9FE1CB;
+  --warn:#922B21;--warn-pale:#FDECEA;--warn-border:#E74C3C;
+  --tip-pale:#EAF7F0;--tip-border:#1D9E75;--tip-text:#085041;
+  --gold:#BA7517;--gold-pale:#FEF9EE;
+  --gray-bg:#F8FAF9;--gray-border:#DCE8E4;--gray-text:#4A5568;
+  --white:#ffffff;--dark:#1A2E28;
+}
+body{font-family:'Cairo',sans-serif;background:var(--gray-bg);direction:rtl;min-height:100vh;display:flex;flex-direction:column}
+
+/* HEADER */
+.hdr{background:var(--teal);padding:0;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(8,80,65,0.3)}
+.hdr-inner{max-width:720px;margin:0 auto;padding:13px 18px;display:flex;align-items:center;gap:12px}
+.hdr-avatar{width:42px;height:42px;background:var(--teal-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.hdr-info h1{color:#fff;font-size:16px;font-weight:700}
+.hdr-info p{color:var(--teal-pale2);font-size:11.5px;margin-top:1px}
+.online{display:inline-flex;align-items:center;gap:5px;color:#6EE7B7;font-size:11px;margin-top:2px}
+.online-dot{width:7px;height:7px;background:#4ADE80;border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* TOPICS */
+.topics{background:#fff;border-bottom:1px solid var(--gray-border);padding:10px 18px;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+.topics-inner{max-width:720px;margin:0 auto;display:flex;gap:7px}
+.tbtn{display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid var(--teal-pale2);color:var(--teal);padding:6px 13px;border-radius:20px;font-family:'Cairo',sans-serif;font-size:12.5px;font-weight:600;cursor:pointer;transition:all .18s;white-space:nowrap;flex-shrink:0}
+.tbtn:hover,.tbtn:active{background:var(--teal);color:#fff;border-color:var(--teal)}
+
+/* CHAT */
+.chat-wrap{flex:1;overflow-y:auto;padding:16px 18px 120px}
+.chat-inner{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+
+/* MESSAGES */
+.msg{display:flex;gap:9px;align-items:flex-start;animation:popIn .25s ease}
+@keyframes popIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.msg.user{flex-direction:row-reverse}
+.av{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;font-weight:700}
+.av.bot{background:var(--teal);color:#fff}
+.av.user{background:var(--gold);color:#fff;font-size:13px}
+.bbl{max-width:80%;padding:11px 15px;border-radius:16px;font-size:14px;line-height:1.85;direction:rtl}
+.bbl.bot{background:#fff;color:var(--dark);border:1px solid var(--gray-border);border-top-right-radius:3px}
+.bbl.user{background:var(--teal);color:#fff;border-top-left-radius:3px}
+.bbl ul{padding-right:18px;margin:8px 0}
+.bbl ul li{margin-bottom:5px;font-size:13.5px}
+.bbl strong{color:var(--teal);font-weight:700}
+.bbl.user strong{color:#9FE1CB}
+.bbl h3{font-size:14.5px;font-weight:700;color:var(--teal);margin:10px 0 6px}
+
+/* BOXES */
+.warn-box{background:var(--warn-pale);border-right:4px solid var(--warn-border);border-radius:0 8px 8px 0;padding:10px 13px;margin:9px 0;font-size:13px;color:var(--warn);font-weight:600;line-height:1.7}
+.tip-box{background:var(--tip-pale);border-right:4px solid var(--tip-border);border-radius:0 8px 8px 0;padding:10px 13px;margin:9px 0;font-size:13px;color:var(--tip-text);line-height:1.7}
+.gold-box{background:var(--gold-pale);border-right:4px solid var(--gold);border-radius:0 8px 8px 0;padding:10px 13px;margin:9px 0;font-size:13px;color:#7A4F00;line-height:1.7}
+
+/* TYPING */
+.typing{display:flex;gap:9px;align-items:center}
+.dots{background:#fff;border:1px solid var(--gray-border);border-radius:16px;padding:12px 16px;display:flex;gap:5px;align-items:center;border-top-right-radius:3px}
+.d{width:7px;height:7px;background:var(--teal-light);border-radius:50%;animation:bounce 1.2s infinite}
+.d:nth-child(2){animation-delay:.2s}.d:nth-child(3){animation-delay:.4s}
+@keyframes bounce{0%,80%,100%{transform:translateY(0);opacity:.4}40%{transform:translateY(-5px);opacity:1}}
+
+/* SUGGESTIONS */
+.suggs{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px;padding-right:43px}
+.sbtn{background:var(--teal-pale);border:1px solid var(--teal-pale2);color:var(--teal);padding:6px 13px;border-radius:18px;font-family:'Cairo',sans-serif;font-size:12.5px;cursor:pointer;transition:all .15s;font-weight:500}
+.sbtn:hover{background:var(--teal-mid);color:#fff;border-color:var(--teal-mid)}
+
+/* INPUT */
+.inp-bar{position:fixed;bottom:0;right:0;left:0;background:#fff;border-top:1px solid var(--gray-border);padding:10px 18px 14px;z-index:99;box-shadow:0 -3px 16px rgba(8,80,65,0.08)}
+.inp-inner{max-width:720px;margin:0 auto;display:flex;gap:9px;align-items:flex-end}
+textarea#msg{flex:1;border:1.5px solid var(--gray-border);border-radius:22px;padding:10px 16px;font-family:'Cairo',sans-serif;font-size:14px;direction:rtl;outline:none;resize:none;line-height:1.55;min-height:42px;max-height:110px;overflow-y:auto;color:var(--dark);background:var(--gray-bg);transition:border .2s}
+textarea#msg:focus{border-color:var(--teal-light);background:#fff}
+textarea#msg::placeholder{color:#9DB5B0}
+.send{width:42px;height:42px;border-radius:50%;background:var(--teal);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:17px;transition:all .15s;flex-shrink:0}
+.send:hover{background:var(--teal-mid);transform:scale(1.06)}
+.send:disabled{opacity:.35;cursor:not-allowed;transform:none}
+.disc{font-size:10.5px;color:#9DB5B0;text-align:center;margin-top:5px}
+
+/* WELCOME */
+.welcome{background:#fff;border:1px solid var(--gray-border);border-radius:16px;border-top-right-radius:3px;padding:18px 20px}
+.welcome h2{font-size:17px;font-weight:700;color:var(--teal);margin-bottom:10px}
+.welcome p{font-size:13.5px;line-height:1.8;color:var(--gray-text)}
+.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.feat{background:var(--teal-pale);border-radius:10px;padding:9px 12px;font-size:12.5px;color:var(--teal);font-weight:600;display:flex;align-items:center;gap:7px}
+
+/* FOOD GRID */
+.food-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.food-card{background:var(--teal-pale);border-radius:10px;padding:9px 12px}
+.food-card .name{font-size:13px;font-weight:700;color:var(--teal)}
+.food-card .how{font-size:12px;color:var(--gray-text);margin-top:3px;line-height:1.5}
+.badge{display:inline-block;font-size:11px;padding:2px 8px;border-radius:10px;margin-top:4px;font-weight:600}
+.badge.ok{background:#D1FAE5;color:#065F46}
+.badge.no{background:#FEE2E2;color:#991B1B}
+.badge.care{background:#FEF3C7;color:#92400E}
+
+@media(max-width:500px){.feat-grid,.food-grid{grid-template-columns:1fr}.bbl{max-width:88%}}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-inner">
+    <div class="hdr-avatar">&#127807;</div>
+    <div class="hdr-info">
+      <h1>مساعد التغذية الطبية</h1>
+      <p>رعاية المريضة في المنزل &#8212; يعمل بدون إنترنت</p>
+      <div class="online"><span class="online-dot"></span>متاح دائماً</div>
+    </div>
+  </div>
+</div>
+
+<div class="topics">
+  <div class="topics-inner">
+    <button class="tbtn" onclick="ask('ماذا نفعل أثناء التقيؤ؟')">&#129314; التقيؤ</button>
+    <button class="tbtn" onclick="ask('كيف أحضر محلول ORS؟')">&#128167; محلول ORS</button>
+    <button class="tbtn" onclick="ask('ما الأطعمة المسموحة؟')">&#9989; مسموحات</button>
+    <button class="tbtn" onclick="ask('ما الأطعمة الممنوعة؟')">&#128683; ممنوعات</button>
+    <button class="tbtn" onclick="ask('هل الفول والعدس مسموح؟')">&#129752; البقوليات</button>
+    <button class="tbtn" onclick="ask('متى نتصل بالطبيب فوراً؟')">&#128680; طوارئ</button>
+    <button class="tbtn" onclick="ask('كيف نعطي دواء نيومركازول أثناء التقيؤ؟')">&#128138; النيومركازول</button>
+    <button class="tbtn" onclick="ask('ما الخطة الغذائية اليومية؟')">&#128203; الخطة اليومية</button>
+    <button class="tbtn" onclick="ask('كم كمية السوائل اليومية؟')">&#128167; الشرب</button>
+    <button class="tbtn" onclick="ask('هل الموز مسموح؟')">&#127820; الموز</button>
+    <button class="tbtn" onclick="ask('هل البطاطا مسموحة؟')">&#129364; البطاطا</button>
+    <button class="tbtn" onclick="ask('هل الحليب مسموح؟')">&#129371; الحليب</button>
+    <button class="tbtn" onclick="ask('كيف نعتني بفم المريضة؟')">&#128138; العناية بالفم</button>
+    <button class="tbtn" onclick="ask('كيف نجلس المريضة؟')">&#129503; وضعية المريضة</button>
+  </div>
+</div>
+
+<div class="chat-wrap">
+  <div class="chat-inner" id="chat">
+
+    <div class="msg">
+      <div class="av bot">&#127807;</div>
+      <div>
+        <div class="bbl bot">
+          <div class="welcome">
+            <h2>أهلاً وسهلاً &#128075;</h2>
+            <p>أنا مساعدك الطبي المخصص للعناية بالسيدة الكريمة في المنزل.<br>اضغط على أي زر في الأعلى أو اكتب سؤالك بحرية &#8212; وسأجيبك فوراً بلغة بسيطة وواضحة.</p>
+            <div class="feat-grid">
+              <div class="feat">&#129367; ماذا تأكل؟</div>
+              <div class="feat">&#128138; الأدوية</div>
+              <div class="feat">&#128680; متى نتصل بالطبيب؟</div>
+              <div class="feat">&#128167; السوائل والترطيب</div>
+            </div>
+          </div>
+        </div>
+        <div class="suggs">
+          <button class="sbtn" onclick="ask('ماذا نفعل أثناء التقيؤ؟')">السيدة تتقيأ الآن &#8212; ماذا نفعل؟</button>
+          <button class="sbtn" onclick="ask('متى نتصل بالطبيب فوراً؟')">متى نستدعي الطبيب؟</button>
+          <button class="sbtn" onclick="ask('ما الخطة الغذائية اليومية؟')">الخطة الغذائية اليومية</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="inp-bar">
+  <div class="inp-inner">
+    <textarea id="msg" placeholder="اكتب سؤالك هنا... مثال: هل الأرز مسموح؟" rows="1"
+      onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();send()}"
+      oninput="this.style.height='auto';this.style.height=Math.min(this.scrollHeight,110)+'px'"></textarea>
+    <button class="send" id="sendbtn" onclick="send()">&#10148;</button>
+  </div>
+  <p class="disc">هذا المساعد للإرشاد العام فقط &#8212; لا يُغني عن استشارة الطبيب المعالج</p>
+</div>
+
+<script>
+var busy = false;
+
+var KB = [
+  {
+    keys:["تقيؤ","يتقيأ","قيء","تقيأ","يقيء","غثيان","ترجع"],
+    title:"أثناء التقيؤ &#8212; خطوة بخطوة",
+    body:`<div class="warn-box">لا طعام صلب ولا سائل كثيف أثناء التقيؤ النشط &#8212; الأمعاء بحاجة إلى راحة كاملة</div>
+<h3>الهدف الوحيد الآن: منع الجفاف</h3>
+<ul>
+<li><strong>محلول ORS:</strong> ملعقة صغيرة (5 مل) كل 15 دقيقة فقط &#8212; لا تزيدي</li>
+<li><strong>ماء جوز الهند:</strong> رشفات صغيرة جداً</li>
+<li><strong>كولا أو سفن أب فاقد غازه تماماً:</strong> ملعقة صغيرة كل ربع ساعة</li>
+<li><strong>شاي خفيف بسكر:</strong> بدون حليب، فاتر وليس ساخناً</li>
+<li><strong>مصاصة ثلج:</strong> تبلّل الفم وتخفف الغثيان</li>
+</ul>
+<div class="tip-box">&#128204; ارفعي رأسها دائماً 30-45 درجة (وسادتان أو ثلاث) &#8212; لا تتركيها مستلقية بالكامل</div>
+<div class="warn-box">&#9888; إذا استمر التقيؤ أكثر من 6 ساعات أو أصبح أخضر أو أصفر داكن &#8212; اتصلي بالطبيب فوراً</div>`,
+    suggs:["كيف أحضر محلول ORS؟","كيف نعطي دواء نيومركازول أثناء التقيؤ؟","متى نتصل بالطبيب فوراً؟"]
+  },
+  {
+    keys:["ORS","محلول","إماهة","اماهة","ors"],
+    title:"محلول الإماهة الفموي (ORS)",
+    body:`<p>هو محلول ماء وملح وسكر يعوّض ما يفقده الجسم من التقيؤ &#8212; أفضل من الماء العادي لأنه يحتوي على أملاح مهمة.</p>
+<h3>&#128291; كيف تحضريه في المنزل:</h3>
+<ul>
+<li>كوب ماء مغلي ومبرد (250 مل)</li>
+<li>ربع ملعقة صغيرة ملح طعام عادي</li>
+<li>ملعقتان كبيرتان سكر أبيض</li>
+<li>يُخلط جيداً حتى يذوب تماماً</li>
+</ul>
+<div class="tip-box">&#128204; يُحضَّر كميات جديدة كل يوم &#8212; لا يُحفظ أكثر من 24 ساعة</div>
+<p><strong>من الصيدلية (أفضل):</strong> Pedialyte أو Dioralyte أو ORS sachets &#8212; أكياس جاهزة تُذاب في الماء</p>
+<h3>الجرعة الصحيحة:</h3>
+<ul>
+<li>ملعقة صغيرة واحدة (5 مل) كل 15 دقيقة</li>
+<li>لا تعطيها دفعة كبيرة &#8212; هذا يحفّز التقيؤ من جديد</li>
+<li>الهدف: 400 إلى 600 مل على مدار اليوم كله</li>
+</ul>`,
+    suggs:["ماذا نفعل أثناء التقيؤ؟","ما بديل ORS إذا لم يتوفر؟","متى نبدأ بالطعام بعد توقف التقيؤ؟"]
+  },
+  {
+    keys:["مسموح","يجوز","نأكل","أكل","طعام","مسموحات","ماذا تأكل","ماذا يأكل"],
+    title:"الأطعمة المسموحة &#9989;",
+    body:`<div class="tip-box">القاعدة الذهبية: كل طعام ناعم + مهروس + مصفى + بكمية صغيرة = مسموح</div>
+<h3>النشويات:</h3>
+<ul>
+<li>&#9989; أرز أبيض مطبوخ جداً (ناعم كالعريكة)</li>
+<li>&#9989; خبز أبيض ناعم أو تُوست</li>
+<li>&#9989; فرينة أو سميد مطبوخ ناعم مع عسل</li>
+<li>&#9989; أرز بالحليب (رقيق وناعم)</li>
+</ul>
+<h3>البروتينات:</h3>
+<ul>
+<li>&#9989; دجاج مسلوق ومهروس بدون جلد</li>
+<li>&#9989; سمك أبيض مطهو بالبخار (بلطي أو هامور)</li>
+<li>&#9989; بيض مسلوق جيداً أو مخفوق خفيف بدون دهن</li>
+<li>&#9989; زبادي سادة ناعم (بدون فواكه أو حبوب)</li>
+<li>&#9989; لبنة أو جبنة طرية قليلة الدسم</li>
+</ul>
+<h3>الخضار والفواكه:</h3>
+<ul>
+<li>&#9989; بطاطا مسلوقة ومهروسة ناعمة (بدون قشر)</li>
+<li>&#9989; موز ناضج مهروس &#8212; نصف موزة في المرة</li>
+<li>&#9989; تفاح مسلوق مهروس (بدون قشر أو بذور)</li>
+<li>&#9989; جزر مسلوق ومهروس ناعم</li>
+</ul>
+<h3>السوائل:</h3>
+<ul>
+<li>&#9989; مرق دجاج صافٍ مصفى بدون دهن</li>
+<li>&#9989; ماء جوز الهند الطبيعي</li>
+<li>&#9989; عصير تفاح أو جزر مصفى بدون لب</li>
+<li>&#9989; شاي خفيف بدون حليب</li>
+<li>&#9989; جيلي (هلام) خفيف</li>
+<li>&#9989; عسل &#8212; ملعقة صغيرة مع الفرينة أو الشاي</li>
+</ul>
+<div class="gold-box">&#128204; الكميات صغيرة دائماً: 60 إلى 120 مل في كل وجبة &#8212; 5 إلى 6 وجبات صغيرة يومياً</div>`,
+    suggs:["ما الأطعمة الممنوعة؟","هل الموز مسموح؟","هل البطاطا مسموحة؟"]
+  },
+  {
+    keys:["ممنوع","محظور","لا يجوز","ممنوعات","لا نأكل"],
+    title:"الأطعمة الممنوعة تماماً &#128683;",
+    body:`<div class="warn-box">&#9888; هذه الأطعمة قد تسبب انسداداً خطيراً في الأمعاء &#8212; تجنبيها تماماً بدون استثناء</div>
+<ul>
+<li>&#10060; <strong>جميع البقوليات:</strong> فول، عدس، حمص، فاصوليا، بازلاء &#8212; خطر انسداد شديد</li>
+<li>&#10060; <strong>خضار نيئ من أي نوع:</strong> سلطة، خيار، طماطم، بصل نيء</li>
+<li>&#10060; <strong>فواكه بقشر أو بذور:</strong> برتقال بلب، عنب كامل، تين، كيوي</li>
+<li>&#10060; <strong>أطعمة مقلية أو دهنية:</strong> مقليات، شاورما، وجبات سريعة</li>
+<li>&#10060; <strong>توابل حارة</strong> أو بهارات قوية</li>
+<li>&#10060; <strong>خبز أسمر</strong> أو نخالة أو قمح كامل</li>
+<li>&#10060; <strong>مشروبات غازية</strong> من أي نوع</li>
+<li>&#10060; <strong>مكسرات وبذور</strong> من أي نوع</li>
+<li>&#10060; <strong>لحم صلب</strong> غير مهروس</li>
+<li>&#10060; <strong>القهوة المركزة</strong> أو الشاي القوي</li>
+<li>&#10060; <strong>حلويات دهنية</strong> أو معجنات ثقيلة</li>
+</ul>`,
+    suggs:["ما الأطعمة المسموحة؟","هل الفول والعدس مسموح؟","هل الحليب مسموح؟"]
+  },
+  {
+    keys:["فول","عدس","حمص","فاصوليا","بقوليات","بازلاء","بقول","عدس"],
+    title:"البقوليات &#8212; الحكم القاطع",
+    body:`<div class="warn-box">&#9888; جميع البقوليات ممنوعة تماماً لهذه السيدة &#8212; بدون أي استثناء</div>
+<h3>لماذا هي خطيرة في هذه الحالة؟</h3>
+<p>السيدة لديها قطع في القولون المستعرض وتاريخ انسداد معوي. البقوليات &#8212; حتى لو طُبخت جيداً ومُصفيت &#8212; تحتوي على ألياف وغازات تتراكم عند الجزء المجروح وتسبب انسداداً جديداً وخطيراً.</p>
+<h3>الممنوع بالكامل:</h3>
+<ul>
+<li>&#10060; فول بجميع أشكاله</li>
+<li>&#10060; عدس (أحمر أو بني أو أخضر)</li>
+<li>&#10060; حمص</li>
+<li>&#10060; فاصوليا</li>
+<li>&#10060; بازلاء</li>
+<li>&#10060; بقلاء</li>
+</ul>
+<div class="tip-box">&#128204; البديل الآمن للبروتين: بيض مسلوق، دجاج مهروس، سمك أبيض، زبادي ناعم</div>`,
+    suggs:["ما الأطعمة المسموحة؟","ما أفضل مصادر البروتين الآمنة؟","ما الأطعمة الممنوعة؟"]
+  },
+  {
+    keys:["طوارئ","خطر","اتصل","مستشفى","نستدعي","إسعاف","نذهب للطبيب"],
+    title:"متى نتصل بالطبيب فوراً؟ &#128680;",
+    body:`<div class="warn-box">&#128680; اتصلي بالطبيب فوراً إذا حدث أي من هذا:</div>
+<ul>
+<li>&#128308; التقيؤ أصبح <strong>أخضر أو أصفر داكن</strong> (صفراء &#8212; bile)</li>
+<li>&#128308; <strong>ألم بطن شديد مفاجئ</strong> أو بطن صلبة كالحجر</li>
+<li>&#128308; <strong>لم تتبول منذ 8 ساعات</strong> أو البول بني داكن جداً</li>
+<li>&#128308; <strong>ارتباك ذهني</strong> أو لا تتعرف على أحد</li>
+<li>&#128308; حرارة <strong>أكثر من 38.5 درجة</strong></li>
+<li>&#128308; <strong>دم في القيء أو البراز</strong></li>
+<li>&#128308; <strong>فقدان الوعي</strong> أو عدم الاستجابة</li>
+<li>&#128308; لم تشرب <strong>أي سائل منذ أكثر من 24 ساعة</strong></li>
+<li>&#128308; انتفاخ بطن مفاجئ وشديد</li>
+</ul>
+<div class="tip-box">&#128204; حتى لو رفضت الأسرة المستشفى &#8212; اتصلي بالطبيب على الأقل لتلقي إرشادات أو حقنة في المنزل. لا تتأخري.</div>`,
+    suggs:["كيف أعرف أن الوضع تحسّن؟","ماذا نفعل أثناء التقيؤ؟","كيف نعطي دواء نيومركازول؟"]
+  },
+  {
+    keys:["نيومركازول","carbimazole","neomercazole","دواء الغدة","الغدة الدرقية","الغدة"],
+    title:"دواء النيومركازول أثناء التقيؤ &#128138;",
+    body:`<div class="warn-box">&#9888; لا تتوقفي عنه أبداً حتى أثناء التقيؤ &#8212; التوقف المفاجئ خطير جداً على الغدة الدرقية</div>
+<h3>كيف تعطينه إذا كانت تتقيأ:</h3>
+<ul>
+<li>اطحني الحبة جيداً حتى تصبح مسحوقاً ناعماً</li>
+<li>أذيبيه في ملعقة صغيرة ماء (5 مل) فقط</li>
+<li>أعطيها ببطء شديد تحت اللسان أو مع رشفة ماء صغيرة جداً</li>
+<li>أعطيه في وقت ثابت كل يوم</li>
+</ul>
+<div class="tip-box">&#128204; أفضل وقت: بعد هدوء نوبة التقيؤ مباشرة &#8212; عندما تكون المعدة أكثر استقراراً</div>
+<h3>إذا تقيأت خلال 15 دقيقة من أخذ الدواء:</h3>
+<ul>
+<li>أبلغي الطبيب فوراً &#8212; ربما الجرعة لم تُمتص</li>
+<li>لا تعطيها جرعة مضاعفة بدون إذن الطبيب</li>
+</ul>`,
+    suggs:["متى نتصل بالطبيب فوراً؟","ما دواء الغثيان المناسب؟","ماذا نفعل أثناء التقيؤ؟"]
+  },
+  {
+    keys:["خطة","برنامج","جدول","يومي","أسبوعي","وجبات اليوم"],
+    title:"الخطة الغذائية اليومية &#128203;",
+    body:`<div class="tip-box">&#128204; وجبات صغيرة ومتكررة أفضل بكثير من وجبات كبيرة</div>
+<ul>
+<li><strong>الفطور 7 صباحاً:</strong> لبنة ناعمة مع تُوست أبيض وشاي خفيف</li>
+<li><strong>وجبة خفيفة 10 صباحاً:</strong> موز مهروس أو عصير تفاح مصفى</li>
+<li><strong>الغداء 1 ظهراً:</strong> أرز ناعم مع مرق دجاج صافٍ</li>
+<li><strong>وجبة خفيفة 4 عصراً:</strong> زبادي ناعم سادة</li>
+<li><strong>العشاء 7 مساءً:</strong> بطاطا مهروسة مع دجاج مسلوق مهروس</li>
+<li><strong>قبل النوم (اختياري):</strong> حليب دافئ قليل الدسم &#8212; نصف كوب</li>
+</ul>
+<div class="gold-box">
+<strong>قواعد مهمة:</strong><br>
+&#8226; الكمية في كل وجبة: 60 إلى 120 مل فقط<br>
+&#8226; الجلوس المستقيم أثناء الأكل وبعده 30 دقيقة<br>
+&#8226; الشرب بين الوجبات وليس أثناءها<br>
+&#8226; الطعام دافئ دائماً &#8212; ليس ساخناً ولا بارداً
+</div>`,
+    suggs:["ما الأطعمة الممنوعة؟","كم كمية السوائل اليومية؟","هل الحليب مسموح؟"]
+  },
+  {
+    keys:["سوائل","شرب","ماء","كمية الشرب","كم نشرب"],
+    title:"السوائل اليومية &#128167;",
+    body:`<h3>الهدف اليومي: 6 إلى 8 أكواب سوائل</h3>
+<ul>
+<li><strong>ماء نظيف:</strong> 4 إلى 5 أكواب يومياً &#8212; رشفة رشفة وليس دفعة واحدة</li>
+<li><strong>مرق دجاج صافٍ:</strong> كوب إلى كوبين يومياً</li>
+<li><strong>ماء جوز الهند:</strong> نصف كوب يومياً &#8212; غني بالأملاح</li>
+<li><strong>عصائر مصفاة:</strong> نصف كوب يومياً (تفاح أو جزر)</li>
+<li><strong>شاي خفيف:</strong> كوب أو اثنان</li>
+</ul>
+<div class="tip-box">&#128204; اشربي ببطء على مدار اليوم &#8212; لا دفعات كبيرة. الشرب بين الوجبات وليس أثناءها</div>
+<div class="warn-box">&#9888; تجنبي: مشروبات غازية &#8212; قهوة مركزة &#8212; شاي قوي جداً &#8212; عصائر بلب</div>`,
+    suggs:["كيف أحضر محلول ORS؟","ما الأطعمة المسموحة؟","ما الخطة الغذائية اليومية؟"]
+  },
+  {
+    keys:["موز"],
+    title:"هل الموز مسموح؟",
+    body:`<div class="tip-box">&#9989; الموز مسموح &#8212; وهو من أفضل الخيارات لهذه المريضة</div>
+<h3>الشروط:</h3>
+<ul>
+<li>ناضج جداً (أصفر مع بقع بنية &#8212; ليس أخضر)</li>
+<li>مهروس ناعماً تماماً بالشوكة &#8212; لا قطع</li>
+<li>الكمية: نصف موزة في المرة الواحدة</li>
+</ul>
+<div class="tip-box">&#128204; الموز الناضج المهروس غني بالبوتاسيوم &#8212; يعوض ما يُفقد من التقيؤ &#8212; ولطيف جداً على المعدة</div>`,
+    suggs:["ما الأطعمة المسموحة؟","هل التفاح مسموح؟","ما الخطة الغذائية اليومية؟"]
+  },
+  {
+    keys:["بطاطا","بطاطس"],
+    title:"هل البطاطا مسموحة؟",
+    body:`<div class="tip-box">&#9989; البطاطا مسموحة &#8212; وهي من أفضل الأطعمة لهذه الحالة</div>
+<h3>كيف تُحضَّر:</h3>
+<ul>
+<li>مسلوقة جيداً حتى تصبح طرية جداً</li>
+<li>مهروسة ناعمة تماماً بدون كتل</li>
+<li>بدون قشر نهائياً</li>
+<li>بدون زبدة أو دهن أو قشطة</li>
+<li>يمكن تخفيفها بقليل من مرق الدجاج الصافي</li>
+</ul>
+<div class="gold-box">&#128204; الكمية: 4 ملاعق كبيرة في الوجبة الواحدة</div>`,
+    suggs:["ما الأطعمة المسموحة؟","هل الأرز مسموح؟","ما الخطة الغذائية اليومية؟"]
+  },
+  {
+    keys:["حليب","لبن"],
+    title:"هل الحليب مسموح؟",
+    body:`<div class="gold-box">الحليب مسموح بحذر وبكميات صغيرة جداً</div>
+<h3>الشروط:</h3>
+<ul>
+<li>قليل الدسم فقط (low-fat)</li>
+<li>الكمية: نصف كوب في المرة &#8212; لا أكثر</li>
+<li>دافئ وليس بارداً من الثلاجة</li>
+<li>إذا لاحظتِ انتفاخاً أو ألماً بعده &#8212; أوقفيه فوراً</li>
+</ul>
+<div class="tip-box">&#128204; الزبادي السادة الناعم أفضل من الحليب لأنه أسهل هضماً وأقل إزعاجاً للأمعاء</div>`,
+    suggs:["هل الزبادي مسموح؟","ما الأطعمة المسموحة؟","هل البيض مسموح؟"]
+  },
+  {
+    keys:["فم","شفاه","جفاف الفم","فم جاف","تنظيف الفم","عناية الفم"],
+    title:"العناية بفم المريضة &#128138;",
+    body:`<p>العناية بالفم مهمة جداً &#8212; خاصة أثناء التقيؤ أو عندما لا تستطيع الشرب.</p>
+<h3>كيف نعتني بالفم:</h3>
+<ul>
+<li>كل ساعتين: نظّفي الفم بقطعة شاش أو قطن مبللة بماء نظيف</li>
+<li>رطّبي الشفاه بكريم مرطب خفيف أو قليل من الفازلين</li>
+<li>إذا توفّر: غسول فم لطيف (اطلبيه من الطبيب)</li>
+<li>أعطيها مصاصة ثلج أو رشفة ماء صغيرة لترطيب الفم</li>
+</ul>
+<div class="tip-box">&#128204; هذا يريح السيدة كثيراً ويمنع جفاف الفم المؤلم &#8212; حتى لو لم تستطع أن تأكل أو تشرب</div>`,
+    suggs:["ماذا نفعل أثناء التقيؤ؟","كيف نجلس المريضة؟","متى نتصل بالطبيب فوراً؟"]
+  },
+  {
+    keys:["وضعية","تجلس","نجلسها","وضعها","استلقاء","ترقد"],
+    title:"الوضعية الصحيحة للمريضة &#129503;",
+    body:`<div class="tip-box">&#128204; الوضعية الصحيحة تقلل الغثيان وتمنع دخول القيء إلى الرئتين</div>
+<h3>أثناء الأكل والشرب:</h3>
+<ul>
+<li>جالسة مستقيمة أو شبه جالسة دائماً</li>
+<li>رأسها مرفوع على الأقل 30 إلى 45 درجة (وسادتان أو ثلاث)</li>
+<li>لا تأكل أو تشرب وهي مستلقية بالكامل</li>
+</ul>
+<h3>بعد الأكل:</h3>
+<ul>
+<li>تبقى جالسة أو شبه جالسة 30 دقيقة على الأقل</li>
+<li>لا تستلقي مباشرة بعد الأكل</li>
+</ul>
+<h3>أثناء التقيؤ:</h3>
+<ul>
+<li>إذا تقيأت وهي مستلقية: أديريها على جانبها فوراً</li>
+<li>هذا يمنع دخول القيء إلى الرئتين (خطر الاستنشاق)</li>
+</ul>`,
+    suggs:["ماذا نفعل أثناء التقيؤ؟","كيف نعتني بفم المريضة؟","متى نتصل بالطبيب فوراً؟"]
+  },
+  {
+    keys:["أرز","رز"],
+    title:"هل الأرز مسموح؟",
+    body:`<div class="tip-box">&#9989; الأرز الأبيض مسموح &#8212; وهو من أفضل الأطعمة لهذه الحالة</div>
+<h3>كيف يُحضَّر:</h3>
+<ul>
+<li>أرز أبيض عادي (ليس بني ولا كامل الحبة)</li>
+<li>يُطبخ بكمية ماء أكثر من المعتاد</li>
+<li>حتى يصبح ناعماً جداً مثل العريكة</li>
+<li>يُقدَّم مع مرق دجاج صافٍ</li>
+</ul>
+<div class="gold-box">&#128204; الكمية: 4 ملاعق كبيرة في الوجبة الواحدة</div>`,
+    suggs:["ما الخطة الغذائية اليومية؟","ما الأطعمة المسموحة؟","هل البطاطا مسموحة؟"]
+  },
+  {
+    keys:["بيض","بيضة"],
+    title:"هل البيض مسموح؟",
+    body:`<div class="tip-box">&#9989; البيض مسموح &#8212; وهو مصدر ممتاز للبروتين</div>
+<h3>أفضل طريقة لتحضيره:</h3>
+<ul>
+<li><strong>مسلوق جيداً:</strong> الصفار ناعم تماماً &#8212; ليس سائلاً</li>
+<li><strong>مخفوق خفيف:</strong> بدون دهن أو زبدة</li>
+<li><strong>بيضة نيمة:</strong> غير مناسبة &#8212; البياض يجب أن يكون متماسكاً تماماً</li>
+</ul>
+<div class="gold-box">&#128204; الكمية: بيضة واحدة في الوجبة</div>`,
+    suggs:["ما الأطعمة المسموحة؟","ما الخطة الغذائية اليومية؟"]
+  },
+  {
+    keys:["دواء غثيان","دواء للتقيؤ","بريموبيران","ondansetron","أوندانسيترون","حقنة"],
+    title:"دواء الغثيان &#128138;",
+    body:`<p>دواء الغثيان ضروري جداً &#8212; بدونه كل ما تعطيه للسيدة سيُقأ من جديد. تواصلي مع الطبيب للحصول على أحد هذه الأدوية:</p>
+<ul>
+<li><strong>بريموبيران (Primperan / Metoclopramide):</strong> أقراص أو شراب أو حقنة تحت الجلد</li>
+<li><strong>أوندانسيترون (Ondansetron / Zofran):</strong> أقراص تذوب تحت اللسان &#8212; لا تحتاج بلعاً &#8212; ممتازة</li>
+<li><strong>دومبيريدون (Domperidone / Motilium):</strong> أقراص أو تحاميل شرجية</li>
+</ul>
+<div class="tip-box">&#128204; التحاميل الشرجية أو الأقراص التي تذوب تحت اللسان هي الأفضل لأنها لا تحتاج بلعاً عند التقيؤ</div>
+<div class="warn-box">&#9888; لا تشتري دواء الغثيان بدون وصفة طبيب &#8212; اتصلي بالطبيب أولاً</div>`,
+    suggs:["ماذا نفعل أثناء التقيؤ؟","متى نتصل بالطبيب فوراً؟","كيف نعطي دواء نيومركازول؟"]
+  },
+  {
+    keys:["تحسن","أحسن","توقف التقيؤ","انتهى التقيؤ","بدأت تتحسن","نبدأ بالأكل","متى نأكل"],
+    title:"كيف نعرف أن الوضع تحسّن؟",
+    body:`<div class="tip-box">علامات التحسن الجيدة:</div>
+<ul>
+<li>مرّت 4 إلى 6 ساعات بدون تقيؤ</li>
+<li>السيدة أكثر هدوءاً وراحة</li>
+<li>تطلب شرب شيء بنفسها</li>
+<li>البطن أقل انتفاخاً</li>
+<li>تستطيع التحدث بشكل أوضح</li>
+</ul>
+<h3>كيف نبدأ الطعام من جديد:</h3>
+<ul>
+<li>10 مل فقط من مرق صافٍ أو محلول ORS</li>
+<li>انتظري 30 دقيقة</li>
+<li>إذا لم تتقيأ &#8212; أعطيها 10 مل أخرى</li>
+<li>تقدمي ببطء شديد جداً على مدار ساعات</li>
+<li>لا تستعجلي &#8212; الصبر هنا علاج</li>
+</ul>
+<div class="warn-box">&#9888; إذا عاد التقيؤ بعد أي وجبة &#8212; أوقفي الطعام مباشرة وأخبري الطبيب</div>`,
+    suggs:["ما الأطعمة المسموحة؟","ما الخطة الغذائية اليومية؟","كيف أحضر محلول ORS؟"]
+  }
+];
+
+var DEFAULT = {
+  title:"إجابة عامة",
+  body:`<p>بناءً على حالة السيدة الكريمة (سرطان، قطع في القولون، انسداد معوي سابق، نيومركازول)، المبدأ العام هو:</p>
+<ul>
+<li>كل طعام <strong>ناعم ومهروس ومصفى</strong> = مسموح</li>
+<li>كل طعام <strong>صلب أو ليفي أو دهني</strong> = ممنوع</li>
+<li>الكميات <strong>صغيرة دائماً</strong>: 60 إلى 120 مل في كل مرة</li>
+<li>وجبات صغيرة <strong>5 إلى 6 مرات</strong> يومياً</li>
+</ul>
+<div class="tip-box">&#128204; إذا كنتِ غير متأكدة من طعام معين &#8212; اسأليني عنه بالاسم وسأخبرك مباشرة</div>`,
+  suggs:["ما الأطعمة المسموحة؟","ما الأطعمة الممنوعة؟","متى نتصل بالطبيب فوراً؟"]
+};
+
+function getAnswer(q) {
+  q = q.trim().toLowerCase();
+  for (var i = 0; i < KB.length; i++) {
+    var entry = KB[i];
+    for (var j = 0; j < entry.keys.length; j++) {
+      if (q.indexOf(entry.keys[j]) !== -1) return entry;
+    }
+  }
+  return DEFAULT;
+}
+
+function addMsg(html, role) {
+  var c = document.getElementById('chat');
+  var d = document.createElement('div');
+  d.className = 'msg' + (role === 'user' ? ' user' : '');
+  var icon = role === 'user' ? '&#128100;' : '&#127807;';
+  var avCls = role === 'user' ? 'user' : 'bot';
+  var bblCls = role === 'user' ? 'user' : 'bot';
+  d.innerHTML = '<div class="av ' + avCls + '">' + icon + '</div><div class="bbl ' + bblCls + '">' + html + '</div>';
+  c.appendChild(d);
+  c.parentElement.scrollTop = c.parentElement.scrollHeight;
+  return d;
+}
+
+function addSuggs(suggs) {
+  var c = document.getElementById('chat');
+  var d = document.createElement('div');
+  d.className = 'suggs';
+  suggs.forEach(function(s) {
+    var b = document.createElement('button');
+    b.className = 'sbtn';
+    b.textContent = s;
+    b.onclick = function() { d.remove(); ask(s); };
+    d.appendChild(b);
+  });
+  c.appendChild(d);
+  c.parentElement.scrollTop = c.parentElement.scrollHeight;
+}
+
+function showTyping() {
+  var c = document.getElementById('chat');
+  var d = document.createElement('div');
+  d.className = 'typing'; d.id = 'typing';
+  d.innerHTML = '<div class="av bot">&#127807;</div><div class="dots"><div class="d"></div><div class="d"></div><div class="d"></div></div>';
+  c.appendChild(d);
+  c.parentElement.scrollTop = c.parentElement.scrollHeight;
+}
+
+function ask(q) {
+  if (busy) return;
+  document.getElementById('msg').value = q;
+  send();
+}
+
+function send() {
+  if (busy) return;
+  var inp = document.getElementById('msg');
+  var q = inp.value.trim();
+  if (!q) return;
+  inp.value = '';
+  inp.style.height = 'auto';
+  busy = true;
+  document.getElementById('sendbtn').disabled = true;
+
+  addMsg(q, 'user');
+  showTyping();
+
+  setTimeout(function() {
+    document.getElementById('typing') && document.getElementById('typing').remove();
+    var result = getAnswer(q);
+    addMsg('<strong>' + result.title + '</strong><br><br>' + result.body, 'bot');
+    addSuggs(result.suggs);
+    busy = false;
+    document.getElementById('sendbtn').disabled = false;
+    inp.focus();
+  }, 700 + Math.random() * 500);
+}
+</script>
+</body>
+</html>

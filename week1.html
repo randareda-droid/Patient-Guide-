@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="root">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رعاية كبار السن في المنزل — الحلقة الأولى: التغذية</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --teal:#065F46;--teal-mid:#059669;--teal-light:#34D399;--teal-pale:#ECFDF5;--teal-border:#6EE7B7;
+  --gold:#92400E;--gold-mid:#D97706;--gold-pale:#FFFBEB;--gold-border:#FCD34D;
+  --red:#991B1B;--red-pale:#FEF2F2;--red-border:#FCA5A5;
+  --gray:#6B7280;--border:#E5E7EB;--dark:#111827;--mid:#374151;
+  --white:#FFFFFF;--offwhite:#F9FAFB;
+  --font:'Cairo',sans-serif;
+  --radius:14px;--radius-sm:10px;
+  --shadow:0 1px 8px rgba(0,0,0,0.06);
+}
+body{font-family:var(--font);background:var(--offwhite);color:var(--dark);direction:rtl;min-height:100vh}
+body.ltr{direction:ltr}
+
+.lang-bar{background:var(--dark);padding:10px 20px;display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:200}
+.lbtn{padding:5px 20px;border-radius:20px;font-family:var(--font);font-size:13px;font-weight:500;border:1px solid rgba(255,255,255,0.2);background:transparent;color:rgba(255,255,255,0.55);cursor:pointer;transition:all .18s}
+.lbtn.on{background:var(--teal-mid);color:white;border-color:var(--teal-mid)}
+
+.hero{background:linear-gradient(135deg,#065F46,#047857);padding:36px 22px 28px;text-align:center}
+.series-badge{display:inline-block;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:5px 16px;font-size:12px;color:rgba(255,255,255,0.8);margin-bottom:16px;letter-spacing:.3px}
+.hero h1{font-size:clamp(22px,5vw,34px);font-weight:700;color:white;line-height:1.35;margin-bottom:12px}
+.hero h1 span{color:var(--teal-light)}
+.hero p{font-size:14.5px;color:rgba(255,255,255,0.7);line-height:1.75;max-width:520px;margin:0 auto}
+
+.progress-wrap{background:rgba(255,255,255,0.15);height:4px}
+.progress-fill{height:4px;background:var(--teal-light);transition:width .35s}
+
+.nav-tabs{background:white;border-bottom:1px solid var(--border);display:flex;overflow-x:auto;scrollbar-width:none;position:sticky;top:45px;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+.nav-tabs::-webkit-scrollbar{display:none}
+.ntab{flex-shrink:0;padding:14px 18px;font-family:var(--font);font-size:13px;font-weight:600;color:var(--gray);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:all .18s;white-space:nowrap;display:flex;align-items:center;gap:6px}
+.ntab.on{color:var(--teal);border-bottom-color:var(--teal-mid)}
+
+.content{max-width:680px;margin:0 auto;padding:24px 18px 80px}
+.section{display:none;animation:fadeIn .25s ease}
+.section.on{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.rule-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:20px}
+.rule-card{background:white;border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px 16px;display:flex;align-items:center;gap:10px}
+.rule-icon{font-size:20px;flex-shrink:0}
+.rule-text h3{font-size:13.5px;font-weight:700;color:var(--teal);margin-bottom:2px}
+.rule-text p{font-size:12px;color:var(--gray);line-height:1.5}
+
+.tip-strip{background:var(--teal-pale);border-right:4px solid var(--teal-mid);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:13px 16px;margin-bottom:20px}
+body.ltr .tip-strip{border-right:none;border-left:4px solid var(--teal-mid);border-radius:var(--radius-sm) 0 0 var(--radius-sm)}
+.tip-strip p{font-size:13.5px;color:var(--teal);line-height:1.7;font-weight:500}
+
+.warn-strip{background:var(--red-pale);border-right:4px solid var(--red);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:13px 16px;margin-bottom:20px}
+body.ltr .warn-strip{border-right:none;border-left:4px solid var(--red);border-radius:var(--radius-sm) 0 0 var(--radius-sm)}
+.warn-strip p{font-size:13.5px;color:var(--red);line-height:1.7;font-weight:500}
+
+.gold-strip{background:var(--gold-pale);border-right:4px solid var(--gold-mid);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:13px 16px;margin-bottom:20px}
+body.ltr .gold-strip{border-right:none;border-left:4px solid var(--gold-mid);border-radius:var(--radius-sm) 0 0 var(--radius-sm)}
+.gold-strip p{font-size:13.5px;color:var(--gold);line-height:1.7;font-weight:500}
+
+.sec-label{font-size:11px;font-weight:700;letter-spacing:.8px;color:var(--gray);text-transform:uppercase;margin-bottom:12px}
+
+.food-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:16px}
+.food-card{background:white;border:1px solid var(--border);border-radius:var(--radius);padding:14px 12px;text-align:center;cursor:pointer;transition:all .18s}
+.food-card:hover{border-color:var(--teal-border);transform:translateY(-2px);box-shadow:var(--shadow)}
+.food-card.active{border:2px solid var(--teal-mid);background:var(--teal-pale)}
+.food-icon{font-size:24px;display:block;margin-bottom:6px}
+.food-name{font-size:13px;font-weight:700;color:var(--dark);display:block;margin-bottom:3px}
+.food-note{font-size:11.5px;color:var(--gray);line-height:1.4;display:block}
+
+.detail-panel{background:white;border:1px solid var(--teal-border);border-radius:var(--radius);padding:16px;margin-bottom:20px;display:none}
+.detail-panel.show{display:block;animation:fadeIn .2s ease}
+.detail-panel h3{font-size:14px;font-weight:700;color:var(--teal);margin-bottom:8px}
+.detail-panel p{font-size:13.5px;color:var(--mid);line-height:1.75}
+
+.care-card{background:white;border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:12px}
+.care-card h3{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:8px;display:flex;align-items:center;gap:7px}
+.care-card ul{padding-right:18px}
+body.ltr .care-card ul{padding-right:0;padding-left:18px}
+.care-card li{font-size:13px;color:var(--mid);line-height:1.7;margin-bottom:4px}
+
+.quiz-card{background:white;border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.quiz-counter{font-size:11px;font-weight:700;color:var(--gray);letter-spacing:.5px;margin-bottom:12px}
+.quiz-q{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:16px;line-height:1.5}
+.quiz-opts{display:flex;flex-direction:column;gap:8px}
+.qopt{background:var(--offwhite);border:1px solid var(--border);border-radius:var(--radius-sm);padding:11px 15px;font-family:var(--font);font-size:13.5px;color:var(--dark);cursor:pointer;text-align:right;transition:all .15s;font-weight:500}
+body.ltr .qopt{text-align:left}
+.qopt:hover{border-color:var(--teal-border);background:var(--teal-pale)}
+.qopt.correct{background:#D1FAE5;border-color:#059669;color:#065F46;font-weight:700}
+.qopt.wrong{background:var(--red-pale);border-color:var(--red);color:var(--red);font-weight:700}
+.quiz-fb{background:var(--offwhite);border-radius:var(--radius-sm);padding:13px 15px;margin-top:14px;font-size:13.5px;color:var(--mid);line-height:1.7;display:none}
+.quiz-done{text-align:center;padding:20px 0}
+.quiz-done h3{font-size:17px;font-weight:700;color:var(--teal);margin-bottom:8px}
+.quiz-done p{font-size:13.5px;color:var(--gray);margin-bottom:18px;line-height:1.6}
+.quiz-done a{display:inline-block;background:var(--teal);color:white;padding:11px 24px;border-radius:30px;font-family:var(--font);font-size:14px;font-weight:700;text-decoration:none;transition:background .15s}
+.quiz-done a:hover{background:var(--teal-mid)}
+
+.share-footer{background:var(--dark);border-radius:var(--radius);padding:24px;text-align:center;margin-top:32px}
+.share-footer h3{color:white;font-size:16px;font-weight:700;margin-bottom:8px}
+.share-footer p{color:rgba(255,255,255,0.6);font-size:13px;margin-bottom:18px;line-height:1.6}
+.share-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.share-btn{padding:8px 20px;border-radius:20px;font-family:var(--font);font-size:13px;font-weight:600;border:none;cursor:pointer;transition:all .15s;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.share-btn.wa{background:#25D366;color:white}
+.share-btn.li{background:#0A66C2;color:white}
+.share-btn.fb{background:#1877F2;color:white}
+.share-btn.cp{background:rgba(255,255,255,0.1);color:white;border:1px solid rgba(255,255,255,0.2)}
+.share-btn:hover{opacity:.88;transform:translateY(-1px)}
+
+.footer-note{text-align:center;padding:20px;font-size:12px;color:var(--gray);line-height:1.7}
+.footer-note a{color:var(--teal);text-decoration:none;font-weight:600}
+
+@media(max-width:500px){
+  .rule-grid{grid-template-columns:1fr 1fr}
+  .food-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<div class="lang-bar">
+  <button class="lbtn on" onclick="setL('ar')">العربية</button>
+  <button class="lbtn" onclick="setL('en')">English</button>
+</div>
+
+<div class="hero">
+  <div class="series-badge" id="h-badge">رعاية كبار السن في المنزل — الحلقة الأولى</div>
+  <h1 id="h-title">ماذا يأكل <span>كبير السن</span><br>في المنزل؟</h1>
+  <p id="h-sub">سؤال تسأله كل أسرة. الإجابة أبسط مما تتوقع — لكنها تحدث فرقاً كبيراً.</p>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-fill" id="prog" style="width:25%"></div>
+</div>
+
+<div class="nav-tabs">
+  <button class="ntab on" onclick="showTab(0,this)"><span>&#9749;</span><span id="t0">مقدمة</span></button>
+  <button class="ntab" onclick="showTab(1,this)"><span>&#9989;</span><span id="t1">الأطعمة المناسبة</span></button>
+  <button class="ntab" onclick="showTab(2,this)"><span>&#128204;</span><span id="t2">ما يحتاج انتباهاً</span></button>
+  <button class="ntab" onclick="showTab(3,this)"><span>&#10067;</span><span id="t3">اختبر نفسك</span></button>
+</div>
+
+<div class="content">
+
+  <!-- TAB 0: INTRO -->
+  <div class="section on" id="s0">
+    <p style="font-size:14px;color:var(--gray);line-height:1.8;margin-bottom:20px" id="intro-body">
+      الجهاز الهضمي لكبير السن يعمل بشكل أبطأ من ذي قبل. وجبات كبيرة تُرهقه. الحل ليس في تقليل الأكل — بل في توزيعه على مدار اليوم بشكل ذكي.
+    </p>
+
+    <div class="rule-grid">
+      <div class="rule-card">
+        <span class="rule-icon">&#127870;</span>
+        <div class="rule-text"><h3 id="r1h">ناعم</h3><p id="r1p">سهل المضغ والبلع</p></div>
+      </div>
+      <div class="rule-card">
+        <span class="rule-icon">&#127777;&#65039;</span>
+        <div class="rule-text"><h3 id="r2h">دافئ</h3><p id="r2p">ليس ساخناً ولا بارداً</p></div>
+      </div>
+      <div class="rule-card">
+        <span class="rule-icon">&#129348;</span>
+        <div class="rule-text"><h3 id="r3h">كميات صغيرة</h3><p id="r3p">3 إلى 6 ملاعق في المرة</p></div>
+      </div>
+      <div class="rule-card">
+        <span class="rule-icon">&#128336;</span>
+        <div class="rule-text"><h3 id="r4h">5 إلى 6 مرات</h3><p id="r4p">موزعة على مدار اليوم</p></div>
+      </div>
+    </div>
+
+    <div class="tip-strip">
+      <p id="golden-rule">&#128204; القاعدة الذهبية: إذا كان يستطيع مضغه وبلعه بسهولة — فهو مناسب</p>
+    </div>
+
+    <div class="gold-strip">
+      <p id="drink-rule">&#128167; الشرب: 6 إلى 8 أكواب سوائل يومياً — رشفة رشفة وبين الوجبات وليس أثناءها</p>
+    </div>
+  </div>
+
+  <!-- TAB 1: FOODS -->
+  <div class="section" id="s1">
+    <p class="sec-label" id="food-label">اضغط على أي طعام لمعرفة كيفية تحضيره</p>
+    <div class="food-grid">
+      <div class="food-card" onclick="showFood(0,this)">
+        <span class="food-icon">&#127834;</span>
+        <span class="food-name" id="fn0">أرز أبيض</span>
+        <span class="food-note" id="fd0">مطبوخ ناعم جداً</span>
+      </div>
+      <div class="food-card" onclick="showFood(1,this)">
+        <span class="food-icon">&#127831;</span>
+        <span class="food-name" id="fn1">دجاج مسلوق</span>
+        <span class="food-note" id="fd1">مهروس بدون جلد</span>
+      </div>
+      <div class="food-card" onclick="showFood(2,this)">
+        <span class="food-icon">&#129370;</span>
+        <span class="food-name" id="fn2">بيض مسلوق</span>
+        <span class="food-note" id="fd2">مطبوخ جيداً</span>
+      </div>
+      <div class="food-card" onclick="showFood(3,this)">
+        <span class="food-icon">&#129364;</span>
+        <span class="food-name" id="fn3">بطاطا مهروسة</span>
+        <span class="food-note" id="fd3">بدون قشر</span>
+      </div>
+      <div class="food-card" onclick="showFood(4,this)">
+        <span class="food-icon">&#127820;</span>
+        <span class="food-name" id="fn4">موز ناضج</span>
+        <span class="food-note" id="fd4">نصف موزة مهروسة</span>
+      </div>
+      <div class="food-card" onclick="showFood(5,this)">
+        <span class="food-icon">&#129371;</span>
+        <span class="food-name" id="fn5">زبادي سادة</span>
+        <span class="food-note" id="fd5">ناعم بدون فواكه</span>
+      </div>
+      <div class="food-card" onclick="showFood(6,this)">
+        <span class="food-icon">&#128031;</span>
+        <span class="food-name" id="fn6">سمك أبيض</span>
+        <span class="food-note" id="fd6">مطهو على البخار</span>
+      </div>
+      <div class="food-card" onclick="showFood(7,this)">
+        <span class="food-icon">&#127859;</span>
+        <span class="food-name" id="fn7">فرينة أو سميد</span>
+        <span class="food-note" id="fd7">مطبوخ مع عسل</span>
+      </div>
+    </div>
+
+    <div class="detail-panel" id="detail-panel">
+      <h3 id="detail-name"></h3>
+      <p id="detail-text"></p>
+    </div>
+  </div>
+
+  <!-- TAB 2: CARE -->
+  <div class="section" id="s2">
+    <div class="care-card">
+      <h3><span>&#9888;&#65039;</span> <span id="c1t">الملح الزائد</span></h3>
+      <ul id="c1l">
+        <li>يرفع ضغط الدم عند كثير من كبار السن</li>
+        <li>الحل: الطبخ بدون ملح وإضافة كمية صغيرة على المائدة حسب الرغبة</li>
+      </ul>
+    </div>
+    <div class="care-card">
+      <h3><span>&#9888;&#65039;</span> <span id="c2t">الأطعمة الصعبة المضغ</span></h3>
+      <ul id="c2l">
+        <li>اللحم القاسي والخضار النيئ الصلب صعب على الأسنان والبلع</li>
+        <li>الحل: نفس الطعام مطبوخ جيداً ومقطع صغيراً — لا داعي لتغيير الطعام</li>
+      </ul>
+    </div>
+    <div class="care-card">
+      <h3><span>&#9888;&#65039;</span> <span id="c3t">الأطعمة الدهنية الثقيلة</span></h3>
+      <ul id="c3l">
+        <li>تُثقل الهضم وتسبب عدم راحة</li>
+        <li>مسموح بها بكميات معتدلة — الإفراط هو المشكلة</li>
+      </ul>
+    </div>
+    <div class="care-card">
+      <h3><span>&#9888;&#65039;</span> <span id="c4t">الكافيين الزائد</span></h3>
+      <ul id="c4l">
+        <li>القهوة والشاي الكثير يسببان الجفاف والأرق</li>
+        <li>كوب أو كوبان يومياً مقبولان تماماً</li>
+      </ul>
+    </div>
+    <div class="warn-strip">
+      <p id="c-warn">&#9888;&#65039; السكر الزائد والحلويات الثقيلة تحتاج انتباهاً خاصاً عند مرضى السكري — استشر الطبيب</p>
+    </div>
+    <div class="tip-strip">
+      <p id="c-tip">&#128204; إذا كان هناك حالة طبية خاصة — مثل أمراض الكلى أو القلب — تحدث مع الطبيب عن النظام الغذائي المناسب</p>
+    </div>
+  </div>
+
+  <!-- TAB 3: QUIZ -->
+  <div class="section" id="s3">
+    <div class="quiz-card">
+      <div id="quiz-wrap"></div>
+    </div>
+  </div>
+
+  <!-- SHARE -->
+  <div class="share-footer">
+    <h3 id="share-title">&#128279; شارك هذا الدليل مع من تعرف</h3>
+    <p id="share-sub">كل أسرة تعتني بكبير السن تحتاج هذه المعلومات</p>
+    <div class="share-btns">
+      <button class="share-btn wa" onclick="doShare('wa')">&#128241; WhatsApp</button>
+      <button class="share-btn li" onclick="doShare('li')">LinkedIn</button>
+      <button class="share-btn fb" onclick="doShare('fb')">Facebook</button>
+      <button class="share-btn cp" onclick="doShare('cp')" id="cp-btn">&#128203; <span id="cp-text">نسخ الرابط</span></button>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    <p id="footer-txt">هذا الدليل للتوعية العامة فقط — لا يُغني عن استشارة الطبيب المعالج</p>
+    <p style="margin-top:6px"><a href="https://randareda-droid.github.io/Patient-Guide-/" id="full-link" target="_blank">الدليل التفاعلي الكامل &#8592;</a></p>
+  </div>
+
+</div>
+
+<script>
+var L='ar';
+var LINK='https://randareda-droid.github.io/Patient-Guide-/week1.html';
+var FULL='https://randareda-droid.github.io/Patient-Guide-/';
+var activeFood=-1;
+var quizStep=0;
+
+var T={
+  ar:{
+    badge:'رعاية كبار السن في المنزل — الحلقة الأولى',
+    title:'ماذا يأكل <span>كبير السن</span><br>في المنزل؟',
+    sub:'سؤال تسأله كل أسرة. الإجابة أبسط مما تتوقع — لكنها تحدث فرقاً كبيراً.',
+    body:'الجهاز الهضمي لكبير السن يعمل بشكل أبطأ من ذي قبل. وجبات كبيرة تُرهقه. الحل ليس في تقليل الأكل — بل في توزيعه على مدار اليوم بشكل ذكي.',
+    t0:'مقدمة',t1:'الأطعمة المناسبة',t2:'ما يحتاج انتباهاً',t3:'اختبر نفسك',
+    r1h:'ناعم',r1p:'سهل المضغ والبلع',
+    r2h:'دافئ',r2p:'ليس ساخناً ولا بارداً',
+    r3h:'كميات صغيرة',r3p:'3 إلى 6 ملاعق في المرة',
+    r4h:'5 إلى 6 مرات',r4p:'موزعة على مدار اليوم',
+    golden:'&#128204; القاعدة الذهبية: إذا كان يستطيع مضغه وبلعه بسهولة — فهو مناسب',
+    drink:'&#128167; الشرب: 6 إلى 8 أكواب سوائل يومياً — رشفة رشفة وبين الوجبات وليس أثناءها',
+    foodLabel:'اضغط على أي طعام لمعرفة كيفية تحضيره',
+    fn:['أرز أبيض','دجاج مسلوق','بيض مسلوق','بطاطا مهروسة','موز ناضج','زبادي سادة','سمك أبيض','فرينة أو سميد'],
+    fd:['مطبوخ ناعم جداً','مهروس بدون جلد','مطبوخ جيداً','بدون قشر','نصف موزة مهروسة','ناعم بدون فواكه','مطهو على البخار','مطبوخ مع عسل'],
+    fp:[
+      'يُطبخ بكمية ماء أكثر من المعتاد حتى يصبح ناعماً جداً. يُقدَّم مع مرق دجاج صافٍ. الكمية المناسبة: 4 ملاعق كبيرة في الوجبة.',
+      'يُسلق جيداً ثم يُهرس ناعماً بدون جلد أو عظم. يُقدَّم مع مرق الطبخ. الكمية: 3 ملاعق كبيرة في الوجبة.',
+      'يُسلق حتى يكون الصفار متماسكاً — أو يُخفق خفيفاً بدون دهن. بيضة واحدة في الوجبة.',
+      'تُسلق جيداً حتى تكون طرية جداً ثم تُهرس بدون قشر أو زبدة. يمكن تخفيفها بقليل من مرق الدجاج.',
+      'يجب أن يكون ناضجاً تماماً. يُهرس بالشوكة حتى يصبح كريماً ناعماً. نصف موزة في المرة الواحدة.',
+      'سادة بدون إضافات أو فواكه أو حبوب. 3 ملاعق كبيرة في الوجبة. يمكن إضافة ملعقة عسل.',
+      'يُطهى على البخار بدون بهارات حارة. سمك أبيض مثل البلطي مناسب جداً. قطعة صغيرة في الوجبة.',
+      'يُطبخ بالماء حتى يصبح ناعماً تماماً. مع ملعقة عسل أو قليل من السكر. نصف كوب في الوجبة.'
+    ],
+    c1t:'الملح الزائد',
+    c1l:['يرفع ضغط الدم عند كثير من كبار السن','الحل: الطبخ بدون ملح وإضافة كمية صغيرة على المائدة حسب الرغبة'],
+    c2t:'الأطعمة الصعبة المضغ',
+    c2l:['اللحم القاسي والخضار النيئ الصلب صعب على الأسنان والبلع','الحل: نفس الطعام مطبوخ جيداً ومقطع صغيراً — لا داعي لتغيير الطعام'],
+    c3t:'الأطعمة الدهنية الثقيلة',
+    c3l:['تُثقل الهضم وتسبب عدم راحة','مسموح بها بكميات معتدلة — الإفراط هو المشكلة'],
+    c4t:'الكافيين الزائد',
+    c4l:['القهوة والشاي الكثير يسببان الجفاف والأرق','كوب أو كوبان يومياً مقبولان تماماً'],
+    cwarn:'&#9888;&#65039; السكر الزائد والحلويات الثقيلة تحتاج انتباهاً خاصاً عند مرضى السكري — استشر الطبيب',
+    ctip:'&#128204; إذا كان هناك حالة طبية خاصة — مثل أمراض الكلى أو القلب — تحدث مع الطبيب عن النظام الغذائي المناسب',
+    shareTitle:'&#128279; شارك هذا الدليل مع من تعرف',
+    shareSub:'كل أسرة تعتني بكبير السن تحتاج هذه المعلومات',
+    cpText:'نسخ الرابط',cpDone:'تم النسخ ✓',
+    footerTxt:'هذا الدليل للتوعية العامة فقط — لا يُغني عن استشارة الطبيب المعالج',
+    fullLink:'الدليل التفاعلي الكامل &#8592;',
+    quiz:[
+      {
+        q:'كم عدد الوجبات الموصى بها يومياً لكبير السن؟',
+        opts:['3 وجبات كبيرة','5 إلى 6 وجبات صغيرة','وجبة رئيسية واحدة','حسب الشهية فقط'],
+        ans:1,
+        fb:'صحيح تماماً. الوجبات الصغيرة المتكررة أفضل بكثير لأن الجهاز الهضمي يعمل بشكل أبطأ مع التقدم في السن.'
+      },
+      {
+        q:'ما الطريقة الصحيحة لتحضير البطاطا لكبير السن؟',
+        opts:['مقلية بالزيت','نيئة مقطعة','مسلوقة ومهروسة بدون قشر','مشوية بالفرن بقشرها'],
+        ans:2,
+        fb:'صحيح. البطاطا المسلوقة والمهروسة بدون قشر هي الأنسب — سهلة المضغ والهضم ولطيفة على المعدة.'
+      },
+      {
+        q:'ما القاعدة الذهبية في اختيار طعام مناسب لكبير السن؟',
+        opts:['الأطعمة الغنية بالألياف دائماً','إذا كان يستطيع مضغه وبلعه بسهولة فهو مناسب','الأطعمة الباردة أسهل للهضم','الأطعمة المشهورة بالصحة عموماً'],
+        ans:1,
+        fb:'تماماً. القدرة على المضغ والبلع بسهولة هي المعيار الأهم — وليس نوع الطعام في حد ذاته.'
+      }
+    ],
+    qCounter:'سؤال',qOf:'من',qDoneTitle:'أحسنت!',
+    qDoneSub:'لقد أكملت اختبار الحلقة الأولى. الدليل التفاعلي الكامل يحتوي على المزيد.',
+    qDoneBtn:'افتح الدليل الكامل'
+  },
+  en:{
+    badge:'Elderly Home Care — Episode 1',
+    title:'What should an <span>elderly person</span><br>eat at home?',
+    sub:'The question every family asks. The answer is simpler than you think — but it makes a real difference.',
+    body:'The digestive system of an elderly person works more slowly than before. Large meals overwhelm it. The solution is not eating less — it is spreading meals wisely throughout the day.',
+    t0:'Introduction',t1:'Right foods',t2:'What needs care',t3:'Test yourself',
+    r1h:'Soft',r1p:'Easy to chew and swallow',
+    r2h:'Warm',r2p:'Not hot and not cold',
+    r3h:'Small amounts',r3p:'3 to 6 tablespoons per serving',
+    r4h:'5 to 6 times',r4p:'Spread throughout the day',
+    golden:'&#128204; Golden rule: if they can chew and swallow it easily — it is suitable',
+    drink:'&#128167; Fluids: 6 to 8 cups of liquids daily — sip by sip and between meals not during',
+    foodLabel:'Tap any food to learn how to prepare it',
+    fn:['White rice','Boiled chicken','Boiled egg','Mashed potato','Ripe banana','Plain yoghurt','White fish','Semolina'],
+    fd:['Very well cooked','Mashed, no skin','Well cooked','No skin or butter','Half banana mashed','Smooth, no fruit','Steamed','Cooked with honey'],
+    fp:[
+      'Cook with more water than usual until very soft. Serve with clear chicken broth. Portion: 4 tablespoons per meal.',
+      'Boil well then mash smooth with no skin or bones. Serve with cooking broth. Portion: 3 tablespoons per meal.',
+      'Boil until yolk is firm — or scramble lightly with no oil. One egg per meal.',
+      'Boil until very soft then mash with no skin or butter. Can be thinned with a little chicken broth.',
+      'Must be fully ripe. Mash with a fork until smooth and creamy. Half a banana at a time.',
+      'Plain with no fruit or seeds. 3 tablespoons per meal. A spoon of honey can be added.',
+      'Steam with no hot spices. White fish such as tilapia is ideal. A small piece per meal.',
+      'Cook in water until very smooth. With a spoon of honey or a little sugar. Half a cup per meal.'
+    ],
+    c1t:'Excess salt',
+    c1l:['Raises blood pressure in many elderly people','Solution: cook without salt and add a small amount at the table'],
+    c2t:'Hard-to-chew foods',
+    c2l:['Tough meat and raw hard vegetables are hard on teeth and swallowing','Solution: the same food cooked well and cut small — no need to change the food entirely'],
+    c3t:'Heavy fatty foods',
+    c3l:['Heavy on digestion and cause discomfort','Fine in moderate amounts — excess is the problem'],
+    c4t:'Excess caffeine',
+    c4l:['Too much coffee and tea cause dehydration and poor sleep','One or two cups a day is perfectly fine'],
+    cwarn:'&#9888;&#65039; Excess sugar and heavy sweets need special attention for diabetic patients — consult the doctor',
+    ctip:'&#128204; If there is a specific medical condition — such as kidney or heart disease — speak with the doctor about the appropriate diet',
+    shareTitle:'&#128279; Share this guide',
+    shareSub:'Every family caring for an elderly person needs this information',
+    cpText:'Copy link',cpDone:'Copied ✓',
+    footerTxt:'This guide is for general awareness only — it does not replace consultation with your doctor',
+    fullLink:'Full interactive guide &#8594;',
+    quiz:[
+      {
+        q:'How many meals a day are recommended for an elderly person?',
+        opts:['3 large meals','5 to 6 small meals','One main meal','Based on appetite only'],
+        ans:1,
+        fb:'Correct. Small frequent meals are much better because digestion slows with age.'
+      },
+      {
+        q:'What is the right way to prepare potato for an elderly person?',
+        opts:['Fried in oil','Raw and sliced','Boiled and mashed without skin','Oven roasted with skin'],
+        ans:2,
+        fb:'Correct. Boiled potato mashed smooth without skin is ideal — easy to chew and digest and gentle on the stomach.'
+      },
+      {
+        q:'What is the golden rule when choosing suitable food for an elderly person?',
+        opts:['High fibre foods always','If they can chew and swallow it easily it is suitable','Cold foods are easier to digest','Foods generally known to be healthy'],
+        ans:1,
+        fb:'Exactly. The ability to chew and swallow easily is the most important criterion — not the type of food itself.'
+      }
+    ],
+    qCounter:'Question',qOf:'of',qDoneTitle:'Well done!',
+    qDoneSub:'You have completed the Episode 1 quiz. The full interactive guide has much more.',
+    qDoneBtn:'Open the full guide'
+  }
+};
+
+function setL(l){
+  L=l;
+  var en=l==='en';
+  document.getElementById('root').setAttribute('lang',l);
+  document.getElementById('root').setAttribute('dir',en?'ltr':'rtl');
+  document.body.className=en?'ltr':'';
+  document.querySelectorAll('.lbtn').forEach(function(b,i){
+    b.className='lbtn'+(i===(en?1:0)?' on':'');
+  });
+  var t=T[l];
+  document.getElementById('h-badge').textContent=t.badge.replace(/&#[0-9]+;/g,'');
+  document.getElementById('h-title').innerHTML=t.title;
+  document.getElementById('h-sub').textContent=t.sub;
+  document.getElementById('intro-body').textContent=t.body;
+  document.getElementById('t0').textContent=t.t0;
+  document.getElementById('t1').textContent=t.t1;
+  document.getElementById('t2').textContent=t.t2;
+  document.getElementById('t3').textContent=t.t3;
+  document.getElementById('r1h').textContent=t.r1h;document.getElementById('r1p').textContent=t.r1p;
+  document.getElementById('r2h').textContent=t.r2h;document.getElementById('r2p').textContent=t.r2p;
+  document.getElementById('r3h').textContent=t.r3h;document.getElementById('r3p').textContent=t.r3p;
+  document.getElementById('r4h').textContent=t.r4h;document.getElementById('r4p').textContent=t.r4p;
+  document.getElementById('golden-rule').innerHTML=t.golden;
+  document.getElementById('drink-rule').innerHTML=t.drink;
+  document.getElementById('food-label').textContent=t.foodLabel;
+  for(var i=0;i<8;i++){
+    document.getElementById('fn'+i).textContent=t.fn[i];
+    document.getElementById('fd'+i).textContent=t.fd[i];
+  }
+  if(activeFood>=0){
+    document.getElementById('detail-name').textContent=t.fn[activeFood];
+    document.getElementById('detail-text').textContent=t.fp[activeFood];
+  }
+  document.getElementById('c1t').textContent=t.c1t;
+  document.getElementById('c2t').textContent=t.c2t;
+  document.getElementById('c3t').textContent=t.c3t;
+  document.getElementById('c4t').textContent=t.c4t;
+  setUL('c1l',t.c1l);setUL('c2l',t.c2l);setUL('c3l',t.c3l);setUL('c4l',t.c4l);
+  document.getElementById('c-warn').innerHTML=t.cwarn;
+  document.getElementById('c-tip').innerHTML=t.ctip;
+  document.getElementById('share-title').innerHTML=t.shareTitle;
+  document.getElementById('share-sub').textContent=t.shareSub;
+  document.getElementById('cp-text').textContent=t.cpText;
+  document.getElementById('footer-txt').textContent=t.footerTxt;
+  document.getElementById('full-link').innerHTML=t.fullLink;
+  quizStep=0;renderQuiz();
+}
+
+function setUL(id,items){
+  var el=document.getElementById(id);
+  el.innerHTML='';
+  items.forEach(function(item){var li=document.createElement('li');li.textContent=item;el.appendChild(li);});
+}
+
+var sections=[0,1,2,3].map(function(i){return document.getElementById('s'+i)});
+var tabs=document.querySelectorAll('.ntab');
+var progs=[25,50,75,100];
+
+function showTab(i,btn){
+  sections.forEach(function(s){s.className='section'});
+  tabs.forEach(function(b){b.className='ntab'});
+  sections[i].className='section on';
+  btn.className='ntab on';
+  document.getElementById('prog').style.width=progs[i]+'%';
+  if(i===3){quizStep=0;renderQuiz();}
+}
+
+function showFood(i,el){
+  document.querySelectorAll('.food-card').forEach(function(c){c.className='food-card'});
+  el.className='food-card active';
+  activeFood=i;
+  var t=T[L];
+  document.getElementById('detail-name').textContent=t.fn[i];
+  document.getElementById('detail-text').textContent=t.fp[i];
+  document.getElementById('detail-panel').className='detail-panel show';
+}
+
+function renderQuiz(){
+  var wrap=document.getElementById('quiz-wrap');
+  var t=T[L];
+  if(quizStep>=t.quiz.length){
+    wrap.innerHTML='<div class="quiz-done"><h3>'+t.qDoneTitle+'</h3><p>'+t.qDoneSub+'</p><a href="'+FULL+'" target="_blank">'+t.qDoneBtn+'</a></div>';
+    return;
+  }
+  var q=t.quiz[quizStep];
+  var html='<div class="quiz-counter">'+t.qCounter+' '+(quizStep+1)+' '+t.qOf+' '+t.quiz.length+'</div>';
+  html+='<p class="quiz-q">'+q.q+'</p><div class="quiz-opts">';
+  q.opts.forEach(function(opt,i){
+    html+='<button class="qopt" onclick="answerQ('+i+','+q.ans+')">'+opt+'</button>';
+  });
+  html+='</div><div class="quiz-fb" id="qfb"></div>';
+  wrap.innerHTML=html;
+}
+
+function answerQ(chosen,correct){
+  var btns=document.querySelectorAll('.qopt');
+  btns.forEach(function(b,i){
+    b.onclick=null;
+    if(i===correct)b.className='qopt correct';
+    else if(i===chosen&&chosen!==correct)b.className='qopt wrong';
+  });
+  var fb=document.getElementById('qfb');
+  fb.style.display='block';
+  fb.textContent=T[L].quiz[quizStep].fb;
+  setTimeout(function(){quizStep++;renderQuiz();},2400);
+}
+
+function doShare(p){
+  var t=L==='ar'?'دليل رعاية كبار السن في المنزل — الحلقة الأولى: التغذية':'Elderly Home Care — Episode 1: Nutrition';
+  if(p==='wa') window.open('https://wa.me/?text='+encodeURIComponent(t+'\n'+LINK),'_blank');
+  else if(p==='li') window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(LINK),'_blank');
+  else if(p==='fb') window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(LINK),'_blank');
+  else if(p==='cp'){
+    navigator.clipboard.writeText(LINK).then(function(){
+      var btn=document.getElementById('cp-text');
+      btn.textContent=T[L].cpDone;
+      setTimeout(function(){btn.textContent=T[L].cpText;},2200);
+    });
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="root">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رعاية كبار السن في المنزل — الحلقة الثانية: التقيؤ والجفاف</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#1E3A5F;--blue-mid:#2563EB;--blue-light:#60A5FA;--blue-pale:#EFF6FF;--blue-border:#BFDBFE;
+  --teal:#065F46;--teal-mid:#059669;--teal-pale:#ECFDF5;--teal-border:#6EE7B7;
+  --gold:#92400E;--gold-mid:#D97706;--gold-pale:#FFFBEB;--gold-border:#FCD34D;
+  --red:#991B1B;--red-pale:#FEF2F2;--red-border:#FCA5A5;
+  --gray:#6B7280;--border:#E5E7EB;--dark:#111827;--mid:#374151;
+  --white:#FFFFFF;--offwhite:#F9FAFB;
+  --font:'Cairo',sans-serif;
+  --radius:14px;--radius-sm:10px;
+  --shadow:0 1px 8px rgba(0,0,0,0.06);
+}
+body{font-family:var(--font);background:var(--offwhite);color:var(--dark);direction:rtl;min-height:100vh}
+body.ltr{direction:ltr}
+
+.lang-bar{background:var(--dark);padding:10px 20px;display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:200}
+.lbtn{padding:5px 20px;border-radius:20px;font-family:var(--font);font-size:13px;font-weight:500;border:1px solid rgba(255,255,255,0.2);background:transparent;color:rgba(255,255,255,0.55);cursor:pointer;transition:all .18s}
+.lbtn.on{background:var(--blue-mid);color:white;border-color:var(--blue-mid)}
+
+.hero{background:linear-gradient(135deg,#1E3A5F,#1E40AF);padding:36px 22px 28px;text-align:center}
+.series-badge{display:inline-block;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:5px 16px;font-size:12px;color:rgba(255,255,255,0.8);margin-bottom:16px;letter-spacing:.3px}
+.hero h1{font-size:clamp(22px,5vw,34px);font-weight:700;color:white;line-height:1.35;margin-bottom:12px}
+.hero h1 span{color:var(--blue-light)}
+.hero p{font-size:14.5px;color:rgba(255,255,255,0.7);line-height:1.75;max-width:520px;margin:0 auto}
+
+.progress-wrap{background:rgba(255,255,255,0.15);height:4px}
+.progress-fill{height:4px;background:var(--blue-light);transition:width .35s}
+
+.nav-tabs{background:white;border-bottom:1px solid var(--border);display:flex;overflow-x:auto;scrollbar-width:none;position:sticky;top:45px;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+.nav-tabs::-webkit-scrollbar{display:none}
+.ntab{flex-shrink:0;padding:14px 18px;font-family:var(--font);font-size:13px;font-weight:600;color:var(--gray);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:all .18s;white-space:nowrap;display:flex;align-items:center;gap:6px}
+.ntab.on{color:var(--blue-mid);border-bottom-color:var(--blue-mid)}
+
+.content{max-width:680px;margin:0 auto;padding:24px 18px 80px}
+.section{display:none;animation:fadeIn .25s ease}
+.section.on{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.step-grid{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
+.step-card{background:white;border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:flex;gap:14px;align-items:flex-start}
+.step-num{width:32px;height:32px;border-radius:50%;background:var(--blue-mid);color:white;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-content h3{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:5px}
+.step-content p{font-size:13px;color:var(--mid);line-height:1.7}
+
+.warn-strip{background:var(--red-pale);border-right:4px solid var(--red);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:13px 16px;margin-bottom:20px}
+body.ltr .warn-strip{border-right:none;border-left:4px solid var(--red);border-radius:var(--radius-sm) 0 0 var(--radius-sm)}
+.warn-strip p{font-size:13.5px;color:var(--red);line-height:1.7;font-weight:500}
+
+.tip-strip{background:var(--teal-pale);border-right:4px solid var(--teal-mid);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:13px 16px;margin-bottom:20px}
+body.ltr .tip-strip{border-right:none;border-left:4px solid var(--teal-mid);border-radius:var(--radius-sm) 0 0 var(--radius-sm)}
+.tip-strip p{font-size:13.5px;color:var(--teal);line-height:1.7;font-weight:500}
+
+.blue-strip{background:var(--blue-pale);border-right:4px solid var(--blue-mid);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:13px 16px;margin-bottom:20px}
+body.ltr .blue-strip{border-right:none;border-left:4px solid var(--blue-mid);border-radius:var(--radius-sm) 0 0 var(--radius-sm)}
+.blue-strip p{font-size:13.5px;color:var(--blue);line-height:1.7;font-weight:500}
+
+.gold-strip{background:var(--gold-pale);border-right:4px solid var(--gold-mid);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:13px 16px;margin-bottom:20px}
+body.ltr .gold-strip{border-right:none;border-left:4px solid var(--gold-mid);border-radius:var(--radius-sm) 0 0 var(--radius-sm)}
+.gold-strip p{font-size:13.5px;color:var(--gold);line-height:1.7;font-weight:500}
+
+.ors-box{background:var(--blue-pale);border:1px solid var(--blue-border);border-radius:var(--radius);padding:20px;margin-bottom:20px}
+.ors-box h3{font-size:15px;font-weight:700;color:var(--blue);margin-bottom:14px}
+.ors-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.ors-step{background:white;border-radius:var(--radius-sm);padding:12px;display:flex;gap:10px;align-items:flex-start}
+.ors-num{width:26px;height:26px;border-radius:50%;background:var(--blue-mid);color:white;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ors-step p{font-size:12.5px;color:var(--mid);line-height:1.6;font-weight:500}
+
+.alt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:20px}
+.alt-card{background:white;border:1px solid var(--border);border-radius:var(--radius);padding:14px 12px;text-align:center;cursor:pointer;transition:all .18s}
+.alt-card:hover{border-color:var(--blue-border);transform:translateY(-2px)}
+.alt-card.active{border:2px solid var(--blue-mid);background:var(--blue-pale)}
+.alt-icon{font-size:24px;display:block;margin-bottom:6px}
+.alt-name{font-size:12.5px;font-weight:700;color:var(--dark);display:block;margin-bottom:3px}
+.alt-note{font-size:11px;color:var(--gray);line-height:1.4;display:block}
+
+.detail-panel{background:white;border:1px solid var(--blue-border);border-radius:var(--radius);padding:16px;margin-bottom:20px;display:none}
+.detail-panel.show{display:block;animation:fadeIn .2s ease}
+.detail-panel h3{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:8px}
+.detail-panel p{font-size:13.5px;color:var(--mid);line-height:1.75}
+
+.sign-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.sign-card{background:white;border:1px solid var(--border);border-radius:var(--radius);padding:16px}
+.sign-card h3{font-size:13.5px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.sign-card.good h3{color:var(--teal)}
+.sign-card.bad h3{color:var(--red)}
+.sign-card ul{padding-right:16px}
+body.ltr .sign-card ul{padding-right:0;padding-left:16px}
+.sign-card li{font-size:12.5px;color:var(--mid);line-height:1.65;margin-bottom:4px}
+
+.care-card{background:white;border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:12px}
+.care-card h3{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:8px;display:flex;align-items:center;gap:7px}
+.care-card ul{padding-right:18px}
+body.ltr .care-card ul{padding-right:0;padding-left:18px}
+.care-card li{font-size:13px;color:var(--mid);line-height:1.7;margin-bottom:4px}
+
+.quiz-card{background:white;border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.quiz-counter{font-size:11px;font-weight:700;color:var(--gray);letter-spacing:.5px;margin-bottom:12px}
+.quiz-q{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:16px;line-height:1.5}
+.quiz-opts{display:flex;flex-direction:column;gap:8px}
+.qopt{background:var(--offwhite);border:1px solid var(--border);border-radius:var(--radius-sm);padding:11px 15px;font-family:var(--font);font-size:13.5px;color:var(--dark);cursor:pointer;text-align:right;transition:all .15s;font-weight:500}
+body.ltr .qopt{text-align:left}
+.qopt:hover{border-color:var(--blue-border);background:var(--blue-pale)}
+.qopt.correct{background:#D1FAE5;border-color:#059669;color:#065F46;font-weight:700}
+.qopt.wrong{background:var(--red-pale);border-color:var(--red);color:var(--red);font-weight:700}
+.quiz-fb{background:var(--offwhite);border-radius:var(--radius-sm);padding:13px 15px;margin-top:14px;font-size:13.5px;color:var(--mid);line-height:1.7;display:none}
+.quiz-done{text-align:center;padding:20px 0}
+.quiz-done h3{font-size:17px;font-weight:700;color:var(--blue-mid);margin-bottom:8px}
+.quiz-done p{font-size:13.5px;color:var(--gray);margin-bottom:18px;line-height:1.6}
+.quiz-done a{display:inline-block;background:var(--blue-mid);color:white;padding:11px 24px;border-radius:30px;font-family:var(--font);font-size:14px;font-weight:700;text-decoration:none;transition:background .15s}
+.quiz-done a:hover{background:var(--blue)}
+
+.share-footer{background:var(--dark);border-radius:var(--radius);padding:24px;text-align:center;margin-top:32px}
+.share-footer h3{color:white;font-size:16px;font-weight:700;margin-bottom:8px}
+.share-footer p{color:rgba(255,255,255,0.6);font-size:13px;margin-bottom:18px;line-height:1.6}
+.share-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.share-btn{padding:8px 20px;border-radius:20px;font-family:var(--font);font-size:13px;font-weight:600;border:none;cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:6px}
+.share-btn.wa{background:#25D366;color:white}
+.share-btn.li{background:#0A66C2;color:white}
+.share-btn.fb{background:#1877F2;color:white}
+.share-btn.cp{background:rgba(255,255,255,0.1);color:white;border:1px solid rgba(255,255,255,0.2)}
+.share-btn:hover{opacity:.88;transform:translateY(-1px)}
+
+.footer-note{text-align:center;padding:20px;font-size:12px;color:var(--gray);line-height:1.7}
+.footer-note a{color:var(--blue-mid);text-decoration:none;font-weight:600}
+.nav-links{display:flex;justify-content:space-between;margin-top:24px;gap:10px}
+.nav-link{flex:1;background:white;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 14px;font-family:var(--font);font-size:12.5px;font-weight:600;color:var(--gray);cursor:pointer;text-decoration:none;text-align:center;transition:all .15s;display:block}
+.nav-link:hover{border-color:var(--blue-border);color:var(--blue-mid)}
+.nav-link.active-link{background:var(--blue-mid);color:white;border-color:var(--blue-mid)}
+
+@media(max-width:500px){
+  .sign-grid{grid-template-columns:1fr}
+  .alt-grid{grid-template-columns:repeat(2,1fr)}
+  .ors-steps{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="lang-bar">
+  <button class="lbtn on" onclick="setL('ar')">العربية</button>
+  <button class="lbtn" onclick="setL('en')">English</button>
+</div>
+
+<div class="hero">
+  <div class="series-badge" id="h-badge">رعاية كبار السن في المنزل — الحلقة الثانية</div>
+  <h1 id="h-title">التقيؤ والجفاف<br><span>ماذا نفعل في المنزل؟</span></h1>
+  <p id="h-sub">كم ساعة من التقيؤ تستدعي القلق؟ الإجابة خطوة بخطوة — وما يجب أن تعرفه كل أسرة.</p>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-fill" id="prog" style="width:25%"></div>
+</div>
+
+<div class="nav-tabs">
+  <button class="ntab on" onclick="showTab(0,this)"><span>&#128167;</span><span id="t0">ماذا نفعل أولاً</span></button>
+  <button class="ntab" onclick="showTab(1,this)"><span>&#9749;</span><span id="t1">محلول ORS</span></button>
+  <button class="ntab" onclick="showTab(2,this)"><span>&#128680;</span><span id="t2">علامات الخطر</span></button>
+  <button class="ntab" onclick="showTab(3,this)"><span>&#10067;</span><span id="t3">اختبر نفسك</span></button>
+</div>
+
+<div class="content">
+
+  <!-- TAB 0: WHAT TO DO -->
+  <div class="section on" id="s0">
+    <p style="font-size:14px;color:var(--gray);line-height:1.8;margin-bottom:20px" id="intro-body">
+      التقيؤ عند كبار السن يستنزف السوائل والأملاح بسرعة كبيرة. الجفاف خطير — لكن الخطوات الصحيحة في المنزل تحدث فرقاً كبيراً.
+    </p>
+
+    <div class="warn-strip">
+      <p id="w-stop">&#9888;&#65039; أول خطوة: أوقف الطعام تماماً أثناء التقيؤ النشط — الأمعاء بحاجة إلى راحة كاملة</p>
+    </div>
+
+    <div class="step-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3 id="s1h">أوقف الطعام — ابدأ بالسوائل فقط</h3>
+          <p id="s1p">لا طعام صلب ولا سوائل كثيفة. ملعقة صغيرة من محلول ORS أو ماء جوز الهند كل 15 دقيقة.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3 id="s2h">ارفع رأسه دائماً</h3>
+          <p id="s2p">وسادتان أو ثلاث — رأسه مرفوع 30 إلى 45 درجة دائماً. لا يستلقي بالكامل. إذا تقيأ مستلقياً — أدره على جانبه فوراً.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3 id="s3h">نظّف فمه كل ساعتين</h3>
+          <p id="s3p">قطعة شاش أو قطن مبللة بماء نظيف. رطّب شفاهه بكريم مرطب أو فازلين. هذا يريحه كثيراً.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h3 id="s4h">تواصل مع الطبيب فوراً</h3>
+          <p id="s4p">التقيؤ المتكرر يستدعي استشارة الطبيب لتقييم الحالة وتحديد العلاج المناسب. لا تتأخر في التواصل خاصة إذا ظهرت علامات الجفاف.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <h3 id="s5h">متى تبدأ بالطعام مجدداً؟</h3>
+          <p id="s5p">بعد 4 إلى 6 ساعات بدون تقيؤ — ابدأ بـ 10 مل مرق صافٍ. انتظر 30 دقيقة. إذا لم يتقيأ — أعطه 10 مل أخرى. تقدم ببطء شديد.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip-strip">
+      <p id="tip-pos">&#128204; تنبيه مهم: لا تتوقف عن أي دواء مزمن إلا بعد استشارة المختص — حتى أثناء التقيؤ. تواصل مع طبيبك لمعرفة الطريقة الصحيحة للإعطاء في هذه الحالة.</p>
+    </div>
+  </div>
+
+  <!-- TAB 1: ORS -->
+  <div class="section" id="s1">
+    <div class="ors-box">
+      <h3 id="ors-title">&#128167; كيف تحضر محلول ORS في المنزل؟</h3>
+      <div class="ors-steps">
+        <div class="ors-step"><div class="ors-num">1</div><p id="ors1">كوب ماء مغلي ومبرد (250 مل)</p></div>
+        <div class="ors-step"><div class="ors-num">2</div><p id="ors2">ربع ملعقة صغيرة ملح طعام عادي</p></div>
+        <div class="ors-step"><div class="ors-num">3</div><p id="ors3">ملعقتان كبيرتان سكر أبيض</p></div>
+        <div class="ors-step"><div class="ors-num">4</div><p id="ors4">يُخلط جيداً حتى يذوب — يُحضَّر كل يوم طازجاً</p></div>
+      </div>
+    </div>
+
+    <div class="gold-strip">
+      <p id="ors-dose">&#128204; الجرعة: ملعقة صغيرة واحدة (5 مل) كل 15 دقيقة — لا تزيد. الهدف: 400 إلى 600 مل على مدار اليوم</p>
+    </div>
+
+    <p style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:12px" id="alt-label">إذا لم يتوفر ORS — اضغط على أي بديل</p>
+
+    <div class="alt-grid">
+      <div class="alt-card" onclick="showAlt(0,this)">
+        <span class="alt-icon">&#127957;</span>
+        <span class="alt-name" id="an0">ماء جوز الهند</span>
+        <span class="alt-note" id="ad0">أملاح طبيعية</span>
+      </div>
+      <div class="alt-card" onclick="showAlt(1,this)">
+        <span class="alt-icon">&#127861;</span>
+        <span class="alt-name" id="an1">كولا بدون غاز</span>
+        <span class="alt-note" id="ad1">فاقدة الغاز تماماً</span>
+      </div>
+      <div class="alt-card" onclick="showAlt(2,this)">
+        <span class="alt-icon">&#9749;</span>
+        <span class="alt-name" id="an2">شاي خفيف</span>
+        <span class="alt-note" id="ad2">بدون حليب</span>
+      </div>
+      <div class="alt-card" onclick="showAlt(3,this)">
+        <span class="alt-icon">&#129482;</span>
+        <span class="alt-name" id="an3">مصاصة ثلج</span>
+        <span class="alt-note" id="ad3">تبلل الفم</span>
+      </div>
+      <div class="alt-card" onclick="showAlt(4,this)">
+        <span class="alt-icon">&#127836;</span>
+        <span class="alt-name" id="an4">مرق دجاج صافٍ</span>
+        <span class="alt-note" id="ad4">إذا هدأ التقيؤ</span>
+      </div>
+      <div class="alt-card" onclick="showAlt(5,this)">
+        <span class="alt-icon">&#129427;</span>
+        <span class="alt-name" id="an5">عصير تفاح</span>
+        <span class="alt-note" id="ad5">مخفف بالماء</span>
+      </div>
+    </div>
+
+    <div class="detail-panel" id="alt-detail">
+      <h3 id="alt-detail-name"></h3>
+      <p id="alt-detail-text"></p>
+    </div>
+
+    <div class="blue-strip">
+      <p id="pharmacy-tip">&#128138; من الصيدلية: Pedialyte أو Dioralyte أو ORS sachets — أكياس جاهزة تُذاب في الماء — أدق وأسهل من التحضير المنزلي</p>
+    </div>
+  </div>
+
+  <!-- TAB 2: WARNING SIGNS -->
+  <div class="section" id="s2">
+    <div class="sign-grid">
+      <div class="sign-card bad">
+        <h3>&#128308; <span id="bad-title">اتصل بالطبيب فوراً</span></h3>
+        <ul id="bad-list">
+          <li>تقيؤ أخضر أو أصفر داكن</li>
+          <li>ألم بطن شديد مفاجئ</li>
+          <li>لم يتبول 8 ساعات</li>
+          <li>ارتباك وعدم تعرف</li>
+          <li>حرارة فوق 38.5</li>
+          <li>دم في القيء أو البراز</li>
+          <li>لم يشرب 24 ساعة</li>
+        </ul>
+      </div>
+      <div class="sign-card good">
+        <h3>&#128200; <span id="good-title">علامات التحسن</span></h3>
+        <ul id="good-list">
+          <li>مرّت 4 إلى 6 ساعات بدون تقيؤ</li>
+          <li>يطلب الشرب بنفسه</li>
+          <li>البطن أقل انتفاخاً</li>
+          <li>أكثر تركيزاً ووضوحاً</li>
+          <li>يتبول بانتظام</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="warn-strip">
+      <p id="dehy-warn">&#9888;&#65039; علامات الجفاف الخطير: فم وشفاه جافة جداً — بول بني داكن أو توقفه — دوخة شديدة — عيون غائرة — ضعف مفاجئ شديد</p>
+    </div>
+
+    <div class="care-card">
+      <h3><span>&#128167;</span> <span id="c1t">كيف نعرف إن الجسم يجف؟</span></h3>
+      <ul id="c1l">
+        <li>اضغط على ظهر يده برفق لثانيتين — إذا عاد الجلد للطبيعي ببطء: علامة جفاف</li>
+        <li>انظر إلى لون البول — أصفر فاتح = جيد — أصفر غامق أو بني = جفاف</li>
+        <li>الفم والشفاه الجافة جداً علامة مبكرة مهمة</li>
+      </ul>
+    </div>
+
+
+
+    <div class="tip-strip">
+      <p id="c-tip">&#128204; حتى لو رفضت الأسرة المستشفى — اتصل بالطبيب على الأقل للحصول على دواء الغثيان أو محلول وريدي في المنزل</p>
+    </div>
+  </div>
+
+  <!-- TAB 3: QUIZ -->
+  <div class="section" id="s3">
+    <div class="quiz-card">
+      <div id="quiz-wrap"></div>
+    </div>
+  </div>
+
+  <!-- NAV LINKS -->
+  <div class="nav-links">
+    <a href="week1.html" class="nav-link" id="prev-link">&#8592; الحلقة الأولى: التغذية</a>
+    <a href="week3.html" class="nav-link active-link" id="full-guide-link">الحلقة التالية: الإسهال &#8594;</a>
+  </div>
+
+  <!-- SHARE -->
+  <div class="share-footer">
+    <h3 id="share-title">&#128279; شارك هذا الدليل مع من تعرف</h3>
+    <p id="share-sub">كل أسرة تعتني بكبير السن تحتاج هذه المعلومات</p>
+    <div class="share-btns">
+      <button class="share-btn wa" onclick="doShare('wa')">&#128241; WhatsApp</button>
+      <button class="share-btn li" onclick="doShare('li')">LinkedIn</button>
+      <button class="share-btn fb" onclick="doShare('fb')">Facebook</button>
+      <button class="share-btn cp" onclick="doShare('cp')"><span id="cp-text">&#128203; نسخ الرابط</span></button>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    <p id="footer-txt">هذا الدليل للتوعية العامة فقط — لا يُغني عن استشارة الطبيب المعالج</p>
+  </div>
+
+</div>
+
+<script>
+var L='ar';
+var LINK='https://randareda-droid.github.io/Patient-Guide-/week2.html';
+var activeAlt=-1;
+var quizStep=0;
+
+var T={
+  ar:{
+    badge:'رعاية كبار السن في المنزل — الحلقة الثانية',
+    title:'التقيؤ والجفاف<br><span>ماذا نفعل في المنزل؟</span>',
+    sub:'كم ساعة من التقيؤ تستدعي القلق؟ الإجابة خطوة بخطوة — وما يجب أن تعرفه كل أسرة.',
+    t0:'ماذا نفعل أولاً',t1:'محلول ORS',t2:'علامات الخطر',t3:'اختبر نفسك',
+    introBody:'التقيؤ عند كبار السن يستنزف السوائل والأملاح بسرعة كبيرة. الجفاف خطير — لكن الخطوات الصحيحة في المنزل تحدث فرقاً كبيراً.',
+    wStop:'&#9888;&#65039; أول خطوة: أوقف الطعام تماماً أثناء التقيؤ النشط — الأمعاء بحاجة إلى راحة كاملة',
+    s1h:'أوقف الطعام — ابدأ بالسوائل فقط',s1p:'لا طعام صلب ولا سوائل كثيفة. ملعقة صغيرة من محلول ORS أو ماء جوز الهند كل 15 دقيقة.',
+    s2h:'ارفع رأسه دائماً',s2p:'وسادتان أو ثلاث — رأسه مرفوع 30 إلى 45 درجة دائماً. لا يستلقي بالكامل. إذا تقيأ مستلقياً — أدره على جانبه فوراً.',
+    s3h:'نظّف فمه كل ساعتين',s3p:'قطعة شاش أو قطن مبللة بماء نظيف. رطّب شفاهه بكريم مرطب أو فازلين. هذا يريحه كثيراً.',
+    s4h:'تواصل مع الطبيب فوراً',s4p:'التقيؤ المتكرر يستدعي استشارة الطبيب لتقييم الحالة وتحديد العلاج المناسب. لا تتأخر في التواصل خاصة إذا ظهرت علامات الجفاف.',
+    s5h:'متى تبدأ بالطعام مجدداً؟',s5p:'بعد 4 إلى 6 ساعات بدون تقيؤ — ابدأ بـ 10 مل مرق صافٍ. انتظر 30 دقيقة. إذا لم يتقيأ — أعطه 10 مل أخرى. تقدم ببطء شديد.',
+    tipPos:'&#128204; تنبيه مهم: لا تتوقف عن أي دواء مزمن إلا بعد استشارة المختص — حتى أثناء التقيؤ. تواصل مع طبيبك لمعرفة الطريقة الصحيحة للإعطاء في هذه الحالة.',
+    orsTitle:'&#128167; كيف تحضر محلول ORS في المنزل؟',
+    ors1:'كوب ماء مغلي ومبرد (250 مل)',ors2:'ربع ملعقة صغيرة ملح طعام عادي',ors3:'ملعقتان كبيرتان سكر أبيض',ors4:'يُخلط جيداً حتى يذوب — يُحضَّر كل يوم طازجاً',
+    orsDose:'&#128204; الجرعة: ملعقة صغيرة واحدة (5 مل) كل 15 دقيقة — لا تزيد. الهدف: 400 إلى 600 مل على مدار اليوم',
+    altLabel:'إذا لم يتوفر ORS — اضغط على أي بديل',
+    an:['ماء جوز الهند','كولا بدون غاز','شاي خفيف','مصاصة ثلج','مرق دجاج صافٍ','عصير تفاح'],
+    ad:['أملاح طبيعية','فاقدة الغاز تماماً','بدون حليب','تبلل الفم','إذا هدأ التقيؤ','مخفف بالماء'],
+    ap:[
+      'ماء جوز الهند الطبيعي غني بالبوتاسيوم والأملاح الطبيعية. يُعطى بالملعقة الصغيرة كل 15 دقيقة. لا يُعطى بكميات كبيرة دفعة واحدة.',
+      'كولا أو سفن أب مفتوح من قبل وفاقد غازه تماماً. ملعقة صغيرة كل ربع ساعة. الغاز يزيد الانتفاخ ويُحفّز التقيؤ — تأكد أنه بلا غاز.',
+      'شاي خفيف فاتر — ليس ساخناً ولا بارداً. بدون حليب. مع ملعقة صغيرة سكر. رشفات صغيرة جداً.',
+      'مصاصة ثلج صغيرة أو قطعة ثلج يمصّها المريض ببطء. تبلل الفم وتخفف الغثيان دون إعطاء حجم كبير من السائل.',
+      'مرق دجاج صافٍ ومصفى بدون دهن أو قطع. يُعطى فقط بعد هدوء التقيؤ — ليس أثناءه. يحتوي على أملاح مفيدة.',
+      'عصير تفاح مصفى بدون لب مخفف بالماء — نصف ونصف. رشفات صغيرة. مفيد لأنه يحتوي على بوتاسيوم.'
+    ],
+    pharmacyTip:'&#128138; من الصيدلية: Pedialyte أو Dioralyte أو ORS sachets — أكياس جاهزة تُذاب في الماء — أدق وأسهل من التحضير المنزلي',
+    goodTitle:'علامات التحسن',
+    goodList:['مرّت 4 إلى 6 ساعات بدون تقيؤ','يطلب الشرب بنفسه','البطن أقل انتفاخاً','أكثر تركيزاً ووضوحاً','يتبول بانتظام'],
+    badTitle:'اتصل بالطبيب فوراً',
+    badList:['تقيؤ أخضر أو أصفر داكن','ألم بطن شديد مفاجئ','لم يتبول 8 ساعات','ارتباك وعدم تعرف','حرارة فوق 38.5','دم في القيء أو البراز','لم يشرب 24 ساعة'],
+    dehyWarn:'&#9888;&#65039; علامات الجفاف الخطير: فم وشفاه جافة جداً — بول بني داكن أو توقفه — دوخة شديدة — عيون غائرة — ضعف مفاجئ شديد',
+    c1t:'كيف نعرف إن الجسم يجف؟',
+    c1l:['اضغط على ظهر يده برفق لثانيتين — إذا عاد الجلد للطبيعي ببطء: علامة جفاف','انظر إلى لون البول — أصفر فاتح = جيد — أصفر غامق أو بني = جفاف','الفم والشفاه الجافة جداً علامة مبكرة مهمة'],
+    c2t:'',c2l:[],
+    cTip:'&#128204; حتى لو رفضت الأسرة المستشفى — اتصل بالطبيب على الأقل للحصول على دواء الغثيان أو محلول وريدي في المنزل',
+    prevLink:'&#8594; الحلقة الأولى: التغذية',
+    fullGuide:'Next Episode: Diarrhoea &#8594;',
+    shareTitle:'&#128279; شارك هذا الدليل مع من تعرف',
+    shareSub:'كل أسرة تعتني بكبير السن تحتاج هذه المعلومات',
+    cpText:'&#128203; نسخ الرابط',cpDone:'&#128203; تم النسخ ✓',
+    footerTxt:'هذا الدليل للتوعية العامة فقط — لا يُغني عن استشارة الطبيب المعالج',
+    quiz:[
+      {q:'ما أول شيء نفعله عند بدء التقيؤ؟',opts:['نعطيه طعاماً خفيفاً','نوقف الطعام ونبدأ بالسوائل فقط','نعطيه حليباً دافئاً','ننتظر حتى يتوقف التقيؤ وحده'],ans:1,fb:'صحيح. إيقاف الطعام فوراً يريح الأمعاء. السوائل الخفيفة بالملعقة هي الخطوة الأولى الصحيحة.'},
+      {q:'كم كمية محلول ORS المناسبة في كل مرة؟',opts:['كوب كامل دفعة واحدة','نصف كوب كل ساعة','ملعقة صغيرة (5 مل) كل 15 دقيقة','حسب العطش فقط'],ans:2,fb:'صحيح. الكمية الصغيرة والمتكررة هي الأهم. الكميات الكبيرة دفعة واحدة تحفّز التقيؤ من جديد.'},
+      {q:'ما أهم علامة تدل على أن الجسم يتحسن بعد التقيؤ؟',opts:['يطلب الأكل فوراً','مرّت 4 إلى 6 ساعات بدون تقيؤ ويطلب الشرب','يشعر بالنوم الشديد','البطن منتفخ أكثر من قبل'],ans:1,fb:'تماماً. ساعات بدون تقيؤ مع رغبة في الشرب هي أوضح علامات التحسن — وعندها نبدأ بإعطاء السوائل ببطء.'}
+    ],
+    qCounter:'سؤال',qOf:'من',qDoneTitle:'ممتاز!',qDoneSub:'أكملت الحلقة الثانية. تابع الحلقات القادمة في الدليل الكامل.',qDoneBtn:'افتح الدليل الكامل'
+  },
+  en:{
+    badge:'Elderly Home Care — Episode 2',
+    title:'Vomiting & Dehydration<br><span>What do we do at home?</span>',
+    sub:'How many hours of vomiting should worry you? The answer step by step — and what every family needs to know.',
+    t0:'What to do first',t1:'ORS Solution',t2:'Warning signs',t3:'Test yourself',
+    introBody:'Vomiting in the elderly drains fluids and salts very quickly. Dehydration is dangerous — but the right steps at home make a big difference.',
+    wStop:'&#9888;&#65039; First step: stop all food during active vomiting — the bowel needs complete rest',
+    s1h:'Stop food — start with fluids only',s1p:'No solid food or thick liquids. One teaspoon of ORS or coconut water every 15 minutes.',
+    s2h:'Always keep the head elevated',s2p:'Two or three pillows — head raised 30 to 45 degrees at all times. Never lying flat. If they vomit while lying — turn them to their side immediately.',
+    s3h:'Clean the mouth every 2 hours',s3p:'Damp gauze or cotton with clean water. Moisturise the lips with a gentle cream or Vaseline. This brings great comfort.',
+    s4h:'Contact the doctor immediately',s4p:'Repeated vomiting requires medical assessment to evaluate the situation and determine the right treatment. Do not delay especially if signs of dehydration appear.',
+    s5h:'When to start food again?',s5p:'After 4 to 6 hours without vomiting — start with 10ml of clear broth. Wait 30 minutes. If no vomiting — give another 10ml. Advance very slowly.',
+    tipPos:'&#128204; Important: do not stop any chronic medication without consulting your specialist — even during vomiting. Contact your doctor to know the correct way to give it in this situation.',
+    orsTitle:'&#128167; How to prepare ORS at home?',
+    ors1:'1 cup of boiled and cooled water (250ml)',ors2:'¼ teaspoon of regular salt',ors3:'2 tablespoons of white sugar',ors4:'Mix well until dissolved — prepare fresh every day',
+    orsDose:'&#128204; Dose: one teaspoon (5ml) every 15 minutes — do not exceed. Goal: 400 to 600ml throughout the day',
+    altLabel:'If ORS is not available — tap any alternative',
+    an:['Coconut water','Flat cola','Weak tea','Ice chips','Clear chicken broth','Apple juice'],
+    ad:['Natural salts','Completely flat — no gas','No milk','Moistens the mouth','After vomiting calms','Diluted with water'],
+    ap:[
+      'Natural coconut water is rich in potassium and natural salts. Give by teaspoon every 15 minutes. Do not give in large amounts at once.',
+      'Cola or 7UP opened earlier and completely flat. One teaspoon every 15 minutes. Gas increases bloating and triggers vomiting — make sure it is completely flat.',
+      'Weak warm tea — not hot and not cold. No milk. With a small teaspoon of sugar. Very small sips.',
+      'A small ice chip or ice cube to suck slowly. Moistens the mouth and reduces nausea without giving a large volume of liquid.',
+      'Clear strained chicken broth with no fat or pieces. Give only after vomiting has calmed — not during. Contains beneficial salts.',
+      'Strained apple juice with no pulp diluted with water — half and half. Small sips. Beneficial as it contains potassium.'
+    ],
+    pharmacyTip:'&#128138; From the pharmacy: Pedialyte or Dioralyte or ORS sachets — ready-made packets dissolved in water — more accurate and easier than home preparation',
+    goodTitle:'Signs of improvement',
+    goodList:['4 to 6 hours without vomiting','Asking to drink on their own','Less abdominal bloating','More alert and aware','Regular urination'],
+    badTitle:'Call the doctor immediately',
+    badList:['Green or dark yellow vomit','Sudden severe abdominal pain','No urination for 8 hours','Confusion or not recognising anyone','Fever above 38.5°C','Blood in vomit or stool','No fluid intake for 24 hours'],
+    dehyWarn:'&#9888;&#65039; Signs of serious dehydration: very dry mouth and lips — dark brown urine or no urination — severe dizziness — sunken eyes — sudden severe weakness',
+    c1t:'How to check if the body is dehydrating?',
+    c1l:['Gently press the back of the hand for 2 seconds — if the skin returns slowly: sign of dehydration','Check urine colour — pale yellow = good — dark yellow or brown = dehydration','Very dry mouth and lips are an important early sign'],
+    c2t:'',c2l:[],
+    cTip:'&#128204; Even if the family refuses hospital — call the doctor at least to get anti-nausea medication or IV fluids at home',
+    prevLink:'&#8592; Episode 1: Nutrition',
+    fullGuide:'Next Episode: Diarrhoea &#8594;',
+    shareTitle:'&#128279; Share this guide',
+    shareSub:'Every family caring for an elderly person needs this information',
+    cpText:'&#128203; Copy link',cpDone:'&#128203; Copied ✓',
+    footerTxt:'This guide is for general awareness only — it does not replace consultation with your doctor',
+    quiz:[
+      {q:'What is the first thing to do when vomiting starts?',opts:['Give light food','Stop food and start fluids only','Give warm milk','Wait for vomiting to stop on its own'],ans:1,fb:'Correct. Stopping food immediately rests the bowel. Small sips of light fluids is the right first step.'},
+      {q:'What is the right amount of ORS each time?',opts:['A full cup at once','Half a cup every hour','One teaspoon (5ml) every 15 minutes','Based on thirst only'],ans:2,fb:'Correct. Small frequent amounts are key. Large amounts at once trigger vomiting again.'},
+      {q:'What is the most important sign that the body is improving after vomiting?',opts:['Asking to eat immediately','4 to 6 hours without vomiting and asking to drink','Feeling very sleepy','More abdominal bloating than before'],ans:1,fb:'Exactly. Hours without vomiting with desire to drink are the clearest signs of improvement — that is when we start giving fluids slowly.'}
+    ],
+    qCounter:'Question',qOf:'of',qDoneTitle:'Excellent!',qDoneSub:'You completed Episode 2. Continue with the upcoming episodes in the full guide.',qDoneBtn:'Open the full guide'
+  }
+};
+
+function setL(l){
+  L=l;
+  var en=l==='en';
+  document.getElementById('root').setAttribute('lang',l);
+  document.getElementById('root').setAttribute('dir',en?'ltr':'rtl');
+  document.body.className=en?'ltr':'';
+  document.querySelectorAll('.lbtn').forEach(function(b,i){b.className='lbtn'+(i===(en?1:0)?' on':'')});
+  var t=T[l];
+  document.getElementById('h-badge').textContent=t.badge;
+  document.getElementById('h-title').innerHTML=t.title;
+  document.getElementById('h-sub').textContent=t.sub;
+  document.getElementById('t0').textContent=t.t0;
+  document.getElementById('t1').textContent=t.t1;
+  document.getElementById('t2').textContent=t.t2;
+  document.getElementById('t3').textContent=t.t3;
+  document.getElementById('intro-body').textContent=t.introBody;
+  document.getElementById('w-stop').innerHTML=t.wStop;
+  document.getElementById('s1h').textContent=t.s1h;document.getElementById('s1p').textContent=t.s1p;
+  document.getElementById('s2h').textContent=t.s2h;document.getElementById('s2p').textContent=t.s2p;
+  document.getElementById('s3h').textContent=t.s3h;document.getElementById('s3p').textContent=t.s3p;
+  document.getElementById('s4h').textContent=t.s4h;document.getElementById('s4p').textContent=t.s4p;
+  document.getElementById('s5h').textContent=t.s5h;document.getElementById('s5p').textContent=t.s5p;
+  document.getElementById('tip-pos').innerHTML=t.tipPos;
+  document.getElementById('ors-title').innerHTML=t.orsTitle;
+  document.getElementById('ors1').textContent=t.ors1;document.getElementById('ors2').textContent=t.ors2;
+  document.getElementById('ors3').textContent=t.ors3;document.getElementById('ors4').textContent=t.ors4;
+  document.getElementById('ors-dose').innerHTML=t.orsDose;
+  document.getElementById('alt-label').textContent=t.altLabel;
+  for(var i=0;i<6;i++){document.getElementById('an'+i).textContent=t.an[i];document.getElementById('ad'+i).textContent=t.ad[i];}
+  if(activeAlt>=0){document.getElementById('alt-detail-name').textContent=t.an[activeAlt];document.getElementById('alt-detail-text').textContent=t.ap[activeAlt];}
+  document.getElementById('pharmacy-tip').innerHTML=t.pharmacyTip;
+  document.getElementById('good-title').textContent=t.goodTitle;
+  document.getElementById('bad-title').textContent=t.badTitle;
+  setUL('good-list',t.goodList);setUL('bad-list',t.badList);
+  document.getElementById('dehy-warn').innerHTML=t.dehyWarn;
+  document.getElementById('c1t').textContent=t.c1t;setUL('c1l',t.c1l);
+  document.getElementById('c2t').textContent=t.c2t;setUL('c2l',t.c2l);
+  document.getElementById('c-tip').innerHTML=t.cTip;
+  document.getElementById('prev-link').innerHTML=t.prevLink;
+  document.getElementById('full-guide-link').textContent=t.fullGuide;
+  document.getElementById('share-title').innerHTML=t.shareTitle;
+  document.getElementById('share-sub').textContent=t.shareSub;
+  document.getElementById('cp-text').innerHTML=t.cpText;
+  document.getElementById('footer-txt').textContent=t.footerTxt;
+  quizStep=0;renderQuiz();
+}
+
+function setUL(id,items){
+  var el=document.getElementById(id);
+  el.innerHTML='';
+  items.forEach(function(item){var li=document.createElement('li');li.textContent=item;el.appendChild(li);});
+}
+
+var sections=[0,1,2,3].map(function(i){return document.getElementById('s'+i)});
+var tabs=document.querySelectorAll('.ntab');
+var progs=[25,50,75,100];
+
+function showTab(i,btn){
+  sections.forEach(function(s){s.className='section'});
+  tabs.forEach(function(b){b.className='ntab'});
+  sections[i].className='section on';
+  btn.className='ntab on';
+  document.getElementById('prog').style.width=progs[i]+'%';
+  if(i===3){quizStep=0;renderQuiz();}
+}
+
+function showAlt(i,el){
+  document.querySelectorAll('.alt-card').forEach(function(c){c.className='alt-card'});
+  el.className='alt-card active';
+  activeAlt=i;
+  var t=T[L];
+  document.getElementById('alt-detail-name').textContent=t.an[i];
+  document.getElementById('alt-detail-text').textContent=t.ap[i];
+  document.getElementById('alt-detail').className='detail-panel show';
+}
+
+function renderQuiz(){
+  var wrap=document.getElementById('quiz-wrap');
+  var t=T[L];
+  if(quizStep>=t.quiz.length){
+    wrap.innerHTML='<div class="quiz-done"><h3>'+t.qDoneTitle+'</h3><p>'+t.qDoneSub+'</p><a href="week1.html">'+t.qDoneBtn+'</a></div>';
+    return;
+  }
+  var q=t.quiz[quizStep];
+  var html='<div class="quiz-counter">'+t.qCounter+' '+(quizStep+1)+' '+t.qOf+' '+t.quiz.length+'</div>';
+  html+='<p class="quiz-q">'+q.q+'</p><div class="quiz-opts">';
+  q.opts.forEach(function(opt,i){html+='<button class="qopt" onclick="answerQ('+i+','+q.ans+')">'+opt+'</button>';});
+  html+='</div><div class="quiz-fb" id="qfb"></div>';
+  wrap.innerHTML=html;
+}
+
+function answerQ(chosen,correct){
+  var btns=document.querySelectorAll('.qopt');
+  btns.forEach(function(b,i){
+    b.onclick=null;
+    if(i===correct)b.className='qopt correct';
+    else if(i===chosen&&chosen!==correct)b.className='qopt wrong';
+  });
+  var fb=document.getElementById('qfb');
+  fb.style.display='block';
+  fb.textContent=T[L].quiz[quizStep].fb;
+  setTimeout(function(){quizStep++;renderQuiz();},2400);
+}
+
+function doShare(p){
+  var t=L==='ar'?'رعاية كبار السن في المنزل — الحلقة الثانية: التقيؤ والجفاف':'Elderly Home Care — Episode 2: Vomiting & Dehydration';
+  if(p==='wa') window.open('https://wa.me/?text='+encodeURIComponent(t+'\n'+LINK),'_blank');
+  else if(p==='li') window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(LINK),'_blank');
+  else if(p==='fb') window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(LINK),'_blank');
+  else if(p==='cp'){
+    navigator.clipboard.writeText(LINK).then(function(){
+      var btn=document.getElementById('cp-text');
+      btn.innerHTML=T[L].cpDone;
+      setTimeout(function(){btn.innerHTML=T[L].cpText;},2200);
+    });
+  }
+}
+</script>
+</body>
+</html>

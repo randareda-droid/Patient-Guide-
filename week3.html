@@ -20,7 +20,34 @@
     --font-en:'Lato',sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
-  body{font-family:var(--font-ar);background:var(--bg);color:var(--text-dark);min-height:100vh;direction:rtl;}
+  body{font-family:var(--font-ar);background:var(--bg);color:var(--text-dark);min-height:100vh;}
+  /* ── LTR overrides when English is active ── */
+  html[dir=ltr] body { font-family: var(--font-en); }
+  html[dir=ltr] .intro-banner  { border-inline-start: 4px solid var(--accent); text-align: left; }
+  html[dir=ltr] .alert-box     { text-align: left; }
+  html[dir=ltr] .step-body h3,
+  html[dir=ltr] .step-body p   { text-align: left; }
+  html[dir=ltr] .note-box      { text-align: left; }
+  html[dir=ltr] .section-title { text-align: left; }
+  html[dir=ltr] .ors-step      { text-align: left; }
+  html[dir=ltr] .food-card-label,
+  html[dir=ltr] .food-card-sub,
+  html[dir=ltr] .fluid-card-label,
+  html[dir=ltr] .fluid-card-sub { text-align: center; }
+  html[dir=ltr] .caution-item  { text-align: left; }
+  html[dir=ltr] .hydration-box { text-align: left; }
+  html[dir=ltr] .collapsible-header { text-align: left; }
+  html[dir=ltr] .collapsible-body  { text-align: left; }
+  html[dir=ltr] .collapsible-body ul { padding-inline-start: 18px; }
+  html[dir=ltr] .warning-item  { text-align: left; }
+  html[dir=ltr] .improvement-item { text-align: left; }
+  html[dir=ltr] .dehydration-box  { text-align: left; }
+  html[dir=ltr] .quiz-question { text-align: left; }
+  html[dir=ltr] .quiz-opt      { text-align: left; }
+  html[dir=ltr] .quiz-feedback { text-align: left; }
+  html[dir=ltr] .nav-link      { font-family: var(--font-en); }
+  html[dir=ltr] .tab-btn       { font-family: var(--font-en); font-size: 11px; }
+
 
   /* HEADER */
   .header{background:linear-gradient(135deg,var(--primary-dark) 0%,var(--primary) 60%,var(--primary-light) 100%);color:var(--white);padding:36px 20px 26px;text-align:center;position:relative;}

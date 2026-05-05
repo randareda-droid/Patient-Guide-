@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رعاية كبار السن في المنزل — الحلقة الرابعة: الإمساك</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Cairo:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--primary:#0F766E;--primary-light:#0D9488;--primary-dark:#042F2E;--accent:#2DD4BF;--accent-light:#CCFBF1;--accent-mid:#99F6E4;--danger:#DC2626;--danger-light:#FEE2E2;--warning:#D97706;--warning-light:#FEF3C7;--success:#059669;--success-light:#D1FAE5;--text-dark:#111827;--text-mid:#374151;--text-light:#6B7280;--bg:#F0FDFA;--white:#FFFFFF;--border:#E5E7EB;--card-shadow:0 2px 12px rgba(15,118,110,0.10);--font-ar:'Tajawal','Cairo',sans-serif;--font-en:'Lato',sans-serif;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ar);background:var(--bg);color:var(--text-dark);min-height:100vh;}
+  html[dir=ltr] body{font-family:var(--font-en);}
+  html[dir=ltr] .intro-banner{border-inline-start:4px solid var(--accent);text-align:left;}
+  html[dir=ltr] .alert-box{text-align:left;}
+  html[dir=ltr] .step-body h3,html[dir=ltr] .step-body p{text-align:left;}
+  html[dir=ltr] .note-box{text-align:left;}
+  html[dir=ltr] .section-title{text-align:left;}
+  html[dir=ltr] .recipe-step{text-align:left;}
+  html[dir=ltr] .caution-item{text-align:left;}
+  html[dir=ltr] .tip-box{text-align:left;}
+  html[dir=ltr] .collapsible-header{text-align:left;}
+  html[dir=ltr] .collapsible-body{text-align:left;}
+  html[dir=ltr] .collapsible-body ul{padding-inline-start:18px;}
+  html[dir=ltr] .warning-item{text-align:left;}
+  html[dir=ltr] .improvement-item{text-align:left;}
+  html[dir=ltr] .dehydration-box{text-align:left;}
+  html[dir=ltr] .quiz-question{text-align:left;}
+  html[dir=ltr] .quiz-opt{text-align:left;}
+  html[dir=ltr] .quiz-feedback{text-align:left;}
+  html[dir=ltr] .nav-link{font-family:var(--font-en);}
+  html[dir=ltr] .tab-btn{font-family:var(--font-en);font-size:11px;}
+  .header{background:linear-gradient(135deg,var(--primary-dark) 0%,var(--primary) 60%,var(--primary-light) 100%);color:var(--white);padding:36px 20px 26px;text-align:center;position:relative;}
+  .episode-badge{display:inline-block;background:rgba(255,255,255,0.18);border-radius:20px;font-size:12px;padding:3px 14px;margin-bottom:10px;}
+  .header h1{font-size:clamp(21px,5vw,32px);font-weight:800;line-height:1.25;margin-bottom:8px;}
+  .header-sub{font-size:14px;opacity:.85;max-width:500px;margin:0 auto;}
+  .header-authors{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;direction:ltr;margin-top:10px;font-size:13px;font-weight:700;opacity:.9;}
+  .lang-toggle{position:absolute;top:16px;left:16px;display:flex;background:rgba(255,255,255,0.14);border-radius:30px;overflow:hidden;border:1.5px solid rgba(255,255,255,0.3);}
+  .lang-btn{padding:6px 14px;font-size:13px;font-weight:700;border:none;background:transparent;color:rgba(255,255,255,0.7);cursor:pointer;transition:all .2s;font-family:var(--font-en);}
+  .lang-btn.active{background:var(--white);color:var(--primary);border-radius:28px;}
+  .tabs-wrapper{background:var(--white);border-bottom:2px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+  .tabs{display:flex;overflow-x:auto;scrollbar-width:none;max-width:700px;margin:0 auto;}
+  .tabs::-webkit-scrollbar{display:none;}
+  .tab-btn{flex:1;min-width:88px;padding:13px 6px 11px;border:none;background:transparent;font-size:12px;font-weight:700;color:var(--text-light);cursor:pointer;border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap;text-align:center;}
+  .tab-btn.active{color:var(--primary);border-bottom-color:var(--accent);}
+  .tab-btn:hover{color:var(--primary);background:var(--accent-light);}
+  .content{max-width:700px;margin:0 auto;padding:24px 16px 120px;}
+  .tab-panel{display:none;}
+  .tab-panel.active{display:block;animation:fadeIn .28s ease;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+  .intro-banner{background:linear-gradient(135deg,var(--accent-light),#f0fdfa);border-inline-start:4px solid var(--accent);border-radius:12px;padding:16px 18px;margin-bottom:22px;font-size:15px;line-height:1.75;color:var(--primary-dark);}
+  .intro-banner strong{color:var(--primary);font-weight:800;}
+  .alert-box{display:flex;align-items:flex-start;gap:10px;background:#FFF7ED;border:1.5px solid #FED7AA;border-radius:10px;padding:13px 16px;margin-bottom:20px;font-size:14px;color:#7C2D12;font-weight:600;line-height:1.65;}
+  .alert-icon{font-size:20px;flex-shrink:0;margin-top:1px;}
+  .steps{display:flex;flex-direction:column;gap:14px;margin-bottom:24px;}
+  .step{background:var(--white);border-radius:14px;box-shadow:var(--card-shadow);padding:17px 18px 15px;display:flex;gap:14px;align-items:flex-start;border:1.5px solid var(--border);transition:box-shadow .2s,border-color .2s;}
+  .step:hover{box-shadow:0 4px 20px rgba(15,118,110,.13);border-color:var(--accent-mid);}
+  .step-num{background:linear-gradient(135deg,var(--primary),var(--primary-light));color:var(--white);font-weight:800;font-size:15px;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .step-body h3{font-size:15px;font-weight:800;color:var(--primary-dark);margin-bottom:5px;}
+  .step-body p{font-size:14px;color:var(--text-mid);line-height:1.7;}
+  .note-box{background:var(--accent-light);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--primary-dark);font-weight:600;margin-top:20px;border:1.5px solid var(--accent-mid);line-height:1.75;white-space:pre-line;}
+  .section-title{font-size:17px;font-weight:800;color:var(--primary-dark);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+  .recipe-steps{display:flex;flex-direction:column;gap:10px;margin-bottom:16px;}
+  .recipe-step{display:flex;align-items:center;gap:12px;background:var(--white);border-radius:10px;padding:12px 14px;border:1.5px solid var(--border);font-size:14px;color:var(--primary-dark);font-weight:600;}
+  .recipe-num{background:var(--primary);color:white;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;}
+  .food-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-bottom:22px;}
+  .food-card{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:14px 10px;text-align:center;cursor:pointer;transition:all .2s;box-shadow:var(--card-shadow);}
+  .food-card:hover,.food-card.open{border-color:var(--accent);background:var(--accent-light);transform:translateY(-2px);}
+  .food-card-emoji{font-size:28px;margin-bottom:4px;}
+  .food-card-label{font-size:12px;font-weight:700;color:var(--primary-dark);margin-bottom:2px;}
+  .food-card-sub{font-size:11px;color:var(--text-light);}
+  .food-detail{display:none;margin-top:7px;font-size:11.5px;color:var(--primary-dark);line-height:1.6;background:var(--white);border-radius:7px;padding:7px;text-align:start;}
+  .food-card.open .food-detail{display:block;}
+  .exercise-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:22px;}
+  .exercise-card{background:var(--white);border:1.5px solid #BBF7D0;border-radius:12px;padding:14px 10px;text-align:center;cursor:pointer;transition:all .2s;box-shadow:0 2px 8px rgba(5,150,105,.08);}
+  .exercise-card:hover,.exercise-card.open{border-color:#10B981;background:#F0FDF4;transform:translateY(-2px);}
+  .exercise-card-emoji{font-size:28px;margin-bottom:5px;}
+  .exercise-card-label{font-size:12px;font-weight:700;color:#064E3B;margin-bottom:2px;}
+  .exercise-card-sub{font-size:11px;color:#059669;}
+  .exercise-detail{display:none;margin-top:7px;font-size:11.5px;color:#064E3B;line-height:1.65;background:var(--white);border-radius:7px;padding:7px;text-align:start;}
+  .exercise-card.open .exercise-detail{display:block;}
+  .caution-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px;}
+  .caution-item{background:#FFF7ED;border:1.5px solid #FED7AA;border-radius:12px;padding:12px;font-size:13px;font-weight:700;color:#7C2D12;display:flex;align-items:flex-start;gap:7px;line-height:1.5;}
+  .caution-emoji{font-size:16px;flex-shrink:0;}
+  .caution-detail{font-size:11px;font-weight:400;color:#9F1239;margin-top:3px;}
+  .tip-box{background:linear-gradient(135deg,#FFF7ED,#FFEDD5);border:1.5px solid #FED7AA;border-radius:12px;padding:16px;margin-bottom:20px;font-size:14px;color:#7C2D12;line-height:1.8;}
+  .tip-box h4{font-size:15px;font-weight:800;color:var(--primary);margin-bottom:8px;}
+  .tip-box ul{padding-inline-start:16px;}
+  .collapsible{background:var(--white);border:1.5px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden;box-shadow:var(--card-shadow);}
+  .collapsible-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;cursor:pointer;font-weight:700;font-size:14px;color:var(--primary-dark);transition:background .18s;gap:8px;}
+  .collapsible-header:hover{background:var(--accent-light);}
+  .c-icon{font-size:18px;flex-shrink:0;}.c-arrow{font-size:12px;color:var(--text-light);transition:transform .2s;flex-shrink:0;}
+  .collapsible.open .c-arrow{transform:rotate(90deg);}
+  .collapsible-body{display:none;padding:4px 16px 14px;font-size:13.5px;color:var(--text-mid);line-height:1.75;border-top:1px solid var(--border);}
+  .collapsible.open .collapsible-body{display:block;}
+  .collapsible-body ul{padding-inline-start:18px;}.collapsible-body li{margin-bottom:5px;}
+  .warning-section{background:var(--danger-light);border:2px solid #FCA5A5;border-radius:14px;padding:18px;margin-bottom:18px;}
+  .warning-section h3{color:var(--danger);font-size:16px;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .warning-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .warning-item{display:flex;align-items:flex-start;gap:10px;background:var(--white);border-radius:10px;padding:10px 14px;font-size:14px;font-weight:600;color:#7F1D1D;line-height:1.5;border:1px solid #FCA5A5;}
+  .warning-dot{width:10px;height:10px;border-radius:50%;background:var(--danger);flex-shrink:0;margin-top:5px;}
+  .improvement-section{background:var(--success-light);border:2px solid #6EE7B7;border-radius:14px;padding:18px;margin-bottom:18px;}
+  .improvement-section h3{color:var(--success);font-size:16px;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .improvement-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .improvement-item{display:flex;align-items:flex-start;gap:10px;background:var(--white);border-radius:10px;padding:10px 14px;font-size:14px;font-weight:600;color:#064E3B;line-height:1.5;border:1px solid #6EE7B7;}
+  .improvement-dot{width:10px;height:10px;border-radius:50%;background:var(--success);flex-shrink:0;margin-top:5px;}
+  .dehydration-box{background:#FFF7ED;border:1.5px solid #FED7AA;border-radius:12px;padding:14px 16px;margin-bottom:18px;font-size:13.5px;color:#7C2D12;line-height:1.75;}
+  .dehydration-box strong{color:#C2410C;font-weight:800;}
+  .quiz-q{background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:18px;margin-bottom:16px;box-shadow:var(--card-shadow);}
+  .quiz-question{font-size:15px;font-weight:800;color:var(--primary-dark);margin-bottom:14px;line-height:1.5;}
+  .quiz-options{display:flex;flex-direction:column;gap:8px;}
+  .quiz-opt{background:var(--bg);border:2px solid var(--border);border-radius:10px;padding:11px 14px;font-size:14px;font-weight:600;color:var(--text-mid);cursor:pointer;transition:all .18s;text-align:start;}
+  .quiz-opt:hover{border-color:var(--accent);background:var(--accent-light);color:var(--primary);}
+  .quiz-opt.correct{background:var(--success-light);border-color:var(--success);color:var(--success);}
+  .quiz-opt.wrong{background:var(--danger-light);border-color:var(--danger);color:var(--danger);}
+  .quiz-opt:disabled{cursor:default;pointer-events:none;}
+  .quiz-feedback{margin-top:10px;font-size:13px;font-weight:700;padding:8px 12px;border-radius:8px;display:none;line-height:1.6;}
+  .quiz-feedback.show{display:block;}
+  .quiz-feedback.correct{background:var(--success-light);color:var(--success);}
+  .quiz-feedback.wrong{background:var(--danger-light);color:var(--danger);}
+  .quiz-score{text-align:center;font-size:15px;font-weight:700;color:var(--primary);margin-top:10px;display:none;}
+  .quiz-score.show{display:block;}
+  .share-section{background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:20px;margin-top:24px;text-align:center;box-shadow:var(--card-shadow);}
+  .share-title{font-size:16px;font-weight:800;color:var(--primary-dark);margin-bottom:5px;}
+  .share-sub{font-size:13px;color:var(--text-light);margin-bottom:14px;}
+  .share-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+  .share-btn{padding:9px 18px;border-radius:30px;font-size:13px;font-weight:700;border:none;cursor:pointer;transition:all .18s;display:flex;align-items:center;gap:6px;}
+  .share-btn:hover{transform:translateY(-1px);box-shadow:0 3px 12px rgba(0,0,0,.14);}
+  .share-btn.wa{background:#25D366;color:white;}.share-btn.li{background:#0A66C2;color:white;}.share-btn.fb{background:#1877F2;color:white;}
+  .share-btn.copy{background:var(--bg);color:var(--primary);border:1.5px solid var(--border);}
+  .disclaimer{font-size:12px;color:var(--text-light);text-align:center;margin-top:14px;padding:0 10px;line-height:1.6;}
+  .nav-bar{position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:2px solid var(--border);z-index:200;box-shadow:0 -4px 16px rgba(0,0,0,.07);}
+  .nav-bar-inner{max-width:700px;width:100%;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;}
+  .nav-link{display:flex;align-items:center;gap:6px;padding:9px 14px;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;transition:all .18s;}
+  .nav-link.prev{background:var(--bg);color:var(--primary);border:1.5px solid var(--border);}
+  .nav-link.prev:hover{background:var(--accent-light);border-color:var(--accent);}
+  .nav-link.next{background:linear-gradient(135deg,var(--primary),var(--primary-light));color:var(--white);box-shadow:0 3px 12px rgba(15,118,110,.28);}
+  .nav-link.next:hover{transform:translateY(-1px);}
+  .nav-episode{font-size:11px;color:var(--text-light);text-align:center;font-weight:600;}
+  @media(max-width:480px){.caution-grid{grid-template-columns:1fr;}.food-grid{grid-template-columns:repeat(2,1fr);}.exercise-grid{grid-template-columns:repeat(2,1fr);}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="lang-toggle">
+    <button class="lang-btn active" id="btnAr" onclick="setLang('ar')">العربية</button>
+    <button class="lang-btn" id="btnEn" onclick="setLang('en')">English</button>
+  </div>
+  <div class="episode-badge" id="hBadge"></div>
+  <h1 id="hTitle"></h1>
+  <p class="header-sub" id="hSub"></p>
+  <div class="header-authors">
+    <span>Prof. Randa Reda</span>
+    <span>Prof. Sarah Hamza</span>
+  </div>
+</div>
+
+<div class="tabs-wrapper">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="openTab(0)" id="tab-btn-0"></button>
+    <button class="tab-btn" onclick="openTab(1)" id="tab-btn-1"></button>
+    <button class="tab-btn" onclick="openTab(2)" id="tab-btn-2"></button>
+    <button class="tab-btn" onclick="openTab(3)" id="tab-btn-3"></button>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="tab-panel active" id="tab0">
+    <div class="intro-banner" id="t0Banner"></div>
+    <div class="alert-box"><span class="alert-icon">⚠️</span><span id="t0Alert"></span></div>
+    <div class="steps" id="t0Steps"></div>
+    <div class="note-box" id="t0Note"></div>
+  </div>
+
+  <div class="tab-panel" id="tab1">
+    <div class="section-title"><span>🌾</span><span id="t1FibreTitle"></span></div>
+    <p id="t1FibreHint" style="font-size:13px;color:var(--text-light);margin-bottom:12px;"></p>
+    <div class="food-grid" id="t1FoodGrid"></div>
+    <div class="section-title"><span>💧</span><span id="t1FluidTitle"></span></div>
+    <div class="recipe-steps" id="t1FluidSteps"></div>
+    <div class="note-box" id="t1FluidNote" style="margin-bottom:22px;"></div>
+    <div class="section-title"><span>🚶</span><span id="t1ExTitle"></span></div>
+    <p id="t1ExHint" style="font-size:13px;color:var(--text-light);margin-bottom:12px;"></p>
+    <div class="exercise-grid" id="t1ExGrid"></div>
+    <div class="section-title"><span>⚠️</span><span id="t1CautionTitle"></span></div>
+    <div class="caution-grid" id="t1CautionGrid"></div>
+    <div class="tip-box"><h4 id="t1TipTitle"></h4><ul id="t1TipList"></ul></div>
+    <div class="section-title"><span>🔍</span><span id="t1ExtraTitle"></span></div>
+    <div id="t1Collapsibles"></div>
+    <div class="share-section">
+      <div class="share-title" id="shareTitle"></div>
+      <div class="share-sub" id="shareSub"></div>
+      <div class="share-btns">
+        <button class="share-btn wa" onclick="shareWA()">📱 WhatsApp</button>
+        <button class="share-btn li" onclick="shareLI()">LinkedIn</button>
+        <button class="share-btn fb" onclick="shareFB()">Facebook</button>
+        <button class="share-btn copy" id="shareCopyBtn" onclick="copyLink()"></button>
+      </div>
+    </div>
+    <p class="disclaimer" id="disclaimer"></p>
+  </div>
+
+  <div class="tab-panel" id="tab2">
+    <div class="warning-section">
+      <h3><span>🔴</span><span id="t2WarnTitle"></span></h3>
+      <ul class="warning-list" id="t2WarnList"></ul>
+    </div>
+    <div class="dehydration-box"><strong id="t2ImpLabel"></strong><span id="t2ImpText"></span></div>
+    <div class="improvement-section">
+      <h3><span>📈</span><span id="t2ImpTitle"></span></h3>
+      <ul class="improvement-list" id="t2ImpList"></ul>
+    </div>
+    <div id="t2Collapsible"></div>
+    <div class="note-box" style="margin-top:16px;" id="t2Note"></div>
+  </div>
+
+  <div class="tab-panel" id="tab3">
+    <div class="intro-banner" id="quizBanner"></div>
+    <div id="quizContainer"></div>
+    <div class="quiz-score" id="quiz-score"></div>
+  </div>
+
+</div>
+
+<div class="nav-bar">
+  <div class="nav-bar-inner">
+    <a href="https://randareda-droid.github.io/Patient-Guide-/week3.html" class="nav-link prev" id="navPrev"></a>
+    <div class="nav-episode" id="navEpisode"></div>
+    <a href="https://randareda-droid.github.io/Patient-Guide-/week5.html" class="nav-link next" id="navNext"></a>
+  </div>
+</div>
+
+<script>
+const C={
+ar:{
+pageTitle:'رعاية كبار السن في المنزل — الحلقة الرابعة: الإمساك',
+badge:'الحلقة الرابعة',h1:'الإمساك — ماذا نفعل في المنزل؟',
+hSub:'متى يكون الإمساك خطيراً؟ وكيف نساعد كبير السن بأمان؟ — الإجابة خطوة بخطوة',
+tabs:['🚑 ماذا نفعل أولاً','🌾 التغذية والحركة','🚨 علامات الخطر','❓ اختبر نفسك'],
+t0Banner:'الإمساك شائع جداً عند كبار السن ويؤثر على راحتهم وصحتهم. <strong>الحل غالباً في التغذية والترطيب والحركة</strong> — لكن هناك علامات تستدعي الطبيب فوراً.',
+t0Alert:'إذا لم يخرج براز منذ 3 أيام أو أكثر مع ألم أو انتفاخ — تصرف الآن ولا تنتظر',
+t0Steps:[
+['زِد السوائل فوراً — هذا أول الحلول','8 أكواب ماء على الأقل يومياً. ماء دافئ في الصباح على الريق يُفعّل الأمعاء. لا تنتظر العطش — كبار السن لا يشعرون به دائماً.'],
+['أضف الألياف إلى كل وجبة','خضار مسلوقة، فواكه طازجة، خبز أسمر. ابدأ تدريجياً — زيادة الألياف المفاجئة تسبب غازات وانتفاخ.'],
+['حركة خفيفة بعد الوجبات','المشي 10 دقائق بعد الأكل يُحفّز الأمعاء. حتى الجلوس والقيام عدة مرات مفيد لمن لا يستطيع المشي.'],
+['لا تتجاهل الإحساس بالحاجة للحمام','عندما يشعر بالرغبة — اصطحبه فوراً. تأجيل هذا الإحساس يُفاقم الإمساك ويُضعف العضلات.'],
+['تواصل مع الطبيب إذا لم يتحسن خلال 3 أيام','لا تعطِ أي دواء ملين دون استشارة الطبيب. الطبيب يقيّم الحالة ويختار الأنسب.'],
+],
+t0Note:'📌 تنبيه: بعض الأدوية المزمنة تسبب الإمساك كأثر جانبي. لا تُوقف أي دواء دون مشورة الطبيب — بل أخبره بالمشكلة وهو يعدّل الخطة.',
+t1FibreTitle:'أطعمة غنية بالألياف تساعد على تنظيم الأمعاء',
+t1FibreHint:'اضغط على أي طعام لمعرفة طريقة التقديم والكمية المناسبة',
+foods:[
+['🥦','خضار مسلوقة','بروكلي أو كوسة','تُسلق حتى تطرا. تُقدَّم مهروسة أو مقطعة. غنية بالألياف والماء.'],
+['🍑','خوخ أو برقوق','ملين طبيعي قوي','من أقوى الملينات الطبيعية. الخوخ الطازج ناضجاً أو البرقوق المجفف. يُقدَّم طازجاً أو مسلوقاً مع الجلد.'],
+['🌾','خبز أسمر','ألياف أعلى من الأبيض','شريحة مع الوجبة. يُبدَّل تدريجياً لتفادي الغازات.'],
+['🥜','بذور الكتان','ملعقة مطحونة يومياً','ملعقة صغيرة مطحونة على الزبادي. تُزاد السوائل معها حتماً.'],
+['🫘','عدس أو فاصولياء','مسلوق ناعم','مسلوق ومهروس. كميات صغيرة في البداية لتجنب الغازات.'],
+['🍌','موز ناضج جداً','به بقع داكنة','الناضج جداً ملين. الموز الأخضر أو النصف ناضج يُسبب الإمساك.'],
+['🥕','جزر مسلوق','ناعم ومهروس','غني بالألياف والماء. يساعد على تليين البراز.'],
+['🌿','زبادي بروبيوتيك','يوازن الأمعاء','كوب صغير يومياً يُحسّن حركة الأمعاء على المدى البعيد.'],
+],
+t1FluidTitle:'💧 السوائل اليومية الضرورية لمنع الإمساك',
+fluidSteps:['8 أكواب ماء على الأقل يومياً — وزّعها على مدار اليوم','كوب ماء دافئ على الريق صباحاً — يُنشّط الأمعاء','عصير برقوق أو خوخ — ملين طبيعي قوي جداً','شاي أعشاب خفيف (بابونج أو شمر) — يُهدّئ ويُساعد','مرق خضار دافئ — ترطيب مع فوائد إضافية'],
+t1FluidNote:'📌 تجنّب المشروبات الغازية والقهوة الزائدة — تُسبب الجفاف وتُفاقم الإمساك.\n📌 الحليب كامل الدسم بكثرة قد يُسبب الإمساك عند بعض كبار السن.',
+t1ExTitle:'حركة وتمارين خفيفة لتنشيط الأمعاء',
+t1ExHint:'اضغط على أي تمرين لمعرفة كيفية أدائه بأمان',
+exercises:[
+['🚶','المشي اليومي','10 دقائق بعد الأكل','المشي بعد الوجبة مباشرة هو أفضل تحفيز للأمعاء. حتى في الممر الداخلي — الحركة هي المهمة.'],
+['🪑','الجلوس والقيام','5 مرات متكررة','من الكرسي وإليه 5 مرات — يُحفّز حركة الأمعاء. مناسب لمن لا يستطيع المشي الطويل.'],
+['🤸','تمرين البطن الخفيف','مستلقياً على الظهر','شهيق مع انتفاخ البطن، ثم زفير مع سحبه. 5 مرات. يُنشّط عضلات الأمعاء.'],
+['💆','تدليك البطن','في اتجاه عقارب الساعة','بيدين دافئتين، دوّر على البطن 10 مرات. يُحفّز الحركة المعوية مباشرة.'],
+['🦵','رفع الركبتين','مستلقياً أو جالساً','شدّ الركبة نحو الصدر 10 ثوانٍ. كرّر للجهتين. يُضغط على الأمعاء بلطف.'],
+['🧘','تنفس عميق','قبل محاولة الحمام','3 أنفاس عميقة تُرخّي عضلات الحوض وتُسهّل العملية كثيراً.'],
+],
+t1CautionTitle:'أطعمة ومشروبات تستحق الانتباه عند الإمساك',
+cautions:[
+['🧀','الجبن بكثرة','تُبطّئ الأمعاء'],
+['🍖','اللحوم الحمراء بإفراط','بطيئة الهضم وقليلة الألياف'],
+['🍞','الخبز الأبيض الكثير','يُقلّل حركة الأمعاء'],
+['🍫','الشوكولاتة والحلويات','قد تُسبب الإمساك بكثرة'],
+['☕','القهوة بإفراط','مدرّة للبول وتزيد الجفاف'],
+['🍌','موز غير ناضج','يُصلّب البراز — يجب أن يكون ناضجاً جداً'],
+],
+t1TipTitle:'🕐 نصائح وضعية الحمام — مهمة جداً لكبار السن',
+tipList:['ضع قدميه على كرسي صغير أمام المرحاض — وضعية القرفصاء الجزئية تُسهّل الإخراج كثيراً','لا يجلس أكثر من 10 دقائق — الجلوس الطويل يُضرّ بالمستقيم','الوقت الأفضل: بعد الإفطار مباشرة — الأمعاء أكثر نشاطاً','لا يضغط بقوة — الضغط الزائد يُسبب البواسير'],
+t1ExtraTitle:'معلومات إضافية مهمة',
+collapsibles1:[
+['🔍','لماذا يعاني كبار السن من الإمساك أكثر؟',['حركة الأمعاء تتباطأ مع التقدم في العمر','قلة الحركة وطول فترات الجلوس','شرب سوائل أقل من الكافي — الشعور بالعطش يتراجع','تأثير جانبي لأدوية مزمنة شائعة','صعوبة المضغ تُقلّل تناول الألياف']],
+['💊','ملاحظات عن المُلينات والتدخل الدوائي',['لا تُعطِ أي ملين دون استشارة الطبيب','الملينات عند الاستخدام المفرط تُضعف حركة الأمعاء الطبيعية','الحقنة الشرجية تحتاج إذناً طبياً','الطبيب يختار النوع والجرعة المناسبة لكل حالة']],
+],
+shareTitle:'🔗 شارك هذا الدليل مع من تعرف',
+shareSub:'كل أسرة تعتني بكبير السن تحتاج هذه المعلومات',
+shareCopy:'📋 نسخ الرابط',
+disclaimer:'هذا الدليل للتوعية العامة فقط — لا يُغني عن استشارة الطبيب المعالج',
+t2WarnTitle:'اتصل بالطبيب أو اذهب للطوارئ فوراً',
+warnings:['لم يخرج أي براز منذ أكثر من 5 أيام','ألم بطني شديد ومستمر أو صلابة في البطن','انتفاخ شديد مع عدم خروج غازات أو براز','دم في البراز أو على الورق عند التنظيف','غثيان وقيء مع الإمساك','حرارة مصحوبة بالإمساك وألم البطن','ضعف شديد مفاجئ أو فقدان الوعي','إمساك مفاجئ جديد عند من كان منتظماً — يستدعي التقييم'],
+t2ImpLabel:'⚠️ انتبه: ',
+t2ImpText:'الإسهال الذي يظهر فجأة بعد إمساك طويل قد يكون "إسهال تعويضي" — البراز السائل يتسرب حول كتلة صلبة في الأمعاء. هذا يحتاج تقييم طبي فوري.',
+t2ImpTitle:'علامات التحسن',
+improvements:['خروج براز ولو بكميات صغيرة — هذا تقدم إيجابي','تراجع الألم والانتفاخ تدريجياً','عودة الشهية للطعام والسوائل','يشعر بالراحة والخفة في البطن','يتحرك بشكل أسهل وأقل انزعاجاً','نوم أهدأ وراحة أكثر'],
+collapsibles2:[['🚽','متى يُعتبر التبرع طبيعياً؟',['من مرة واحدة يومياً إلى 3 مرات أسبوعياً — كل هذا طبيعي','المهم: الانتظام والراحة عند الخروج — وليس العدد فقط','البراز الطبيعي لين وسهل الخروج بدون ألم']]],
+t2Note:'📌 لا تنتظر أكثر من 3 أيام بدون تحسن قبل الاتصال بالطبيب — خاصة إذا كان هناك ألم أو انتفاخ.',
+quizBanner:'اختبر معلوماتك عن الإمساك عند كبار السن — 3 أسئلة سريعة',
+questions:[
+{q:'❓ ما أول خطوة عملية عند ملاحظة الإمساك عند كبير السن؟',opts:['أ) إعطاء ملين فوراً من الصيدلية','ب) زيادة السوائل والألياف وتشجيع الحركة','ج) الانتظار أسبوعاً قبل التصرف','د) تقليل الطعام حتى يتحسن الوضع'],correct:1,feedbacks:['الملينات تحتاج تقييماً طبياً — لا تُعطى مباشرة.','صحيح! السوائل والألياف والحركة هي الخطوة الأولى والأكثر أماناً وفاعلية.','3 أيام هي الحد الأقصى — الانتظار أسبوعاً يُفاقم الوضع.','تقليل الطعام يُقلّل الألياف ويُفاقم الإمساك — العكس هو الصحيح.']},
+{q:'❓ أي من هذه الأطعمة يُساعد على تليين البراز بشكل طبيعي؟',opts:['أ) الخبز الأبيض والأرز الأبيض','ب) الجبن والبيض المسلوق','ج) البرقوق والخوخ والخضار المسلوقة','د) الشوكولاتة والبسكويت'],correct:2,feedbacks:['الخبز والأرز الأبيض قليلا الألياف ولا يُساعدان على الإخراج.','الجبن والبيض لا يحتويان على ألياف وقد يُبطّئان الأمعاء.','صحيح! البرقوق والخوخ والخضار المسلوقة من أفضل الملينات الطبيعية.','الشوكولاتة والبسكويت يُسببان الإمساك بكثرة — عكس ما نريد.']},
+{q:'❓ متى يجب الاتصال بالطبيب فوراً بسبب الإمساك؟',opts:['أ) إذا لم يتبرع يوماً واحداً','ب) إذا ظهر دم في البراز أو ألم شديد مستمر','ج) إذا أكل كمية أقل من المعتاد','د) إذا شعر بانتفاخ خفيف بعد الأكل'],correct:1,feedbacks:['عدم التبرع يوماً واحداً طبيعي تماماً.','صحيح! الدم في البراز أو الألم الشديد المستمر علامات خطر تستدعي الطبيب فوراً.','قلة الطعام شائعة مع الإمساك لكنها لا تستدعي الطوارئ وحدها.','الانتفاخ الخفيف شائع — لكن الانتفاخ الشديد مع عدم خروج غازات هو الخطر.']},
+],
+navPrev:'← الحلقة الثالثة: الإسهال',navEpisode:'الحلقة 4 من 12',navNext:'الأدوية والسلامة ←',
+quizScore:(t)=>`نتيجتك: ${t} من 3 ${t===3?'🎉 ممتاز!':t===2?'👍 جيد جداً!':'💪 استمر في التعلم!'}`,
+},
+en:{
+pageTitle:'Elderly Home Care — Episode 4: Constipation',
+badge:'Episode 4',h1:'Constipation — What to Do at Home?',
+hSub:'When is constipation dangerous? How to help safely? A step-by-step guide for every family',
+tabs:['🚑 What to Do First','🌾 Nutrition & Movement','🚨 Warning Signs','❓ Quiz'],
+t0Banner:'Constipation is very common in older adults and affects their comfort and health. <strong>The solution is usually nutrition, hydration and movement</strong> — but some signs require the doctor immediately.',
+t0Alert:'If no bowel movement for 3 days or more with pain or bloating — act now, don\'t wait',
+t0Steps:[
+['Increase fluids immediately — this is the first solution','At least 8 cups of water daily. A warm cup of water first thing in the morning activates the bowels. Don\'t wait for thirst — older adults often don\'t feel it.'],
+['Add fibre to every meal','Boiled vegetables, fresh fruit, wholemeal bread. Start gradually — a sudden fibre increase causes gas and bloating.'],
+['Light movement after meals','A 10-minute walk after eating stimulates the bowels. Even sitting up and standing several times helps those who cannot walk far.'],
+['Never ignore the urge to go','When they feel the need — take them immediately. Delaying this urge worsens constipation and weakens the muscles.'],
+['Contact the doctor if no improvement within 3 days','Never give any laxative without consulting the doctor. The doctor assesses the situation and chooses the most appropriate option.'],
+],
+t0Note:'📌 Note: Some regular medications cause constipation as a side effect. Never stop any medication without consulting the doctor — tell them about the problem and they will adjust the plan.',
+t1FibreTitle:'High-Fibre Foods That Help Regulate the Bowels',
+t1FibreHint:'Tap any food to see how to serve it and the right amount',
+foods:[
+['🥦','Boiled Vegetables','Broccoli or courgette','Boiled until soft. Serve mashed or finely chopped. Rich in fibre and water.'],
+['🍐','Pear or Plum','Natural softening fruit','Among the strongest natural laxatives. Serve fresh or stewed with the skin.'],
+['🌾','Wholemeal Bread','Higher fibre than white','One or two slices with meals. Switch gradually from white to avoid gas.'],
+['🥜','Flaxseeds','One ground teaspoon daily','A teaspoon of ground flaxseed on yoghurt. Always increase fluids alongside.'],
+['🫘','Lentils or Beans','Well-cooked and soft','Well-boiled and mashed. Start with small amounts to avoid gas.'],
+['🍌','Very Ripe Banana','Must have dark spots','A very ripe banana is a laxative. Green or half-ripe banana causes constipation.'],
+['🥕','Boiled Carrot','Soft and mashed','Rich in fibre and water. Helps soften stool.'],
+['🌿','Probiotic Yoghurt','Balances the gut','A small cup daily improves bowel movement over time.'],
+],
+t1FluidTitle:'💧 Daily Fluids Essential for Preventing Constipation',
+fluidSteps:['At least 8 cups of water daily — spread throughout the day','A cup of warm water first thing in the morning — activates the bowels','Prune or plum juice — a very powerful natural laxative','Light herbal tea (chamomile or fennel) — soothes and helps','Warm vegetable broth — hydration with added benefits'],
+t1FluidNote:'📌 Avoid fizzy drinks and excess coffee — they cause dehydration and worsen constipation.\n📌 Too much full-fat milk may cause constipation in some older adults.',
+t1ExTitle:'Light Movement & Exercises to Stimulate the Bowels',
+t1ExHint:'Tap any exercise to see how to do it safely',
+exercises:[
+['🚶','Daily Walking','10 minutes after eating','Walking right after a meal is the best bowel stimulation. Even indoors — movement is what matters.'],
+['🪑','Sit to Stand','5 repetitions','Standing up and sitting back down 5 times stimulates bowel movement. Suitable for those who cannot walk far.'],
+['🤸','Gentle Tummy Exercise','Lying on the back','Deep breath in expanding the belly, then breathe out drawing it in. 5 times. Activates gut muscles.'],
+['💆','Tummy Massage','Clockwise direction','With warm hands, circle the abdomen clockwise 10 times. Directly stimulates bowel movement.'],
+['🦵','Knee Raises','Lying or seated','Pull knee toward chest and hold 10 seconds. Repeat both sides. Gently compresses the bowels.'],
+['🧘','Deep Breathing','Before trying the bathroom','3 deep breaths before attempting to go relaxes the pelvic floor and makes things much easier.'],
+],
+t1CautionTitle:'Foods & Drinks to Be Mindful of With Constipation',
+cautions:[
+['🧀','Excess cheese & dairy','Slows the bowels considerably'],
+['🍖','Too much red meat','Slow to digest and low in fibre'],
+['🍞','Too much white bread','Reduces bowel movement'],
+['🍫','Chocolate & sweets','Can cause constipation in excess'],
+['☕','Excess coffee','Diuretic — increases dehydration'],
+['🍌','Unripe banana','Firms stool — must be very ripe'],
+],
+t1TipTitle:'🕐 Toilet Position Tips — Very Important for Older Adults',
+tipList:['Place feet on a small stool in front of the toilet — a partial squat makes passing stool much easier','Don\'t sit for more than 10 minutes — prolonged sitting harms the rectum','Best time: right after breakfast — the bowels are most active then','No straining or pushing hard — excessive straining causes haemorrhoids'],
+t1ExtraTitle:'Additional Important Information',
+collapsibles1:[
+['🔍','Why Do Older Adults Suffer from Constipation More?',['Bowel movement slows naturally with age','Reduced physical activity and prolonged sitting','Drinking less fluid — the sensation of thirst diminishes','Side effects of common chronic medications','Chewing difficulties reduce fibre intake']],
+['💊','Notes on Laxatives & Medical Treatment',['Never give a laxative without consulting the doctor','Overuse of laxatives weakens natural bowel movement','Enemas require medical approval — never at home without guidance','The doctor chooses the type and dose appropriate for each case']],
+],
+shareTitle:'🔗 Share this guide with someone you know',
+shareSub:'Every family caring for an older adult needs this information',
+shareCopy:'📋 Copy Link',
+disclaimer:'This guide is for general awareness only — it does not replace medical consultation',
+t2WarnTitle:'Call the Doctor or Go to A&E Immediately',
+warnings:['No bowel movement for more than 5 days','Severe continuous abdominal pain or rigid abdomen','Severe bloating with no gas or stool passing','Blood in stool or on paper when cleaning','Nausea and vomiting together with constipation','Fever with constipation and abdominal pain','Sudden severe weakness or loss of consciousness','New sudden constipation in someone who was regular — requires assessment'],
+t2ImpLabel:'⚠️ Important: ',
+t2ImpText:'Diarrhoea appearing suddenly after prolonged constipation may be "overflow diarrhoea" — liquid stool leaking around a hard mass in the bowel. This requires immediate medical assessment.',
+t2ImpTitle:'Signs of Improvement',
+improvements:['Passing stool even in small amounts — this is positive progress','Gradual reduction in pain and bloating','Return of appetite for food and fluids','Feeling of comfort and lightness in the abdomen','Moving around more easily and with less discomfort','Calmer sleep and more rest'],
+collapsibles2:[['🚽','When Is Bowel Frequency Considered Normal?',['Anywhere from once a day to 3 times a week — all of this is normal','What matters: regularity and comfort when passing — not just the number','Normal stool is soft and passes easily without pain or straining']]],
+t2Note:'📌 Don\'t wait more than 3 days without improvement before calling the doctor — especially if there is pain or bloating.',
+quizBanner:'Test your knowledge about constipation in older adults — 3 quick questions',
+questions:[
+{q:'❓ What is the first practical step when noticing constipation in an older adult?',opts:['A) Give a laxative immediately from the pharmacy','B) Increase fluids and fibre and encourage movement','C) Wait a week before acting','D) Reduce food until the situation improves'],correct:1,feedbacks:['Laxatives need a prescription and assessment — never given directly without consultation.','Correct! Fluids, fibre and movement are the safest and most effective first step.','3 days is the maximum — waiting a week may worsen the situation.','Reducing food reduces fibre and worsens constipation — the opposite is needed.']},
+{q:'❓ Which of these foods naturally helps soften stool?',opts:['A) White bread and white rice','B) Cheese and boiled eggs','C) Prunes, pears and boiled vegetables','D) Chocolate and biscuits'],correct:2,feedbacks:['White bread and rice are low in fibre and do not aid bowel movement.','Cheese and eggs contain no fibre and may slow the bowels.','Correct! Prunes, pears and boiled vegetables are among the best natural laxatives.','Chocolate and biscuits in excess cause constipation — the opposite of what we want.']},
+{q:'❓ When should you call the doctor immediately for constipation?',opts:['A) If they haven\'t gone for one day','B) If there is blood in stool or severe continuous pain','C) If they ate less than usual','D) If they feel mild bloating after eating'],correct:1,feedbacks:['Not going for one day is completely normal — no cause for concern.','Correct! Blood in stool or severe continuous pain are warning signs requiring the doctor immediately.','Eating less is common with constipation — but alone it doesn\'t require emergency care.','Mild bloating is common — severe bloating with no gas passing is the danger sign.']},
+],
+navPrev:'← Episode 3: Diarrhoea',navEpisode:'Episode 4 of 12',navNext:'Medications & Safety →',
+quizScore:(t)=>`Your score: ${t} out of 3 ${t===3?'🎉 Excellent!':t===2?'👍 Well done!':'💪 Keep learning!'}`,
+}};
+
+let lang='ar';
+const scores={q1:null,q2:null,q3:null};
+const $=id=>document.getElementById(id);
+
+function render(l){
+  lang=l;const d=C[l];const isEn=l==='en';
+  document.documentElement.lang=l;
+  document.documentElement.dir=isEn?'ltr':'rtl';
+  document.body.style.fontFamily=isEn?"'Lato',sans-serif":"'Tajawal','Cairo',sans-serif";
+  document.title=d.pageTitle;
+  $('btnAr').classList.toggle('active',!isEn);
+  $('btnEn').classList.toggle('active',isEn);
+  $('hBadge').textContent=d.badge;$('hTitle').textContent=d.h1;$('hSub').textContent=d.hSub;
+  d.tabs.forEach((t,i)=>$('tab-btn-'+i).textContent=t);
+  $('t0Banner').innerHTML=d.t0Banner;$('t0Alert').textContent=d.t0Alert;
+  $('t0Steps').innerHTML=d.t0Steps.map((s,i)=>`<div class="step"><div class="step-num">${i+1}</div><div class="step-body"><h3>${s[0]}</h3><p>${s[1]}</p></div></div>`).join('');
+  $('t0Note').textContent=d.t0Note;
+  $('t1FibreTitle').textContent=d.t1FibreTitle;$('t1FibreHint').textContent=d.t1FibreHint;
+  $('t1FoodGrid').innerHTML=d.foods.map(f=>`<div class="food-card" onclick="toggleFood(this)"><div class="food-card-emoji">${f[0]}</div><div class="food-card-label">${f[1]}</div><div class="food-card-sub">${f[2]}</div><div class="food-detail">${f[3]}</div></div>`).join('');
+  $('t1FluidTitle').textContent=d.t1FluidTitle;
+  $('t1FluidSteps').innerHTML=d.fluidSteps.map((s,i)=>`<div class="recipe-step"><div class="recipe-num">${i+1}</div><span>${s}</span></div>`).join('');
+  $('t1FluidNote').textContent=d.t1FluidNote;
+  $('t1ExTitle').textContent=d.t1ExTitle;$('t1ExHint').textContent=d.t1ExHint;
+  $('t1ExGrid').innerHTML=d.exercises.map(e=>`<div class="exercise-card" onclick="toggleEx(this)"><div class="exercise-card-emoji">${e[0]}</div><div class="exercise-card-label">${e[1]}</div><div class="exercise-card-sub">${e[2]}</div><div class="exercise-detail">${e[3]}</div></div>`).join('');
+  $('t1CautionTitle').textContent=d.t1CautionTitle;
+  $('t1CautionGrid').innerHTML=d.cautions.map(c=>`<div class="caution-item"><span class="caution-emoji">${c[0]}</span><div><div>${c[1]}</div><div class="caution-detail">${c[2]}</div></div></div>`).join('');
+  $('t1TipTitle').textContent=d.t1TipTitle;$('t1TipList').innerHTML=d.tipList.map(t=>`<li>${t}</li>`).join('');
+  $('t1ExtraTitle').textContent=d.t1ExtraTitle;$('t1Collapsibles').innerHTML=d.collapsibles1.map(mkC).join('');
+  $('shareTitle').textContent=d.shareTitle;$('shareSub').textContent=d.shareSub;$('shareCopyBtn').textContent=d.shareCopy;$('disclaimer').textContent=d.disclaimer;
+  $('t2WarnTitle').textContent=d.t2WarnTitle;
+  $('t2WarnList').innerHTML=d.warnings.map(w=>`<li class="warning-item"><span class="warning-dot"></span><span>${w}</span></li>`).join('');
+  $('t2ImpLabel').textContent=d.t2ImpLabel;$('t2ImpText').textContent=d.t2ImpText;$('t2ImpTitle').textContent=d.t2ImpTitle;
+  $('t2ImpList').innerHTML=d.improvements.map(w=>`<li class="improvement-item"><span class="improvement-dot"></span><span>${w}</span></li>`).join('');
+  $('t2Collapsible').innerHTML=d.collapsibles2.map(mkC).join('');$('t2Note').textContent=d.t2Note;
+  $('quizBanner').textContent=d.quizBanner;renderQuiz(d);
+  $('navPrev').textContent=d.navPrev;$('navEpisode').textContent=d.navEpisode;$('navNext').textContent=d.navNext;
+  const sc=$('quiz-score');if(sc.dataset.total!==undefined&&sc.dataset.total!=='')sc.textContent=d.quizScore(parseInt(sc.dataset.total));
+}
+
+function mkC([icon,title,items]){return`<div class="collapsible" onclick="toggleCollapsible(this)"><div class="collapsible-header"><span class="c-icon">${icon}</span><span style="flex:1">${title}</span><span class="c-arrow">▶</span></div><div class="collapsible-body"><ul>${items.map(i=>`<li>${i}</li>`).join('')}</ul></div></div>`;}
+
+function renderQuiz(d){
+  $('quizContainer').innerHTML=d.questions.map((qd,qi)=>`<div class="quiz-q" id="q${qi+1}"><div class="quiz-question">${qd.q}</div><div class="quiz-options">${qd.opts.map((o,oi)=>`<button class="quiz-opt" onclick="answer(this,'q${qi+1}',${oi===qd.correct},${qi})">${o}</button>`).join('')}</div><div class="quiz-feedback" id="q${qi+1}-feedback"></div></div>`).join('');
+  ['q1','q2','q3'].forEach((qId,qi)=>{const q=$(qId);if(!q||scores[qId]===null)return;q.dataset.answered='true';const opts=q.querySelectorAll('.quiz-opt');opts.forEach(o=>{o.disabled=true;o.style.opacity='0.6';});const ci=C[lang].questions[qi].correct;opts[ci].classList.add('correct');opts[ci].style.opacity='1';const fb=$(qId+'-feedback');fb.textContent=(scores[qId]===1?'✅ ':'❌ ')+C[lang].questions[qi].feedbacks[ci];fb.className='quiz-feedback show '+(scores[qId]===1?'correct':'wrong');});
+}
+
+function setLang(l){render(l);}
+function openTab(i){document.querySelectorAll('.tab-panel').forEach((p,j)=>p.classList.toggle('active',j===i));document.querySelectorAll('.tab-btn').forEach((b,j)=>b.classList.toggle('active',j===i));}
+function toggleCollapsible(el){el.classList.toggle('open');}
+function toggleFood(el){const w=el.classList.contains('open');document.querySelectorAll('.food-card').forEach(c=>c.classList.remove('open'));if(!w)el.classList.add('open');}
+function toggleEx(el){const w=el.classList.contains('open');document.querySelectorAll('.exercise-card').forEach(c=>c.classList.remove('open'));if(!w)el.classList.add('open');}
+
+function answer(btn,qId,isCorrect,qIndex){
+  const q=$(qId);if(q.dataset.answered)return;q.dataset.answered='true';
+  const opts=q.querySelectorAll('.quiz-opt');opts.forEach(o=>{o.disabled=true;o.style.opacity='0.6';});
+  btn.style.opacity='1';btn.classList.add(isCorrect?'correct':'wrong');
+  const ci=C[lang].questions[qIndex].correct;opts[ci].classList.add('correct');opts[ci].style.opacity='1';
+  const chosenIdx=Array.from(opts).indexOf(btn);
+  const fb=$(qId+'-feedback');fb.textContent=(isCorrect?'✅ ':'❌ ')+C[lang].questions[qIndex].feedbacks[chosenIdx];
+  fb.className='quiz-feedback show '+(isCorrect?'correct':'wrong');
+  scores[qId]=isCorrect?1:0;
+  const done=Object.values(scores).filter(v=>v!==null).length;
+  if(done===3){const total=scores.q1+scores.q2+scores.q3;const sc=$('quiz-score');sc.dataset.total=total;sc.textContent=C[lang].quizScore(total);sc.classList.add('show');}
+}
+
+const PAGE_URL='https://randareda-droid.github.io/Patient-Guide-/week4.html';
+function shareWA(){window.open('https://wa.me/?text='+encodeURIComponent(C[lang].h1+'\n'+PAGE_URL),'_blank');}
+function shareLI(){window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(PAGE_URL),'_blank');}
+function shareFB(){window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(PAGE_URL),'_blank');}
+function copyLink(){navigator.clipboard.writeText(PAGE_URL).then(()=>alert(lang==='en'?'Link copied!':'تم نسخ الرابط!'));}
+
+render('ar');
+</script>
+</body>
+</html>

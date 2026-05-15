@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رعاية كبار السن في المنزل — الحلقة الثالثة: الإسهال</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Cairo:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:#064E3B;--primary-light:#065F46;--primary-dark:#022c22;
+    --accent:#10B981;--accent-light:#D1FAE5;--accent-mid:#6EE7B7;
+    --danger:#DC2626;--danger-light:#FEE2E2;
+    --warning:#D97706;--warning-light:#FEF3C7;
+    --success:#059669;--success-light:#D1FAE5;
+    --text-dark:#111827;--text-mid:#374151;--text-light:#6B7280;
+    --bg:#F9FAFB;--white:#FFFFFF;--border:#E5E7EB;
+    --card-shadow:0 2px 12px rgba(6,78,59,0.10);
+    --font-ar:'Tajawal','Cairo',sans-serif;
+    --font-en:'Lato',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ar);background:var(--bg);color:var(--text-dark);min-height:100vh;}
+  /* ── LTR overrides when English is active ── */
+  html[dir=ltr] body { font-family: var(--font-en); }
+  html[dir=ltr] .intro-banner  { border-inline-start: 4px solid var(--accent); text-align: left; }
+  html[dir=ltr] .alert-box     { text-align: left; }
+  html[dir=ltr] .step-body h3,
+  html[dir=ltr] .step-body p   { text-align: left; }
+  html[dir=ltr] .note-box      { text-align: left; }
+  html[dir=ltr] .section-title { text-align: left; }
+  html[dir=ltr] .ors-step      { text-align: left; }
+  html[dir=ltr] .food-card-label,
+  html[dir=ltr] .food-card-sub,
+  html[dir=ltr] .fluid-card-label,
+  html[dir=ltr] .fluid-card-sub { text-align: center; }
+  html[dir=ltr] .caution-item  { text-align: left; }
+  html[dir=ltr] .hydration-box { text-align: left; }
+  html[dir=ltr] .collapsible-header { text-align: left; }
+  html[dir=ltr] .collapsible-body  { text-align: left; }
+  html[dir=ltr] .collapsible-body ul { padding-inline-start: 18px; }
+  html[dir=ltr] .warning-item  { text-align: left; }
+  html[dir=ltr] .improvement-item { text-align: left; }
+  html[dir=ltr] .dehydration-box  { text-align: left; }
+  html[dir=ltr] .awareness-box     { text-align: left; }
+  html[dir=ltr] .quiz-question { text-align: left; }
+  html[dir=ltr] .quiz-opt      { text-align: left; }
+  html[dir=ltr] .quiz-feedback { text-align: left; }
+  html[dir=ltr] .nav-link      { font-family: var(--font-en); }
+  html[dir=ltr] .tab-btn       { font-family: var(--font-en); font-size: 11px; }
+
+
+  /* HEADER */
+  .header{background:linear-gradient(135deg,var(--primary-dark) 0%,var(--primary) 60%,var(--primary-light) 100%);color:var(--white);padding:36px 20px 26px;text-align:center;position:relative;}
+  .episode-badge{display:inline-block;background:rgba(255,255,255,0.18);border-radius:20px;font-size:12px;padding:3px 14px;margin-bottom:10px;}
+  .header h1{font-size:clamp(21px,5vw,32px);font-weight:800;line-height:1.25;margin-bottom:8px;}
+  .header-sub{font-size:14px;opacity:.85;max-width:500px;margin:0 auto;}
+  .header-authors{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;direction:ltr;margin-top:10px;font-size:13px;font-weight:700;opacity:.9;}
+
+  /* LANG TOGGLE */
+  .lang-toggle{position:absolute;top:16px;left:16px;display:flex;background:rgba(255,255,255,0.14);border-radius:30px;overflow:hidden;border:1.5px solid rgba(255,255,255,0.3);}
+  .lang-btn{padding:6px 14px;font-size:13px;font-weight:700;border:none;background:transparent;color:rgba(255,255,255,0.7);cursor:pointer;transition:all .2s;font-family:var(--font-en);}
+  .lang-btn.active{background:var(--white);color:var(--primary);border-radius:28px;}
+
+  /* TABS */
+  .tabs-wrapper{background:var(--white);border-bottom:2px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+  .tabs{display:flex;overflow-x:auto;scrollbar-width:none;max-width:700px;margin:0 auto;}
+  .tabs::-webkit-scrollbar{display:none;}
+  .tab-btn{flex:1;min-width:88px;padding:13px 6px 11px;border:none;background:transparent;font-size:12px;font-weight:700;color:var(--text-light);cursor:pointer;border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap;text-align:center;}
+  .tab-btn.active{color:var(--primary);border-bottom-color:var(--accent);}
+  .tab-btn:hover{color:var(--primary);background:var(--accent-light);}
+
+  /* CONTENT */
+  .content{max-width:700px;margin:0 auto;padding:24px 16px 120px;}
+  .tab-panel{display:none;}
+  .tab-panel.active{display:block;animation:fadeIn .28s ease;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+
+  /* INTRO BANNER */
+  .intro-banner{background:linear-gradient(135deg,var(--accent-light),#ecfdf5);border-inline-start:4px solid var(--accent);border-radius:12px;padding:16px 18px;margin-bottom:22px;font-size:15px;line-height:1.75;color:var(--primary-dark);}
+  .intro-banner strong{color:var(--primary);font-weight:800;}
+
+  /* ALERT BOX */
+  .alert-box{display:flex;align-items:flex-start;gap:10px;background:var(--warning-light);border:1.5px solid #FDE68A;border-radius:10px;padding:13px 16px;margin-bottom:20px;font-size:14px;color:#78350F;font-weight:600;line-height:1.65;}
+  .alert-icon{font-size:20px;flex-shrink:0;margin-top:1px;}
+
+  /* STEPS */
+  .steps{display:flex;flex-direction:column;gap:14px;margin-bottom:24px;}
+  .step{background:var(--white);border-radius:14px;box-shadow:var(--card-shadow);padding:17px 18px 15px;display:flex;gap:14px;align-items:flex-start;border:1.5px solid var(--border);transition:box-shadow .2s,border-color .2s;}
+  .step:hover{box-shadow:0 4px 20px rgba(6,78,59,.13);border-color:var(--accent-mid);}
+  .step-num{background:linear-gradient(135deg,var(--primary),var(--primary-light));color:var(--white);font-weight:800;font-size:15px;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .step-body h3{font-size:15px;font-weight:800;color:var(--primary-dark);margin-bottom:5px;}
+  .step-body p{font-size:14px;color:var(--text-mid);line-height:1.7;}
+
+  /* NOTE BOX */
+  .note-box{background:var(--accent-light);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--primary-dark);font-weight:600;margin-top:20px;border:1.5px solid var(--accent-mid);line-height:1.75;white-space:pre-line;}
+
+  /* SECTION TITLE */
+  .section-title{font-size:17px;font-weight:800;color:var(--primary-dark);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+
+  /* ORS STEPS */
+  .ors-steps{display:flex;flex-direction:column;gap:10px;margin-bottom:16px;}
+  .ors-step{display:flex;align-items:center;gap:12px;background:var(--white);border-radius:10px;padding:12px 14px;border:1.5px solid var(--border);font-size:14px;color:var(--primary-dark);font-weight:600;}
+  .ors-num{background:var(--primary);color:white;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;}
+
+  /* FOOD GRID */
+  .food-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-bottom:22px;}
+  .food-card{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:14px 10px;text-align:center;cursor:pointer;transition:all .2s;box-shadow:var(--card-shadow);}
+  .food-card:hover,.food-card.open{border-color:var(--accent);background:var(--accent-light);transform:translateY(-2px);}
+  .food-card-emoji{font-size:28px;margin-bottom:4px;}
+  .food-card-label{font-size:12px;font-weight:700;color:var(--primary-dark);margin-bottom:2px;}
+  .food-card-sub{font-size:11px;color:var(--text-light);}
+  .food-detail{display:none;margin-top:7px;font-size:11.5px;color:var(--primary-dark);line-height:1.6;background:var(--white);border-radius:7px;padding:7px;text-align:start;}
+  .food-card.open .food-detail{display:block;}
+
+  /* FLUIDS GRID */
+  .fluids-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:22px;}
+  .fluid-card{background:var(--white);border:1.5px solid #BAE6FD;border-radius:12px;padding:14px 10px;text-align:center;cursor:pointer;transition:all .2s;box-shadow:0 2px 8px rgba(14,116,144,.08);}
+  .fluid-card:hover,.fluid-card.open{border-color:#0EA5E9;background:#EFF6FF;transform:translateY(-2px);}
+  .fluid-card-emoji{font-size:28px;margin-bottom:5px;}
+  .fluid-card-label{font-size:12px;font-weight:700;color:#0C4A6E;margin-bottom:2px;}
+  .fluid-card-sub{font-size:11px;color:#0369A1;}
+  .fluid-detail{display:none;margin-top:7px;font-size:11.5px;color:#0C4A6E;line-height:1.65;background:var(--white);border-radius:7px;padding:7px;text-align:start;}
+  .fluid-card.open .fluid-detail{display:block;}
+
+  /* CAUTION GRID */
+  .caution-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px;}
+  .caution-item{background:#FFF7ED;border:1.5px solid #FED7AA;border-radius:12px;padding:12px;font-size:13px;font-weight:700;color:#7C2D12;display:flex;align-items:flex-start;gap:7px;line-height:1.5;}
+  .caution-emoji{font-size:16px;flex-shrink:0;}
+  .caution-detail{font-size:11px;font-weight:400;color:#9F1239;margin-top:3px;}
+
+  /* HYDRATION BOX */
+  .hydration-box{background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border:1.5px solid #93C5FD;border-radius:12px;padding:16px;margin-bottom:20px;font-size:14px;color:#1E3A5F;line-height:1.8;}
+  .hydration-box h4{font-size:15px;font-weight:800;color:#1D4ED8;margin-bottom:8px;}
+  .hydration-box ul{padding-inline-start:16px;}
+
+  /* COLLAPSIBLE */
+  .collapsible{background:var(--white);border:1.5px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden;box-shadow:var(--card-shadow);}
+  .collapsible-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;cursor:pointer;font-weight:700;font-size:14px;color:var(--primary-dark);transition:background .18s;gap:8px;}
+  .collapsible-header:hover{background:var(--accent-light);}
+  .c-icon{font-size:18px;flex-shrink:0;}
+  .c-arrow{font-size:12px;color:var(--text-light);transition:transform .2s;flex-shrink:0;}
+  .collapsible.open .c-arrow{transform:rotate(90deg);}
+  .collapsible-body{display:none;padding:4px 16px 14px;font-size:13.5px;color:var(--text-mid);line-height:1.75;border-top:1px solid var(--border);}
+  .collapsible.open .collapsible-body{display:block;}
+  .collapsible-body ul{padding-inline-start:18px;}
+  .collapsible-body li{margin-bottom:5px;}
+
+  /* WARNING / IMPROVEMENT */
+  .warning-section{background:var(--danger-light);border:2px solid #FCA5A5;border-radius:14px;padding:18px;margin-bottom:18px;}
+  .warning-section h3{color:var(--danger);font-size:16px;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .warning-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .warning-item{display:flex;align-items:flex-start;gap:10px;background:var(--white);border-radius:10px;padding:10px 14px;font-size:14px;font-weight:600;color:#7F1D1D;line-height:1.5;border:1px solid #FCA5A5;}
+  .warning-dot{width:10px;height:10px;border-radius:50%;background:var(--danger);flex-shrink:0;margin-top:5px;}
+  .improvement-section{background:var(--success-light);border:2px solid var(--accent-mid);border-radius:14px;padding:18px;margin-bottom:18px;}
+  .improvement-section h3{color:var(--success);font-size:16px;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .improvement-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .improvement-item{display:flex;align-items:flex-start;gap:10px;background:var(--white);border-radius:10px;padding:10px 14px;font-size:14px;font-weight:600;color:#064E3B;line-height:1.5;border:1px solid var(--accent-mid);}
+  .improvement-dot{width:10px;height:10px;border-radius:50%;background:var(--success);flex-shrink:0;margin-top:5px;}
+  .dehydration-box{background:#FFF7ED;border:1.5px solid #FED7AA;border-radius:12px;padding:14px 16px;margin-bottom:18px;font-size:13.5px;color:#7C2D12;line-height:1.75;}
+  .dehydration-box strong{color:#C2410C;font-weight:800;}
+  .awareness-box{background:linear-gradient(135deg,#EDE9FE,#F5F3FF);border:2px solid #A78BFA;border-radius:14px;padding:18px;margin-bottom:18px;font-size:14px;color:#3B0764;line-height:1.8;}
+  .awareness-box h4{font-size:15px;font-weight:800;color:#6D28D9;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+  .awareness-box ul{padding-inline-start:18px;}
+  .awareness-box li{margin-bottom:6px;}
+  .awareness-box .action-note{margin-top:12px;background:rgba(109,40,217,0.1);border-radius:10px;padding:10px 14px;font-weight:700;font-size:13.5px;}
+
+  /* QUIZ */
+  .quiz-q{background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:18px;margin-bottom:16px;box-shadow:var(--card-shadow);}
+  .quiz-question{font-size:15px;font-weight:800;color:var(--primary-dark);margin-bottom:14px;line-height:1.5;}
+  .quiz-options{display:flex;flex-direction:column;gap:8px;}
+  .quiz-opt{background:var(--bg);border:2px solid var(--border);border-radius:10px;padding:11px 14px;font-size:14px;font-weight:600;color:var(--text-mid);cursor:pointer;transition:all .18s;text-align:start;}
+  .quiz-opt:hover{border-color:var(--accent);background:var(--accent-light);color:var(--primary);}
+  .quiz-opt.correct{background:var(--success-light);border-color:var(--success);color:var(--success);}
+  .quiz-opt.wrong{background:var(--danger-light);border-color:var(--danger);color:var(--danger);}
+  .quiz-opt:disabled{cursor:default;pointer-events:none;}
+  .quiz-feedback{margin-top:10px;font-size:13px;font-weight:700;padding:8px 12px;border-radius:8px;display:none;line-height:1.6;}
+  .quiz-feedback.show{display:block;}
+  .quiz-feedback.correct{background:var(--success-light);color:var(--success);}
+  .quiz-feedback.wrong{background:var(--danger-light);color:var(--danger);}
+  .quiz-score{text-align:center;font-size:15px;font-weight:700;color:var(--primary);margin-top:10px;display:none;}
+  .quiz-score.show{display:block;}
+
+  /* SHARE */
+  .share-section{background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:20px;margin-top:24px;text-align:center;box-shadow:var(--card-shadow);}
+  .share-title{font-size:16px;font-weight:800;color:var(--primary-dark);margin-bottom:5px;}
+  .share-sub{font-size:13px;color:var(--text-light);margin-bottom:14px;}
+  .share-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+  .share-btn{padding:9px 18px;border-radius:30px;font-size:13px;font-weight:700;border:none;cursor:pointer;transition:all .18s;display:flex;align-items:center;gap:6px;}
+  .share-btn:hover{transform:translateY(-1px);box-shadow:0 3px 12px rgba(0,0,0,.14);}
+  .share-btn.wa{background:#25D366;color:white;}
+  .share-btn.li{background:#0A66C2;color:white;}
+  .share-btn.fb{background:#1877F2;color:white;}
+  .share-btn.copy{background:var(--bg);color:var(--primary);border:1.5px solid var(--border);}
+
+
+
+  /* DISCLAIMER */
+  .disclaimer{font-size:12px;color:var(--text-light);text-align:center;margin-top:14px;padding:0 10px;line-height:1.6;}
+
+  /* NAV BAR */
+  .nav-bar{position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:2px solid var(--border);z-index:200;box-shadow:0 -4px 16px rgba(0,0,0,.07);}
+  .nav-bar-inner{max-width:700px;width:100%;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;}
+  .nav-link{display:flex;align-items:center;gap:6px;padding:9px 14px;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;transition:all .18s;}
+  .nav-link.prev{background:var(--bg);color:var(--primary);border:1.5px solid var(--border);}
+  .nav-link.prev:hover{background:var(--accent-light);border-color:var(--accent);}
+  .nav-link.next{background:linear-gradient(135deg,var(--primary),var(--primary-light));color:var(--white);box-shadow:0 3px 12px rgba(6,78,59,.28);}
+  .nav-link.next:hover{transform:translateY(-1px);box-shadow:0 5px 18px rgba(6,78,59,.38);}
+  .nav-episode{font-size:11px;color:var(--text-light);text-align:center;font-weight:600;}
+
+  @media(max-width:480px){
+    .caution-grid{grid-template-columns:1fr;}
+    .food-grid{grid-template-columns:repeat(2,1fr);}
+    .fluids-grid{grid-template-columns:repeat(2,1fr);}
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="lang-toggle">
+    <button class="lang-btn active" id="btnAr" onclick="setLang('ar')">العربية</button>
+    <button class="lang-btn"        id="btnEn" onclick="setLang('en')">English</button>
+  </div>
+  <div class="episode-badge"  id="hBadge"></div>
+  <h1                          id="hTitle"></h1>
+  <p class="header-sub"        id="hSub"></p>
+  <div class="header-authors"><span>Prof. Randa Reda</span><span>Prof. Sarah Hamza</span></div>
+</div>
+
+<!-- TABS -->
+<div class="tabs-wrapper">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="openTab(0)" id="tab-btn-0"></button>
+    <button class="tab-btn"        onclick="openTab(1)" id="tab-btn-1"></button>
+    <button class="tab-btn"        onclick="openTab(2)" id="tab-btn-2"></button>
+    <button class="tab-btn"        onclick="openTab(3)" id="tab-btn-3"></button>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- ══ TAB 1: WHAT TO DO FIRST ══ -->
+  <div class="tab-panel active" id="tab0">
+    <div class="intro-banner" id="t0Banner"></div>
+    <div class="alert-box"><span class="alert-icon">⚠️</span><span id="t0Alert"></span></div>
+    <div class="steps" id="t0Steps"></div>
+    <div class="note-box" id="t0Note"></div>
+  </div>
+
+  <!-- ══ TAB 2: NUTRITION & HYDRATION ══ -->
+  <div class="tab-panel" id="tab1">
+
+    <div class="section-title"><span>💧</span><span id="t1OrsTitle"></span></div>
+    <div class="ors-steps" id="t1OrsSteps"></div>
+    <div class="note-box" id="t1OrsNote" style="margin-bottom:22px;"></div>
+
+    <div class="section-title"><span>🍚</span><span id="t1FoodTitle"></span></div>
+    <p id="t1FoodHint" style="font-size:13px;color:var(--text-light);margin-bottom:12px;"></p>
+    <div class="food-grid" id="t1FoodGrid"></div>
+
+    <div class="section-title"><span>💦</span><span id="t1FluidTitle"></span></div>
+    <p id="t1FluidHint" style="font-size:13px;color:var(--text-light);margin-bottom:12px;"></p>
+    <div class="fluids-grid" id="t1FluidGrid"></div>
+
+    <div class="section-title"><span>⚠️</span><span id="t1CautionTitle"></span></div>
+    <div class="caution-grid" id="t1CautionGrid"></div>
+
+    <div class="hydration-box">
+      <h4 id="t1HydTitle"></h4>
+      <ul id="t1HydList"></ul>
+    </div>
+
+    <div class="section-title"><span>🔍</span><span id="t1ExtraTitle"></span></div>
+    <div id="t1Collapsibles"></div>
+
+    <div class="share-section">
+      <div class="share-title" id="shareTitle"></div>
+      <div class="share-sub"   id="shareSub"></div>
+      <div class="share-btns">
+        <button class="share-btn wa" onclick="shareWA()">📱 WhatsApp</button>
+        <button class="share-btn li" onclick="shareLI()">LinkedIn</button>
+        <button class="share-btn fb" onclick="shareFB()">Facebook</button>
+        <button class="share-btn copy" id="shareCopyBtn" onclick="copyLink()"></button>
+      </div>
+    </div>
+
+    <!-- AUTHOR FOOTER -->
+
+
+    <p class="disclaimer" id="disclaimer"></p>
+  </div>
+
+  <!-- ══ TAB 3: WARNING SIGNS ══ -->
+  <div class="tab-panel" id="tab2">
+    <div class="warning-section">
+      <h3><span>🔴</span><span id="t2WarnTitle"></span></h3>
+      <ul class="warning-list" id="t2WarnList"></ul>
+    </div>
+    <div class="dehydration-box"><strong id="t2DehLabel"></strong><span id="t2DehText"></span></div>
+    <div class="awareness-box" id="t2AwarenessBox">
+      <h4 id="t2AwarenessTitle"></h4>
+      <ul id="t2AwarenessList"></ul>
+      <div class="action-note" id="t2AwarenessAction"></div>
+    </div>
+    <div class="improvement-section">
+      <h3><span>📈</span><span id="t2ImpTitle"></span></h3>
+      <ul class="improvement-list" id="t2ImpList"></ul>
+    </div>
+    <div id="t2Collapsible"></div>
+    <div class="note-box" style="margin-top:16px;" id="t2Note"></div>
+  </div>
+
+  <!-- ══ TAB 4: QUIZ ══ -->
+  <div class="tab-panel" id="tab3">
+    <div class="intro-banner" id="quizBanner"></div>
+    <div id="quizContainer"></div>
+    <div class="quiz-score" id="quiz-score"></div>
+  </div>
+
+</div><!-- /content -->
+
+<!-- NAV BAR -->
+<div class="nav-bar">
+  <div class="nav-bar-inner">
+    <a href="https://randareda-droid.github.io/Patient-Guide-/week2.html" class="nav-link prev" id="navPrev"></a>
+    <div class="nav-episode" id="navEpisode"></div>
+    <a href="https://randareda-droid.github.io/Patient-Guide-/week4.html" class="nav-link next" id="navNext"></a>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════
+   CONTENT DATA  — all strings in both languages
+   ═══════════════════════════════════════════════ */
+const CONTENT = {
+  ar: {
+    pageTitle:    'رعاية كبار السن في المنزل — الحلقة الثالثة: الإسهال',
+    badge:        'الحلقة الثالثة',
+    h1:           'الإسهال — ماذا نفعل في المنزل؟',
+    hSub:         'كم مرة تكون طبيعية؟ ومتى نقلق؟ — الإجابة خطوة بخطوة لكل أسرة',
+    tabs:         ['🚑 ماذا نفعل أولاً','🍚 التغذية والترطيب','🚨 علامات الخطر','❓ اختبر نفسك'],
+    t0Banner:     'الإسهال عند كبار السن يُسرّع فقدان السوائل والأملاح بشكل خطير. <strong>الجفاف أخطر من الإسهال نفسه</strong> — لكن الخطوات الصحيحة في المنزل تحدث فرقاً كبيراً.',
+    t0Alert:      'أول خطوة: ابدأ في الترطيب فوراً — كل دقيقة مهمة عند كبار السن',
+    t0Steps: [
+      ['ابدأ بمحلول ORS أو ماء جوز الهند فوراً','ملعقة صغيرة (5 مل) كل 10 إلى 15 دقيقة. الهدف تعويض ما يفقده الجسم. لا تنتظر حتى يشعر بالعطش — الشعور بالعطش عند كبار السن قد يكون متأخراً.'],
+      ['لا تُوقف الطعام تماماً — أعطِه وجبات خفيفة سهلة الهضم','الأرز الأبيض المسلوق، الموز، التوست الجاف، البطاطا المهروسة. كميات صغيرة جداً — ملاعق قليلة كل ساعتين. الطعام يساعد الأمعاء على التعافي.'],
+      ['راقب لون البول وعدد مرات البراز','البول الأصفر الفاتح = جيد. البول الداكن أو البني = جفاف. سجّل كم مرة خرج البراز في اليوم — هذا يساعد الطبيب على التقييم.'],
+      ['نظافة اليدين — حماية لك وله','اغسل يديك بالصابون والماء قبل وبعد كل تواصل مع المريض. استخدم قفازات إن أمكن. الإسهال المعدي ينتقل بسهولة.'],
+      ['تواصل مع الطبيب — لا تتأخر','إذا استمر الإسهال أكثر من 24 ساعة، أو ظهرت علامات جفاف، أو كان مصحوباً بدم أو حمى — اتصل بالطبيب فوراً. لا تنتظر حتى يسوء الوضع.'],
+    ],
+    t0Note: '📌 تنبيه مهم: لا تُوقف أي دواء مزمن دون استشارة الطبيب — حتى أثناء الإسهال. تواصل مع طبيبك لمعرفة الطريقة الصحيحة للاستمرار في العلاج.',
+    t1OrsTitle:  'كيف تحضّر محلول ORS في المنزل؟',
+    t1OrsSteps:  ['كوب ماء مغلي ومبرد (250 مل)','ربع ملعقة صغيرة ملح طعام عادي','ملعقتان كبيرتان سكر أبيض','يُخلط جيداً حتى يذوب تماماً — يُحضَّر طازجاً كل يوم'],
+    t1OrsNote:   '📌 الجرعة: ملعقة صغيرة (5 مل) كل 10 إلى 15 دقيقة. الهدف: 400 إلى 800 مل على مدار اليوم.\n💊 من الصيدلية: Dioralyte أو Pedialyte أو ORS sachets — أكياس جاهزة تُذاب في الماء، أدق وأسهل.',
+    t1FoodTitle: 'أطعمة مناسبة أثناء الإسهال',
+    t1FoodHint:  'اضغط على أي طعام لمعرفة طريقة التقديم',
+    foods: [
+      ['🍚','أرز أبيض','مسلوق ناعم','مسلوق بكمية ماء أكثر حتى يصبح طرياً جداً. بدون زيت ولا توابل.'],
+      ['🍌','موز ناضج','غني بالبوتاسيوم','نصف موزة مهروسة. البوتاسيوم يعوّض ما يفقده الجسم.'],
+      ['🍞','توست جاف','خبز أبيض محمّص','شريحة أو شريحتان بدون زبدة أو مربى. سهل على المعدة.'],
+      ['🥔','بطاطا مهروسة','بدون قشر','مسلوقة جيداً ومهروسة. رشة ملح صغيرة مقبولة. بدون حليب كثير.'],
+      ['🍜','مرق صافٍ','دجاج أو خضار','مرق مصفى بدون دهون. يعوّض السوائل والأملاح معاً.'],
+      ['🥛','زبادي سادة','إذا تحسنت الحالة','بعد تحسن الإسهال — يعيد بكتيريا الأمعاء المفيدة. كميات صغيرة.'],
+      ['🍳','فرينة أو سميد','مطبوخ بالماء','بالماء فقط بدون إضافات. سهل الهضم ويعطي طاقة.'],
+      ['🏝️','ماء جوز الهند','أملاح طبيعية','غني بالبوتاسيوم والصوديوم — بديل طبيعي ممتاز لمحلول ORS.'],
+    ],
+    t1FluidTitle: 'سوائل ترطيب مفيدة — بدائل عملية',
+    t1FluidHint:  'اضغط على أي سائل لمعرفة طريقة الاستخدام والكمية',
+    fluids: [
+      ['🍵','شاي أعشاب خفيف','بابونج أو نعناع','البابونج يهدئ الأمعاء. النعناع يخفف التقلصات. بدون سكر. يُقدَّم فاتراً — ليس ساخناً.'],
+      ['🍶','ماء الأرز','تقليدي وفعّال','يُطبخ الأرز في ماء أكثر، يُصفّى ويُحفظ الماء. رشة ملح صغيرة. ملعقة صغيرة كل 10 دقائق.'],
+      ['🥕','مرق الجزر المسلوق','مرطّب وملطّف','جزرة أو اثنتان تُسلقان في الماء. يُصفّى الماء ويُقدَّم دافئاً. يهدئ الأمعاء ويعوّض السوائل.'],
+      ['🫗','ماء الشعير','يعيد توازن الأمعاء','يُغلى الشعير في الماء 20 دقيقة، يُصفّى ويُبرَّد. النشا يساعد في تماسك البراز.'],
+      ['🧂','مرق الخضار الصافي','أملاح ومعادن','كوسة، جزر، بصل — تُسلق وتُصفّى. تعوّض المعادن المفقودة. بدون توابل حارة.'],
+      ['🍎','عصير تفاح مخفف','نصفه ماء','يُخفَّف بالماء 1:1. يُقدَّم فاتراً. كوب صغير كل ساعتين. يرفع القبول عند من يرفض الماء الصرف.'],
+      ['🧊','مصاصة ثلج','تُبلل الفم والحلق','مفيدة عند رفض الشرب. يمكن تجميد محلول ORS أو ماء جوز الهند في قوالب ثلج.'],
+      ['🍋','ماء مع ليمون وملح','ترطيب سريع','كوب ماء + عصير نصف ليمونة + رشة ملح + ملعقة صغيرة سكر. بديل بسيط لـ ORS عند عدم توافره.'],
+    ],
+    t1CautionTitle: 'أطعمة ومشروبات تستحق الانتباه أثناء الإسهال',
+    cautions: [
+      ['🥛','الحليب كامل الدسم','قد يزيد الإسهال بسبب اللاكتوز'],
+      ['🍊','عصائر الحمضيات','حامضة وتُهيج الأمعاء'],
+      ['🌶️','التوابل الحارة','تُزيد التهيج وتُسرّع الحركة المعوية'],
+      ['🧈','الأطعمة الدهنية','ثقيلة على الأمعاء المهيّجة'],
+      ['☕','القهوة والشاي بكثرة','مدرّ للبول — يُسرّع الجفاف'],
+      ['🥦','الخضار الليفية النيئة','صعبة الهضم أثناء الإسهال'],
+    ],
+    t1HydTitle: '💧 كيف نعرف إن الجسم يجف؟',
+    hydList: ['اضغط على ظهر يده لثانيتين — إذا عاد الجلد ببطء: علامة جفاف','البول الأصفر الغامق أو البني = جفاف واضح','الفم والشفاه جافة جداً — علامة مبكرة مهمة','لم يتبول منذ 6 ساعات أو أكثر — تصرف فوراً'],
+    t1ExtraTitle: 'معلومات إضافية مهمة',
+    collapsibles1: [
+      ['🦠','ما أسباب الإسهال عند كبار السن؟',['عدوى بكتيرية أو فيروسية (الأكثر شيوعاً)','تأثير جانبي لبعض الأدوية — لا تتوقف دون مشورة الطبيب','تغيّر في النظام الغذائي أو أطعمة غير مناسبة','إمساك مزمن قد يسبب إسهالاً تعويضياً','التوتر والقلق الشديد عند بعض كبار السن']],
+      ['🧹','العناية بالجلد حول المنطقة الحساسة',['نظّف برفق بعد كل مرة — تجنب الحك','استخدم ماء دافئاً وقطن ناعم أو مناديل لطيفة','ضع كريماً واقياً للجلد لمنع التهيج','تجفيف برفق وعدم ترك الجلد رطباً']],
+    ],
+    shareTitle: '🔗 شارك هذا الدليل مع من تعرف',
+    shareSub:   'كل أسرة تعتني بكبير السن تحتاج هذه المعلومات',
+    shareCopy:  '📋 نسخ الرابط',
+    disclaimer: 'هذا الدليل للتوعية العامة فقط — لا يُغني عن استشارة الطبيب المعالج',
+    t2WarnTitle: 'اتصل بالطبيب أو اذهب للطوارئ فوراً',
+    warnings: ['دم في البراز — أي كمية مهما كانت صغيرة','لم يتبول منذ 8 ساعات أو أكثر','ارتباك شديد أو عدم تعرّف على الأشخاص','حرارة فوق 38.5 درجة مصحوبة بالإسهال','ألم بطني شديد ومستمر أو صلابة في البطن','أكثر من 8 مرات براز في يوم واحد','ضعف شديد مفاجئ أو عدم قدرة على الوقوف','لم يشرب أي سوائل منذ 12 ساعة','عيون غائرة وفم جاف جداً وجلد فاقد المرونة'],
+    t2DehLabel: '⚠️ علامات الجفاف الطارئة: ',
+    t2DehText:  'بول بني داكن أو توقف تام — دوخة شديدة — عيون غائرة — تسرّع ضربات القلب — انخفاض مفاجئ في الوعي. هذه تستدعي الطوارئ فوراً.',
+    t2AwarenessTitle: '🧠 الإسهال والوعي — ما يجب أن تعرفه',
+    t2AwarenessList: [
+      'عند كبار السن، يمكن أن يُسبب الإسهال اضطراباً في الوعي والتفكير',
+      'السبب: نقص الصوديوم أو البوتاسيوم في الدم، أو الجفاف الشديد',
+      'قد يبدو كبير السن مرتبكاً، لا يعرف أين هو، أو يتصرف بشكل غير معتاد',
+      'هذا يُسبب قلقاً كبيراً للأسرة والمقرّبين — وهو أمر مفهوم تماماً',
+    ],
+    t2AwarenessAction: '✅ في هذه الحالات: يُفضَّل تلقّي السوائل عن طريق الوريد بإشراف طبيب متخصص — إما في المنزل أو بالحجز في المستشفى حسب تقدير الطبيب.',
+    t2ImpTitle: 'علامات التحسن',
+    improvements: ['تراجع عدد مرات البراز إلى أقل من 3 مرات في اليوم','البول أصبح أصفر فاتحاً وبانتظام','يطلب الشرب بنفسه ويشرب دون مقاومة','يبدو أكثر تركيزاً ووضوحاً ذهنياً','الطاقة والنشاط بدأت تعود تدريجياً','الشهية بدأت تعود ويطلب الطعام'],
+    collapsibles2: [
+      ['💧','اختبار الجفاف المنزلي — خطوة بخطوة',['اضغط على ظهر يده برفق لمدة ثانيتين ثم أفلت','إذا عاد الجلد للطبيعي فوراً: الترطيب جيد','إذا بقي الجلد مرتفعاً أو عاد ببطء: علامة جفاف واضحة','انظر كذلك إلى داخل الفم — جاف أم رطب؟']],
+    ],
+    t2Note: '📌 حتى لو رفضت الأسرة المستشفى — اتصل بالطبيب على الأقل للحصول على محلول وريدي في المنزل أو وصفة علاجية مناسبة.',
+    quizBanner: 'اختبر معلوماتك عن الإسهال عند كبار السن — 3 أسئلة سريعة',
+    questions: [
+      {
+        q: '❓ ما أول شيء يجب فعله عند بداية الإسهال عند كبير السن؟',
+        opts: ['أ) إيقاف الطعام تماماً','ب) بدء الترطيب بمحلول ORS فوراً','ج) الانتظار 24 ساعة قبل التصرف','د) إعطاء دواء للإسهال مباشرة'],
+        correct: 1,
+        feedbacks: ['إيقاف الطعام مفيد أحياناً، لكن الترطيب أولاً هو الأهم — الجفاف يأتي بسرعة عند كبار السن.','صحيح! البدء بالترطيب فوراً هو الخطوة الأهم — ملعقة صغيرة ORS كل 10 إلى 15 دقيقة تمنع الجفاف.','الانتظار خطر — الجفاف عند كبار السن يحدث بسرعة أكبر مما نتوقع.','الأدوية تُؤخذ بعد استشارة الطبيب. الترطيب يأتي أولاً.'],
+      },
+      {
+        q: '❓ أي من علامات الخطر التالية تستدعي الطوارئ فوراً؟',
+        opts: ['أ) براز مائي مرتين في اليوم','ب) فقدان الشهية','ج) وجود دم في البراز','د) تعب خفيف'],
+        correct: 2,
+        feedbacks: ['البراز المائي وحده يحتاج متابعة — لكن ليس طارئاً فورياً ما لم تظهر علامات أخرى.','فقدان الشهية شائع — لكنه لا يستدعي الطوارئ وحده.','صحيح! الدم في البراز علامة طارئة تستدعي الطوارئ فوراً مهما كانت الكمية صغيرة.','التعب الخفيف شائع — لكن الضعف الشديد المفاجئ هو الذي يستدعي التصرف الفوري.'],
+      },
+      {
+        q: '❓ ما الطعام الأنسب لكبير السن أثناء الإسهال؟',
+        opts: ['أ) حليب كامل الدسم دافئ','ب) أرز أبيض مسلوق ناعم','ج) سلطة خضار نيئة','د) بيض مقلي بالزيت'],
+        correct: 1,
+        feedbacks: ['الحليب كامل الدسم قد يُفاقم الإسهال بسبب اللاكتوز. يُفضَّل الزبادي بعد التحسن.','صحيح! الأرز الأبيض المسلوق ناعماً هو أفضل طعام أثناء الإسهال — خفيف وسهل الهضم ويساعد على تماسك البراز.','الخضار النيئة صعبة الهضم وقد تُهيج الأمعاء.','الأطعمة الدهنية ثقيلة على الأمعاء المهيّجة وقد تُفاقم الإسهال.'],
+      },
+    ],
+    navPrev:    '← الحلقة الثانية: التقيؤ',
+    navEpisode: 'الحلقة 3 من 12',
+    navNext:    'الإمساك ←',
+    quizScore: (t) => `نتيجتك: ${t} من 3 ${t===3?'🎉 ممتاز!':t===2?'👍 جيد جداً!':'💪 استمر في التعلم!'}`,
+    correct: 'صحيح! ',
+    wrong:   '❌ ',
+  },
+
+  en: {
+    pageTitle:    'Elderly Home Care — Episode 3: Diarrhoea',
+    badge:        'Episode 3',
+    h1:           'Diarrhoea — What to Do at Home?',
+    hSub:         'How many times is normal? When to worry? A step-by-step guide for every family',
+    tabs:         ['🚑 What to Do First','🍚 Nutrition & Hydration','🚨 Warning Signs','❓ Quiz'],
+    t0Banner:     'Diarrhoea in older adults causes rapid loss of fluids and salts. <strong>Dehydration is more dangerous than the diarrhoea itself</strong> — but the right steps at home make a real difference.',
+    t0Alert:      'First step: Start rehydration immediately — every minute matters for older adults',
+    t0Steps: [
+      ['Start ORS or coconut water immediately','One teaspoon (5 ml) every 10–15 minutes. The goal is to replace what the body is losing. Don\'t wait for them to feel thirsty — thirst sensation is often delayed in older adults.'],
+      ['Don\'t stop food entirely — give light, easy-to-digest meals','Boiled white rice, banana, plain toast, mashed potato. Very small amounts — a few spoons every 2 hours. Food actually helps the gut recover.'],
+      ['Monitor urine colour and number of stools','Light yellow urine = good. Dark or brown urine = dehydration. Note how many stools per day — this helps the doctor assess the situation.'],
+      ['Handwashing — protection for you and them','Wash hands with soap and water before and after every contact. Use gloves if possible. Infectious diarrhoea spreads easily.'],
+      ['Contact the doctor — don\'t delay','If diarrhoea continues more than 24 hours, signs of dehydration appear, or there is blood or fever — call the doctor immediately. Don\'t wait for things to worsen.'],
+    ],
+    t0Note: '📌 Important: Never stop any regular medication without consulting the doctor — even during diarrhoea. Contact your doctor to find out how to continue treatment safely.',
+    t1OrsTitle:  'How to Prepare ORS at Home',
+    t1OrsSteps:  ['One cup of boiled and cooled water (250 ml)','Quarter teaspoon of regular table salt','Two tablespoons of white sugar','Mix well until fully dissolved — prepare fresh every day'],
+    t1OrsNote:   '📌 Dose: One teaspoon (5 ml) every 10–15 minutes. Target: 400–800 ml throughout the day.\n💊 From the pharmacy: Dioralyte, Pedialyte, or ORS sachets — ready-made pouches dissolved in water, more precise and easier.',
+    t1FoodTitle: 'Suitable Foods During Diarrhoea',
+    t1FoodHint:  'Tap any food to see how to serve it',
+    foods: [
+      ['🍚','White Rice','Soft-boiled','Boiled with extra water until very soft. No oil or spices.'],
+      ['🍌','Ripe Banana','Rich in potassium','Half a mashed banana. Potassium replaces what the body loses.'],
+      ['🍞','Plain Toast','White bread, toasted','One or two slices without butter or jam. Gentle on the stomach.'],
+      ['🥔','Mashed Potato','No skin','Well-boiled and mashed. A tiny pinch of salt is fine. Minimal milk.'],
+      ['🍜','Clear Broth','Chicken or vegetable','Strained broth without fat. Replaces fluids and salts simultaneously.'],
+      ['🥛','Plain Yoghurt','When improving','Once diarrhoea improves — restores beneficial gut bacteria. Small amounts only.'],
+      ['🍳','Porridge / Semolina','Cooked in water','Water only, no additives. Easy to digest and provides energy.'],
+      ['🏝️','Coconut Water','Natural salts','Rich in potassium and sodium — excellent natural alternative to ORS.'],
+    ],
+    t1FluidTitle: 'Helpful Rehydrating Fluids — Practical Alternatives',
+    t1FluidHint:  'Tap any fluid to learn how to use it and how much to give',
+    fluids: [
+      ['🍵','Light Herbal Tea','Chamomile or mint','Chamomile soothes the gut. Mint eases cramps. No sugar. Serve lukewarm — not hot.'],
+      ['🍶','Rice Water','Traditional & effective','Boil white rice in extra water, strain the rice and keep the water. Add a tiny pinch of salt. One teaspoon every 10 minutes.'],
+      ['🥕','Boiled Carrot Broth','Hydrating & soothing','One or two carrots boiled until very soft. Strain and serve warm. Replenishes fluids and soothes the gut.'],
+      ['🫗','Barley Water','Restores gut balance','Boil pearl barley for 20 minutes, strain and cool. Rich in starch which helps firm the stool.'],
+      ['🧂','Clear Vegetable Broth','Salts & minerals','Courgette, carrot, onion — boiled and strained. Replaces lost minerals. No spices.'],
+      ['🍎','Diluted Apple Juice','Half water, half juice','Dilute 1:1 with water. Serve lukewarm. A small cup every 2 hours. Improves acceptance for those who refuse plain water.'],
+      ['🧊','Ice Lolly / Ice Chips','Moistens mouth & throat','Very helpful when drinking is refused. Freeze ORS or coconut water in ice cube trays. Offer slowly and gently.'],
+      ['🍋','Lemon Salt Water','Quick rehydration','One cup water + juice of half a lemon + pinch of salt + one teaspoon sugar. A simple ORS substitute when unavailable.'],
+    ],
+    t1CautionTitle: 'Foods & Drinks to Be Mindful of During Diarrhoea',
+    cautions: [
+      ['🥛','Full-fat milk','May worsen diarrhoea due to lactose'],
+      ['🍊','Citrus juices','Acidic and irritate the gut'],
+      ['🌶️','Spicy food','Increases irritation and speeds gut movement'],
+      ['🧈','Fatty foods','Hard on an irritated gut'],
+      ['☕','Excess coffee or tea','Diuretic — speeds up dehydration'],
+      ['🥦','Raw fibrous vegetables','Hard to digest during diarrhoea'],
+    ],
+    t1HydTitle: '💧 How to Tell if the Body is Dehydrating?',
+    hydList: ['Press the back of their hand for 2 seconds — if skin returns slowly: sign of dehydration','Dark yellow or brown urine = clear dehydration','Very dry mouth and lips — an important early sign','No urine for 6 hours or more — act immediately'],
+    t1ExtraTitle: 'Additional Important Information',
+    collapsibles1: [
+      ['🦠','What Causes Diarrhoea in Older Adults?',['Bacterial or viral infection (most common)','Side effect of some medications — never stop without consulting the doctor','Dietary change or consuming unsuitable foods','Chronic constipation can cause overflow diarrhoea','Severe stress or anxiety in some older adults']],
+      ['🧹','Skin Care Around the Sensitive Area',['Clean gently after every episode — avoid rubbing','Use warm water and soft cotton or gentle wipes','Apply a protective skin cream to prevent irritation','Pat dry gently and never leave skin damp']],
+    ],
+    shareTitle: '🔗 Share this guide with someone you know',
+    shareSub:   'Every family caring for an older adult needs this information',
+    shareCopy:  '📋 Copy Link',
+    disclaimer: 'This guide is for general awareness only — it does not replace medical consultation',
+    t2WarnTitle: 'Call the Doctor or Go to A&E Immediately',
+    warnings: ['Blood in stool — any amount, however small','No urine for 8 hours or more','Severe confusion or not recognising people','Fever above 38.5°C together with diarrhoea','Severe continuous abdominal pain or rigid abdomen','More than 8 stools in a single day','Sudden severe weakness or inability to stand','No fluids taken for 12 hours','Sunken eyes, very dry mouth, skin lacking elasticity'],
+    t2DehLabel: '⚠️ Emergency dehydration signs: ',
+    t2DehText:  'Dark brown or stopped urine — severe dizziness — sunken eyes — rapid heartbeat — sudden drop in alertness. These require emergency care immediately.',
+    t2AwarenessTitle: '🧠 Diarrhoea and Consciousness — What You Need to Know',
+    t2AwarenessList: [
+      'In older adults, diarrhoea can cause confusion and altered consciousness',
+      'The cause: low sodium or potassium levels in the blood, or severe dehydration',
+      'The older person may appear confused, disoriented, or behave unusually',
+      'This is deeply distressing for family members and carers — and that is completely understandable',
+    ],
+    t2AwarenessAction: '✅ In these situations: intravenous fluids given under the supervision of a specialist doctor are preferred — either at home or through hospital admission, depending on the doctor\'s assessment.',
+    t2ImpTitle: 'Signs of Improvement',
+    improvements: ['Fewer stools — less than 3 times per day','Urine is light yellow and regular','Asking for drinks independently and drinking without resistance','Appears more focused and mentally clear','Energy and activity gradually returning','Appetite returning and asking for food'],
+    collapsibles2: [
+      ['💧','Home Dehydration Test — Step by Step',['Press gently on the back of their hand for 2 seconds then release','If skin returns immediately: hydration is fine','If skin stays raised or returns slowly: clear sign of dehydration','Also look inside the mouth — dry or moist?']],
+    ],
+    t2Note: '📌 Even if the family refuses hospital — call the doctor at least to arrange a home IV drip or an appropriate prescription.',
+    quizBanner: 'Test your knowledge about diarrhoea in older adults — 3 quick questions',
+    questions: [
+      {
+        q: '❓ What is the very first thing to do when diarrhoea starts in an older adult?',
+        opts: ['A) Stop all food completely','B) Start rehydration with ORS immediately','C) Wait 24 hours before acting','D) Give anti-diarrhoea medication immediately'],
+        correct: 1,
+        feedbacks: ['Stopping food can help, but rehydration first is most important — dehydration comes quickly in older adults.','Correct! Starting rehydration immediately is the most important step — one teaspoon of ORS every 10–15 minutes prevents dehydration.','Waiting is dangerous — dehydration in older adults happens faster than we expect.','Medication may be needed later — but always after consulting the doctor. Rehydration comes first.'],
+      },
+      {
+        q: '❓ Which of the following warning signs requires emergency care immediately?',
+        opts: ['A) Watery stool twice in a day','B) Loss of appetite','C) Blood in the stool','D) Mild tiredness'],
+        correct: 2,
+        feedbacks: ['Watery stool alone needs monitoring — but is not an immediate emergency unless other signs appear.','Loss of appetite is common — but alone it does not require emergency care.','Correct! Blood in stool is an emergency sign requiring immediate A&E care, no matter how small the amount.','Mild tiredness is common — but sudden severe weakness is what requires immediate action.'],
+      },
+      {
+        q: '❓ What is the most suitable food for an older adult during diarrhoea?',
+        opts: ['A) Warm full-fat milk','B) Soft-boiled white rice','C) Raw vegetable salad','D) Fried eggs in oil'],
+        correct: 1,
+        feedbacks: ['Full-fat milk can worsen diarrhoea due to lactose. Yoghurt is preferable once improving.','Correct! Soft-boiled white rice is the best food during diarrhoea — light, easy to digest, and helps firm stool.','Raw vegetables are hard to digest during diarrhoea and may irritate the gut further.','Fatty foods are heavy on an irritated gut and may worsen diarrhoea.'],
+      },
+    ],
+    navPrev:    '← Episode 2: Vomiting',
+    navEpisode: 'Episode 3 of 12',
+    navNext:    'Constipation →',
+    quizScore: (t) => `Your score: ${t} out of 3 ${t===3?'🎉 Excellent!':t===2?'👍 Well done!':'💪 Keep learning!'}`,
+    correct: '✅ ',
+    wrong:   '❌ ',
+  }
+};
+
+/* ═══════════════════════════════════════════════
+   RENDER ENGINE
+   ═══════════════════════════════════════════════ */
+let lang = 'ar';
+const scores = {q1:null,q2:null,q3:null};
+
+function $(id){ return document.getElementById(id); }
+
+function render(l){
+  lang = l;
+  const d  = CONTENT[l];
+  const isEn = l==='en';
+
+  // Document
+  document.documentElement.lang = l;
+  document.documentElement.dir  = isEn ? 'ltr' : 'rtl';
+  document.body.style.fontFamily = isEn ? "'Lato',sans-serif" : "'Tajawal','Cairo',sans-serif";
+  document.title = d.pageTitle;
+
+  // Lang buttons
+  $('btnAr').classList.toggle('active',!isEn);
+  $('btnEn').classList.toggle('active', isEn);
+
+  // Header
+  $('hBadge').textContent = d.badge;
+  $('hTitle').textContent = d.h1;
+  $('hSub').textContent   = d.hSub;
+
+  // Tab buttons
+  d.tabs.forEach((t,i)=> $('tab-btn-'+i).textContent = t);
+
+  // ─ TAB 0 ─
+  $('t0Banner').innerHTML = d.t0Banner;
+  $('t0Alert').textContent = d.t0Alert;
+  $('t0Steps').innerHTML = d.t0Steps.map((s,i)=>`
+    <div class="step">
+      <div class="step-num">${i+1}</div>
+      <div class="step-body"><h3>${s[0]}</h3><p>${s[1]}</p></div>
+    </div>`).join('');
+  $('t0Note').textContent = d.t0Note;
+
+  // ─ TAB 1 ─
+  $('t1OrsTitle').textContent = d.t1OrsTitle;
+  $('t1OrsSteps').innerHTML = d.t1OrsSteps.map((s,i)=>`
+    <div class="ors-step"><div class="ors-num">${i+1}</div><span>${s}</span></div>`).join('');
+  $('t1OrsNote').textContent = d.t1OrsNote;
+
+  $('t1FoodTitle').textContent = d.t1FoodTitle;
+  $('t1FoodHint').textContent  = d.t1FoodHint;
+  $('t1FoodGrid').innerHTML = d.foods.map(f=>`
+    <div class="food-card" onclick="toggleFood(this)">
+      <div class="food-card-emoji">${f[0]}</div>
+      <div class="food-card-label">${f[1]}</div>
+      <div class="food-card-sub">${f[2]}</div>
+      <div class="food-detail">${f[3]}</div>
+    </div>`).join('');
+
+  $('t1FluidTitle').textContent = d.t1FluidTitle;
+  $('t1FluidHint').textContent  = d.t1FluidHint;
+  $('t1FluidGrid').innerHTML = d.fluids.map(f=>`
+    <div class="fluid-card" onclick="toggleFluid(this)">
+      <div class="fluid-card-emoji">${f[0]}</div>
+      <div class="fluid-card-label">${f[1]}</div>
+      <div class="fluid-card-sub">${f[2]}</div>
+      <div class="fluid-detail">${f[3]}</div>
+    </div>`).join('');
+
+  $('t1CautionTitle').textContent = d.t1CautionTitle;
+  $('t1CautionGrid').innerHTML = d.cautions.map(c=>`
+    <div class="caution-item">
+      <span class="caution-emoji">${c[0]}</span>
+      <div><div>${c[1]}</div><div class="caution-detail">${c[2]}</div></div>
+    </div>`).join('');
+
+  $('t1HydTitle').textContent = d.t1HydTitle;
+  $('t1HydList').innerHTML = d.hydList.map(h=>`<li>${h}</li>`).join('');
+
+  $('t1ExtraTitle').textContent = d.t1ExtraTitle;
+  $('t1Collapsibles').innerHTML = d.collapsibles1.map(c=>makeCollapsible(c)).join('');
+
+  $('shareTitle').textContent = d.shareTitle;
+  $('shareSub').textContent   = d.shareSub;
+  $('shareCopyBtn').textContent = d.shareCopy;
+
+  $('disclaimer').textContent = d.disclaimer;
+
+  // ─ TAB 2 ─
+  $('t2WarnTitle').textContent = d.t2WarnTitle;
+  $('t2WarnList').innerHTML = d.warnings.map(w=>`
+    <li class="warning-item"><span class="warning-dot"></span><span>${w}</span></li>`).join('');
+  $('t2DehLabel').textContent = d.t2DehLabel;
+  $('t2DehText').textContent  = d.t2DehText;
+  $('t2AwarenessTitle').textContent  = d.t2AwarenessTitle;
+  $('t2AwarenessList').innerHTML     = d.t2AwarenessList.map(i=>`<li>${i}</li>`).join('');
+  $('t2AwarenessAction').textContent = d.t2AwarenessAction;
+  $('t2ImpTitle').textContent = d.t2ImpTitle;
+  $('t2ImpList').innerHTML = d.improvements.map(w=>`
+    <li class="improvement-item"><span class="improvement-dot"></span><span>${w}</span></li>`).join('');
+  $('t2Collapsible').innerHTML = d.collapsibles2.map(c=>makeCollapsible(c)).join('');
+  $('t2Note').textContent = d.t2Note;
+
+  // ─ TAB 3 ─
+  $('quizBanner').innerHTML = d.quizBanner;
+  renderQuiz(d);
+
+  // ─ NAV ─
+  $('navPrev').textContent    = d.navPrev;
+  $('navEpisode').textContent = d.navEpisode;
+  $('navNext').textContent    = d.navNext;
+
+  // Re-render quiz score if already done
+  const scoreEl = $('quiz-score');
+  if (scoreEl.dataset.total !== undefined && scoreEl.dataset.total !== '') {
+    scoreEl.textContent = d.quizScore(parseInt(scoreEl.dataset.total));
+  }
+}
+
+function makeCollapsible([icon, title, items]) {
+  return `<div class="collapsible" onclick="toggleCollapsible(this)">
+    <div class="collapsible-header">
+      <span class="c-icon">${icon}</span>
+      <span style="flex:1">${title}</span>
+      <span class="c-arrow">▶</span>
+    </div>
+    <div class="collapsible-body"><ul>${items.map(i=>`<li>${i}</li>`).join('')}</ul></div>
+  </div>`;
+}
+
+function renderQuiz(d) {
+  $('quizContainer').innerHTML = d.questions.map((qd,qi)=>`
+    <div class="quiz-q" id="q${qi+1}">
+      <div class="quiz-question">${qd.q}</div>
+      <div class="quiz-options">
+        ${qd.opts.map((o,oi)=>`
+          <button class="quiz-opt" onclick="answer(this,'q${qi+1}',${oi===qd.correct},${qi})">${o}</button>
+        `).join('')}
+      </div>
+      <div class="quiz-feedback" id="q${qi+1}-feedback"></div>
+    </div>`).join('');
+
+  // Restore answered state if switching language mid-quiz
+  ['q1','q2','q3'].forEach((qId,qi)=>{
+    const q = $(qId);
+    if (!q || scores[qId]===null) return;
+    q.dataset.answered = 'true';
+    const opts = q.querySelectorAll('.quiz-opt');
+    opts.forEach(o=>{ o.disabled=true; o.style.opacity='0.6'; });
+    const wasCorrect = scores[qId]===1;
+    // find correct opt (index)
+    const ci = CONTENT[lang].questions[qi].correct;
+    opts[ci].classList.add('correct'); opts[ci].style.opacity='1';
+    if(!wasCorrect){ /* already coloured in build */ }
+    const fb = $(qId+'-feedback');
+    const prefix = wasCorrect ? '✅ ' : '❌ ';
+    fb.textContent = prefix + CONTENT[lang].questions[qi].feedbacks[ci];
+    fb.className = 'quiz-feedback show '+(wasCorrect?'correct':'wrong');
+  });
+}
+
+/* ═══════════════════════════════════════════════
+   INTERACTIONS
+   ═══════════════════════════════════════════════ */
+function setLang(l){ render(l); }
+
+function openTab(i){
+  document.querySelectorAll('.tab-panel').forEach((p,j)=>p.classList.toggle('active',j===i));
+  document.querySelectorAll('.tab-btn').forEach((b,j)=>b.classList.toggle('active',j===i));
+}
+
+function toggleCollapsible(el){ el.classList.toggle('open'); }
+
+function toggleFood(el){
+  const was=el.classList.contains('open');
+  document.querySelectorAll('.food-card').forEach(c=>c.classList.remove('open'));
+  if(!was) el.classList.add('open');
+}
+
+function toggleFluid(el){
+  const was=el.classList.contains('open');
+  document.querySelectorAll('.fluid-card').forEach(c=>c.classList.remove('open'));
+  if(!was) el.classList.add('open');
+}
+
+function answer(btn, qId, isCorrect, qIndex){
+  const q = $(qId);
+  if(q.dataset.answered) return;
+  q.dataset.answered='true';
+
+  const opts = q.querySelectorAll('.quiz-opt');
+  opts.forEach(o=>{ o.disabled=true; o.style.opacity='0.6'; });
+  btn.style.opacity='1';
+  btn.classList.add(isCorrect?'correct':'wrong');
+
+  const ci = CONTENT[lang].questions[qIndex].correct;
+  opts[ci].classList.add('correct'); opts[ci].style.opacity='1';
+
+  const fb = $(qId+'-feedback');
+  const d  = CONTENT[lang].questions[qIndex];
+  fb.textContent = (isCorrect?'✅ ':'❌ ') + d.feedbacks[qIndex===0||qIndex===1||qIndex===2 ? (isCorrect?ci:Array.from(opts).indexOf(btn)) : ci];
+
+  // Recalculate: get chosen index
+  const chosenIdx = Array.from(opts).indexOf(btn);
+  fb.textContent = (isCorrect?'✅ ':'❌ ') + d.feedbacks[chosenIdx];
+  fb.className='quiz-feedback show '+(isCorrect?'correct':'wrong');
+
+  scores[qId] = isCorrect?1:0;
+
+  const done = Object.values(scores).filter(v=>v!==null).length;
+  if(done===3){
+    const total=scores.q1+scores.q2+scores.q3;
+    const scoreEl=$('quiz-score');
+    scoreEl.dataset.total=total;
+    scoreEl.textContent=CONTENT[lang].quizScore(total);
+    scoreEl.classList.add('show');
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   SHARE
+   ═══════════════════════════════════════════════ */
+const PAGE_URL='https://randareda-droid.github.io/Patient-Guide-/week3.html';
+function shareWA(){ window.open('https://wa.me/?text='+encodeURIComponent(CONTENT[lang].h1+'\n'+PAGE_URL),'_blank'); }
+function shareLI(){ window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(PAGE_URL),'_blank'); }
+function shareFB(){ window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(PAGE_URL),'_blank'); }
+function copyLink(){ navigator.clipboard.writeText(PAGE_URL).then(()=>alert(lang==='en'?'Link copied!':'تم نسخ الرابط!')); }
+
+/* ═══════════════════════════════════════════════
+   INIT
+   ═══════════════════════════════════════════════ */
+render('ar');
+</script>
+</body>
+</html>

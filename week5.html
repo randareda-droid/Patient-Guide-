@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رعاية كبار السن في المنزل — الحلقة الخامسة: الأدوية والسلامة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Cairo:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--primary:#0F766E;--primary-light:#0D9488;--primary-dark:#042F2E;--accent:#2DD4BF;--accent-light:#CCFBF1;--accent-mid:#99F6E4;--danger:#DC2626;--danger-light:#FEE2E2;--warning:#D97706;--warning-light:#FEF3C7;--success:#059669;--success-light:#D1FAE5;--text-dark:#111827;--text-mid:#374151;--text-light:#6B7280;--bg:#F0FDFA;--white:#FFFFFF;--border:#E5E7EB;--card-shadow:0 2px 12px rgba(15,118,110,0.10);--font-ar:'Tajawal','Cairo',sans-serif;--font-en:'Lato',sans-serif;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ar);background:var(--bg);color:var(--text-dark);min-height:100vh;}
+  html[dir=ltr] body{font-family:var(--font-en);}
+  html[dir=ltr] .intro-banner{border-inline-start:4px solid var(--accent);text-align:left;}
+  html[dir=ltr] .alert-box{text-align:left;}
+  html[dir=ltr] .step-body h3,html[dir=ltr] .step-body p{text-align:left;}
+  html[dir=ltr] .note-box{text-align:left;}
+  html[dir=ltr] .section-title{text-align:left;}
+  html[dir=ltr] .recipe-step{text-align:left;}
+  html[dir=ltr] .caution-item{text-align:left;}
+  html[dir=ltr] .tip-box{text-align:left;}
+  html[dir=ltr] .collapsible-header{text-align:left;}
+  html[dir=ltr] .collapsible-body{text-align:left;}
+  html[dir=ltr] .collapsible-body ul{padding-inline-start:18px;}
+  html[dir=ltr] .warning-item{text-align:left;}
+  html[dir=ltr] .improvement-item{text-align:left;}
+  html[dir=ltr] .dehydration-box{text-align:left;}
+  html[dir=ltr] .quiz-question{text-align:left;}
+  html[dir=ltr] .quiz-opt{text-align:left;}
+  html[dir=ltr] .quiz-feedback{text-align:left;}
+  html[dir=ltr] .nav-link{font-family:var(--font-en);}
+  html[dir=ltr] .tab-btn{font-family:var(--font-en);font-size:11px;}
+  .header{background:linear-gradient(135deg,var(--primary-dark) 0%,var(--primary) 60%,var(--primary-light) 100%);color:var(--white);padding:36px 20px 26px;text-align:center;position:relative;}
+  .episode-badge{display:inline-block;background:rgba(255,255,255,0.18);border-radius:20px;font-size:12px;padding:3px 14px;margin-bottom:10px;}
+  .header h1{font-size:clamp(21px,5vw,32px);font-weight:800;line-height:1.25;margin-bottom:8px;}
+  .header-sub{font-size:14px;opacity:.85;max-width:500px;margin:0 auto;}
+  .header-authors{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;direction:ltr;margin-top:10px;font-size:13px;font-weight:700;opacity:.9;}
+  .lang-toggle{position:absolute;top:16px;left:16px;display:flex;background:rgba(255,255,255,0.14);border-radius:30px;overflow:hidden;border:1.5px solid rgba(255,255,255,0.3);}
+  .lang-btn{padding:6px 14px;font-size:13px;font-weight:700;border:none;background:transparent;color:rgba(255,255,255,0.7);cursor:pointer;transition:all .2s;font-family:var(--font-en);}
+  .lang-btn.active{background:var(--white);color:var(--primary);border-radius:28px;}
+  .tabs-wrapper{background:var(--white);border-bottom:2px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+  .tabs{display:flex;overflow-x:auto;scrollbar-width:none;max-width:700px;margin:0 auto;}
+  .tabs::-webkit-scrollbar{display:none;}
+  .tab-btn{flex:1;min-width:88px;padding:13px 6px 11px;border:none;background:transparent;font-size:12px;font-weight:700;color:var(--text-light);cursor:pointer;border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap;text-align:center;}
+  .tab-btn.active{color:var(--primary);border-bottom-color:var(--accent);}
+  .tab-btn:hover{color:var(--primary);background:var(--accent-light);}
+  .content{max-width:700px;margin:0 auto;padding:24px 16px 120px;}
+  .tab-panel{display:none;}
+  .tab-panel.active{display:block;animation:fadeIn .28s ease;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+  .intro-banner{background:linear-gradient(135deg,var(--accent-light),#f0fdfa);border-inline-start:4px solid var(--accent);border-radius:12px;padding:16px 18px;margin-bottom:22px;font-size:15px;line-height:1.75;color:var(--primary-dark);}
+  .intro-banner strong{color:var(--primary);font-weight:800;}
+  .alert-box{display:flex;align-items:flex-start;gap:10px;background:#FFF7ED;border:1.5px solid #FED7AA;border-radius:10px;padding:13px 16px;margin-bottom:20px;font-size:14px;color:#7C2D12;font-weight:600;line-height:1.65;}
+  .alert-icon{font-size:20px;flex-shrink:0;margin-top:1px;}
+  .steps{display:flex;flex-direction:column;gap:14px;margin-bottom:24px;}
+  .step{background:var(--white);border-radius:14px;box-shadow:var(--card-shadow);padding:17px 18px 15px;display:flex;gap:14px;align-items:flex-start;border:1.5px solid var(--border);transition:box-shadow .2s,border-color .2s;}
+  .step:hover{box-shadow:0 4px 20px rgba(15,118,110,.13);border-color:var(--accent-mid);}
+  .step-num{background:linear-gradient(135deg,var(--primary),var(--primary-light));color:var(--white);font-weight:800;font-size:15px;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .step-body h3{font-size:15px;font-weight:800;color:var(--primary-dark);margin-bottom:5px;}
+  .step-body p{font-size:14px;color:var(--text-mid);line-height:1.7;}
+  .note-box{background:var(--accent-light);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--primary-dark);font-weight:600;margin-top:20px;border:1.5px solid var(--accent-mid);line-height:1.75;white-space:pre-line;}
+  .section-title{font-size:17px;font-weight:800;color:var(--primary-dark);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+  .recipe-steps{display:flex;flex-direction:column;gap:10px;margin-bottom:16px;}
+  .recipe-step{display:flex;align-items:center;gap:12px;background:var(--white);border-radius:10px;padding:12px 14px;border:1.5px solid var(--border);font-size:14px;color:var(--primary-dark);font-weight:600;}
+  .recipe-num{background:var(--primary);color:white;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;}
+  .food-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-bottom:22px;}
+  .food-card{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:14px 10px;text-align:center;cursor:pointer;transition:all .2s;box-shadow:var(--card-shadow);}
+  .food-card:hover,.food-card.open{border-color:var(--accent);background:var(--accent-light);transform:translateY(-2px);}
+  .food-card-emoji{font-size:28px;margin-bottom:4px;}
+  .food-card-label{font-size:12px;font-weight:700;color:var(--primary-dark);margin-bottom:2px;}
+  .food-card-sub{font-size:11px;color:var(--text-light);}
+  .food-detail{display:none;margin-top:7px;font-size:11.5px;color:var(--primary-dark);line-height:1.6;background:var(--white);border-radius:7px;padding:7px;text-align:start;}
+  .food-card.open .food-detail{display:block;}
+  .exercise-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:22px;}
+  .exercise-card{background:var(--white);border:1.5px solid #BBF7D0;border-radius:12px;padding:14px 10px;text-align:center;cursor:pointer;transition:all .2s;box-shadow:0 2px 8px rgba(5,150,105,.08);}
+  .exercise-card:hover,.exercise-card.open{border-color:#10B981;background:#F0FDF4;transform:translateY(-2px);}
+  .exercise-card-emoji{font-size:28px;margin-bottom:5px;}
+  .exercise-card-label{font-size:12px;font-weight:700;color:#064E3B;margin-bottom:2px;}
+  .exercise-card-sub{font-size:11px;color:#059669;}
+  .exercise-detail{display:none;margin-top:7px;font-size:11.5px;color:#064E3B;line-height:1.65;background:var(--white);border-radius:7px;padding:7px;text-align:start;}
+  .exercise-card.open .exercise-detail{display:block;}
+  .caution-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px;}
+  .caution-item{background:#FFF7ED;border:1.5px solid #FED7AA;border-radius:12px;padding:12px;font-size:13px;font-weight:700;color:#7C2D12;display:flex;align-items:flex-start;gap:7px;line-height:1.5;}
+  .caution-emoji{font-size:16px;flex-shrink:0;}
+  .caution-detail{font-size:11px;font-weight:400;color:#9F1239;margin-top:3px;}
+  .tip-box{background:linear-gradient(135deg,#FFF7ED,#FFEDD5);border:1.5px solid #FED7AA;border-radius:12px;padding:16px;margin-bottom:20px;font-size:14px;color:#7C2D12;line-height:1.8;}
+  .tip-box h4{font-size:15px;font-weight:800;color:var(--primary);margin-bottom:8px;}
+  .tip-box ul{padding-inline-start:16px;}
+  .collapsible{background:var(--white);border:1.5px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden;box-shadow:var(--card-shadow);}
+  .collapsible-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;cursor:pointer;font-weight:700;font-size:14px;color:var(--primary-dark);transition:background .18s;gap:8px;}
+  .collapsible-header:hover{background:var(--accent-light);}
+  .c-icon{font-size:18px;flex-shrink:0;}.c-arrow{font-size:12px;color:var(--text-light);transition:transform .2s;flex-shrink:0;}
+  .collapsible.open .c-arrow{transform:rotate(90deg);}
+  .collapsible-body{display:none;padding:4px 16px 14px;font-size:13.5px;color:var(--text-mid);line-height:1.75;border-top:1px solid var(--border);}
+  .collapsible.open .collapsible-body{display:block;}
+  .collapsible-body ul{padding-inline-start:18px;}.collapsible-body li{margin-bottom:5px;}
+  .warning-section{background:var(--danger-light);border:2px solid #FCA5A5;border-radius:14px;padding:18px;margin-bottom:18px;}
+  .warning-section h3{color:var(--danger);font-size:16px;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .warning-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .warning-item{display:flex;align-items:flex-start;gap:10px;background:var(--white);border-radius:10px;padding:10px 14px;font-size:14px;font-weight:600;color:#7F1D1D;line-height:1.5;border:1px solid #FCA5A5;}
+  .warning-dot{width:10px;height:10px;border-radius:50%;background:var(--danger);flex-shrink:0;margin-top:5px;}
+  .improvement-section{background:var(--success-light);border:2px solid #6EE7B7;border-radius:14px;padding:18px;margin-bottom:18px;}
+  .improvement-section h3{color:var(--success);font-size:16px;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .improvement-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .improvement-item{display:flex;align-items:flex-start;gap:10px;background:var(--white);border-radius:10px;padding:10px 14px;font-size:14px;font-weight:600;color:#064E3B;line-height:1.5;border:1px solid #6EE7B7;}
+  .improvement-dot{width:10px;height:10px;border-radius:50%;background:var(--success);flex-shrink:0;margin-top:5px;}
+  .dehydration-box{background:#FFF7ED;border:1.5px solid #FED7AA;border-radius:12px;padding:14px 16px;margin-bottom:18px;font-size:13.5px;color:#7C2D12;line-height:1.75;}
+  .dehydration-box strong{color:#C2410C;font-weight:800;}
+  .quiz-q{background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:18px;margin-bottom:16px;box-shadow:var(--card-shadow);}
+  .quiz-question{font-size:15px;font-weight:800;color:var(--primary-dark);margin-bottom:14px;line-height:1.5;}
+  .quiz-options{display:flex;flex-direction:column;gap:8px;}
+  .quiz-opt{background:var(--bg);border:2px solid var(--border);border-radius:10px;padding:11px 14px;font-size:14px;font-weight:600;color:var(--text-mid);cursor:pointer;transition:all .18s;text-align:start;}
+  .quiz-opt:hover{border-color:var(--accent);background:var(--accent-light);color:var(--primary);}
+  .quiz-opt.correct{background:var(--success-light);border-color:var(--success);color:var(--success);}
+  .quiz-opt.wrong{background:var(--danger-light);border-color:var(--danger);color:var(--danger);}
+  .quiz-opt:disabled{cursor:default;pointer-events:none;}
+  .quiz-feedback{margin-top:10px;font-size:13px;font-weight:700;padding:8px 12px;border-radius:8px;display:none;line-height:1.6;}
+  .quiz-feedback.show{display:block;}
+  .quiz-feedback.correct{background:var(--success-light);color:var(--success);}
+  .quiz-feedback.wrong{background:var(--danger-light);color:var(--danger);}
+  .quiz-score{text-align:center;font-size:15px;font-weight:700;color:var(--primary);margin-top:10px;display:none;}
+  .quiz-score.show{display:block;}
+  .share-section{background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:20px;margin-top:24px;text-align:center;box-shadow:var(--card-shadow);}
+  .share-title{font-size:16px;font-weight:800;color:var(--primary-dark);margin-bottom:5px;}
+  .share-sub{font-size:13px;color:var(--text-light);margin-bottom:14px;}
+  .share-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+  .share-btn{padding:9px 18px;border-radius:30px;font-size:13px;font-weight:700;border:none;cursor:pointer;transition:all .18s;display:flex;align-items:center;gap:6px;}
+  .share-btn:hover{transform:translateY(-1px);box-shadow:0 3px 12px rgba(0,0,0,.14);}
+  .share-btn.wa{background:#25D366;color:white;}.share-btn.li{background:#0A66C2;color:white;}.share-btn.fb{background:#1877F2;color:white;}
+  .share-btn.copy{background:var(--bg);color:var(--primary);border:1.5px solid var(--border);}
+  .disclaimer{font-size:12px;color:var(--text-light);text-align:center;margin-top:14px;padding:0 10px;line-height:1.6;}
+  .nav-bar{position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:2px solid var(--border);z-index:200;box-shadow:0 -4px 16px rgba(0,0,0,.07);}
+  .nav-bar-inner{max-width:700px;width:100%;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;}
+  .nav-link{display:flex;align-items:center;gap:6px;padding:9px 14px;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;transition:all .18s;}
+  .nav-link.prev{background:var(--bg);color:var(--primary);border:1.5px solid var(--border);}
+  .nav-link.prev:hover{background:var(--accent-light);border-color:var(--accent);}
+  .nav-link.next{background:linear-gradient(135deg,var(--primary),var(--primary-light));color:var(--white);box-shadow:0 3px 12px rgba(15,118,110,.28);}
+  .nav-link.next:hover{transform:translateY(-1px);}
+  .nav-episode{font-size:11px;color:var(--text-light);text-align:center;font-weight:600;}
+  @media(max-width:480px){.caution-grid{grid-template-columns:1fr;}.food-grid{grid-template-columns:repeat(2,1fr);}.exercise-grid{grid-template-columns:repeat(2,1fr);}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="lang-toggle">
+    <button class="lang-btn active" id="btnAr" onclick="setLang('ar')">العربية</button>
+    <button class="lang-btn" id="btnEn" onclick="setLang('en')">English</button>
+  </div>
+  <div class="episode-badge" id="hBadge"></div>
+  <h1 id="hTitle"></h1>
+  <p class="header-sub" id="hSub"></p>
+  <div class="header-authors">
+    <span>Prof. Randa Reda</span>
+    <span>Prof. Sarah Hamza</span>
+  </div>
+</div>
+
+<div class="tabs-wrapper">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="openTab(0)" id="tab-btn-0"></button>
+    <button class="tab-btn" onclick="openTab(1)" id="tab-btn-1"></button>
+    <button class="tab-btn" onclick="openTab(2)" id="tab-btn-2"></button>
+    <button class="tab-btn" onclick="openTab(3)" id="tab-btn-3"></button>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="tab-panel active" id="tab0">
+    <div class="intro-banner" id="t0Banner"></div>
+    <div class="alert-box"><span class="alert-icon">⚠️</span><span id="t0Alert"></span></div>
+    <div class="steps" id="t0Steps"></div>
+    <div class="note-box" id="t0Note"></div>
+  </div>
+
+  <div class="tab-panel" id="tab1">
+    <div class="section-title"><span>💊</span><span id="t1FibreTitle"></span></div>
+    <p id="t1FibreHint" style="font-size:13px;color:var(--text-light);margin-bottom:12px;"></p>
+    <div class="food-grid" id="t1FoodGrid"></div>
+    <div class="section-title"><span>⏰</span><span id="t1FluidTitle"></span></div>
+    <div class="recipe-steps" id="t1FluidSteps"></div>
+    <div class="note-box" id="t1FluidNote" style="margin-bottom:22px;"></div>
+    <div class="section-title"><span>👀</span><span id="t1ExTitle"></span></div>
+    <p id="t1ExHint" style="font-size:13px;color:var(--text-light);margin-bottom:12px;"></p>
+    <div class="exercise-grid" id="t1ExGrid"></div>
+    <div class="section-title"><span>⚠️</span><span id="t1CautionTitle"></span></div>
+    <div class="caution-grid" id="t1CautionGrid"></div>
+    <div class="tip-box"><h4 id="t1TipTitle"></h4><ul id="t1TipList"></ul></div>
+    <div class="section-title"><span>🔍</span><span id="t1ExtraTitle"></span></div>
+    <div id="t1Collapsibles"></div>
+    <div class="share-section">
+      <div class="share-title" id="shareTitle"></div>
+      <div class="share-sub" id="shareSub"></div>
+      <div class="share-btns">
+        <button class="share-btn wa" onclick="shareWA()">📱 WhatsApp</button>
+        <button class="share-btn li" onclick="shareLI()">LinkedIn</button>
+        <button class="share-btn fb" onclick="shareFB()">Facebook</button>
+        <button class="share-btn copy" id="shareCopyBtn" onclick="copyLink()"></button>
+      </div>
+    </div>
+    <p class="disclaimer" id="disclaimer"></p>
+  </div>
+
+  <div class="tab-panel" id="tab2">
+    <div class="warning-section">
+      <h3><span>🔴</span><span id="t2WarnTitle"></span></h3>
+      <ul class="warning-list" id="t2WarnList"></ul>
+    </div>
+    <div class="dehydration-box"><strong id="t2ImpLabel"></strong><span id="t2ImpText"></span></div>
+    <div class="improvement-section">
+      <h3><span>📈</span><span id="t2ImpTitle"></span></h3>
+      <ul class="improvement-list" id="t2ImpList"></ul>
+    </div>
+    <div id="t2Collapsible"></div>
+    <div class="note-box" style="margin-top:16px;" id="t2Note"></div>
+  </div>
+
+  <div class="tab-panel" id="tab3">
+    <div class="intro-banner" id="quizBanner"></div>
+    <div id="quizContainer"></div>
+    <div class="quiz-score" id="quiz-score"></div>
+  </div>
+
+</div>
+
+<div class="nav-bar">
+  <div class="nav-bar-inner">
+    <a href="https://randareda-droid.github.io/Patient-Guide-/week4.html" class="nav-link prev" id="navPrev"></a>
+    <div class="nav-episode" id="navEpisode"></div>
+    <a href="https://randareda-droid.github.io/Patient-Guide-/week6.html" class="nav-link next" id="navNext"></a>
+  </div>
+</div>
+
+<script>
+const C={
+ar:{
+pageTitle:'رعاية كبار السن في المنزل — الحلقة الخامسة: الأدوية والسلامة',
+badge:'الحلقة الخامسة',h1:'الأدوية والسلامة — كيف نتعامل معها بأمان؟',
+hSub:'كيف ننظم أدوية كبير السن ونتجنب الأخطاء؟ — دليل عملي خطوة بخطوة',
+tabs:['🚑 ماذا نفعل أولاً','💊 التنظيم والسلامة','🚨 علامات الخطر','❓ اختبر نفسك'],
+t0Banner:'كثير من كبار السن يتناولون أكثر من دواء يومياً، وهذا يحتاج تنظيماً دقيقاً لتجنب الأخطاء. <strong>الحل في الترتيب والتواصل المستمر مع الطبيب المختص</strong> — لكن هناك علامات تستدعي التدخل الطبي فوراً.',
+t0Alert:'إذا ظهرت أعراض غير طبيعية بعد دواء جديد (دوخة شديدة، طفح جلدي، صعوبة في التنفس) — أوقف الدواء واتصل بالطبيب فوراً',
+t0Steps:[
+['اعمل قائمة محدّثة بكل الأدوية','اكتب اسم كل دواء والجرعة والموعد، واحملها معك في كل زيارة للطبيب المختص. حدّثها فور أي تغيير.'],
+['استخدم علبة أدوية أسبوعية مقسّمة','تقسيم الجرعات على أيام اليوم وأوقاته (صباح/ظهر/مساء) يقلل بشكل كبير من النسيان أو تكرار الجرعة بالخطأ.'],
+['وحّد الطبيب المختص المتابع إن أمكن','أخبر كل طبيب بكل ما يُؤخذ — بما فيه أدوية بدون روشتة وأعشاب وفيتامينات، لتجنب التكرار أو التعارض بينها.'],
+['اربط مواعيد الدواء بروتين ثابت','مثل بعد الفطار، بعد الغداء، قبل النوم. ربط الجرعة بعادة يومية ثابتة أسهل من الاعتماد على الذاكرة فقط.'],
+['لا تُغيّر أو توقف أي دواء من نفسك','حتى مع الشعور بتحسن أو بعرض جانبي خفيف — أي تغيير يجب أن يكون بمشورة الطبيب فقط.'],
+],
+t0Note:'📌 تنبيه: تحقّق من تاريخ انتهاء الأدوية بشكل دوري، واحفظها في مكان جاف بعيد عن الحرارة والضوء المباشر وعن متناول الأطفال. لا تحتفظ بأدوية منتهية الصلاحية.',
+t1FibreTitle:'أنواع الأدوية الشائعة عند كبار السن',
+t1FibreHint:'اضغط على أي نوع لمعرفة أهم ملاحظة عنه',
+foods:[
+['💊','أدوية ضغط الدم','جرعة يومية ثابتة','تُؤخذ في نفس الموعد كل يوم. عند نسيان جرعة، لا تُضاعفها — اسأل الطبيب المختص عن الأنسب.'],
+['❤️','أدوية القلب','لا تتوقف فجأة','التوقف المفاجئ قد يكون خطيراً. حتى مع الشعور بتحسن، الاستمرار حسب تعليمات الطبيب ضروري.'],
+['🩸','أدوية السكري','مرتبطة بالوجبات','بعضها يُؤخذ قبل الأكل وبعضها بعده — التوقيت الصحيح مهم لتجنب انخفاض السكر.'],
+['🦴','فيتامينات وكالسيوم','غالباً مع الطعام','تُؤخذ مع الوجبات لتحسين الامتصاص، وفي وقت مختلف عن أدوية أخرى قد تتعارض معها.'],
+['🌙','المهدئات والمنومات','احذر خطر السقوط','تزيد من الدوخة والنعاس — احرص على إضاءة جيدة والحذر عند النهوض ليلاً.'],
+['🩹','مسكنات الألم','احذر الاستخدام المطول','الاستخدام المتكرر بدون إشراف قد يؤثر على المعدة أو الكلى — أخبر الطبيب إن احتاجها بشكل مستمر.'],
+['🫁','بخاخات التنفس','الطريقة الصحيحة مهمة','الاستخدام الخاطئ يُقلّل من فاعلية البخاخ — اطلب من الطبيب المختص توضيح الطريقة عملياً.'],
+['🧠','أدوية الذاكرة والمزاج','الانتظام مهم جداً','تحتاج مواعيد ثابتة ومنتظمة، وأي تغيير في السلوك بعدها يجب إخبار الطبيب به.'],
+],
+t1FluidTitle:'⏰ خطوات لتنظيم جرعات اليوم',
+fluidSteps:['جهّز علبة الأدوية الأسبوعية مرة واحدة كل أسبوع','اربط كل جرعة بوقت ثابت من اليوم (فطار، غداء، قبل النوم)','ضع تذكيراً بالمنبه أو الهاتف لكل موعد','ضع الأدوية في مكان واضح ومضاء جيداً','تأكد من أخذ الجرعة فعلاً ثم ضع علامة في دفتر المتابعة'],
+t1FluidNote:'📌 لا تطحن أو تكسر أي قرص قبل التأكد من الطبيب المختص أن ذلك مسموح — بعض الأقراص تفقد فاعليتها أو تصبح ضارة عند كسرها.\n📌 اسأل الطبيب المختص دوماً عن أي تعارض بين الأدوية والطعام أو الأعشاب.',
+t1ExTitle:'ممارسات يومية للسلامة عند تناول الدواء',
+t1ExHint:'اضغط على أي ممارسة لمعرفة التفاصيل',
+exercises:[
+['🔍','قراءة الملصق دوماً','قبل كل جرعة','تأكد من الاسم والجرعة وتاريخ الانتهاء كل مرة — خاصة مع وجود أدوية متشابهة الشكل.'],
+['💡','إضاءة جيدة','وقت تناول الدواء','تناول الدواء في مكان جيد الإضاءة يُقلّل من خطأ الخلط بين الأدوية.'],
+['👓','استخدام النظارة','عند القراءة','إذا كان يحتاج نظارة للقراءة، يجب ارتداؤها قبل قراءة أي ملصق أو نشرة دواء.'],
+['🗣️','اسأل عن كل دواء جديد','الغرض وطريقة الأخذ','اسأل الطبيب المختص: لماذا هذا الدواء؟ متى يؤخذ؟ مع الطعام أم بدونه؟'],
+['📵','عدم مشاركة الأدوية','مع أي شخص آخر','نفس الأعراض لا تعني نفس العلاج المناسب — مشاركة الأدوية قد تكون خطيرة.'],
+['🧴','تخزين آمن ومنظم','بعيداً عن الحرارة','احفظ الأدوية في عبواتها الأصلية، في مكان بارد وجاف، بعيداً عن متناول الأطفال.'],
+],
+t1CautionTitle:'أخطاء شائعة يجب الانتباه لها',
+cautions:[
+['⏰','تفويت جرعة ثم مضاعفتها','يزيد من خطر الجرعة الزائدة'],
+['🥤','أخذ الدواء مع مشروبات خاطئة','بعض العصائر تتعارض مع أدوية معينة'],
+['🔄','مشاركة الأدوية بين الأشخاص','قد يكون خطيراً حتى مع نفس الأعراض'],
+['🧠','الاعتماد على الذاكرة فقط','يزيد من فرص النسيان أو التكرار'],
+['🛑','التوقف الذاتي عن العلاج','قد يؤدي لتدهور الحالة الصحية'],
+['🌙','خلط المهدئات بدون إشراف طبي','يزيد بشدة من خطر السقوط والارتباك'],
+],
+t1TipTitle:'💡 نصائح لتسهيل تناول الأدوية يومياً',
+tipList:['اربط مواعيد الدواء بعادة يومية ثابتة (بعد الفطار، قبل النوم)','استخدم ملصقات كبيرة أو ألوان مختلفة إذا كانت القراءة صعبة','احتفظ بدفتر صغير لتسجيل كل جرعة بعد أخذها','اسأل الطبيب المختص إن كان يمكن دمج بعض الأدوية لتقليل عدد الأقراص'],
+t1ExtraTitle:'معلومات إضافية مهمة',
+collapsibles1:[
+['🔍','لماذا يتناول كبار السن أدوية متعددة؟',['تعدد الأمراض المزمنة مع التقدم في العمر','متابعة أكثر من طبيب لتخصصات مختلفة','إضافة أدوية جديدة دون مراجعة القائمة كاملة','زيادة خطر التفاعلات الدوائية مع زيادة عدد الأدوية']],
+['🌿','ملاحظات حول الأعشاب والمكملات',['بعض الأعشاب تتفاعل مع أدوية القلب والسكري وتخفيف الدم','أخبر الطبيب بكل ما يُؤخذ حتى لو كان "طبيعياً"','لا تبدأ مكملاً جديداً دون استشارة','الجرعة الزائدة من بعض الفيتامينات قد تكون ضارة']],
+],
+shareTitle:'🔗 شارك هذا الدليل مع من تعرف',
+shareSub:'كل أسرة تعتني بكبير السن تحتاج هذه المعلومات',
+shareCopy:'📋 نسخ الرابط',
+disclaimer:'هذا الدليل للتوعية العامة فقط — لا يُغني عن استشارة الطبيب المعالج',
+t2WarnTitle:'اتصل بالطبيب أو اذهب للطوارئ فوراً',
+warnings:['صعوبة شديدة في التنفس أو تورم في الوجه أو الشفتين بعد دواء جديد','فقدان وعي أو دوخة شديدة مصحوبة بسقوط','نزيف غير عادي في البول أو البراز أو اللثة','طفح جلدي واسع مصحوب بحرارة','ارتباك شديد مفاجئ أو تغيّر مفاجئ في مستوى الوعي','نبض قلب غير منتظم بشدة أو ألم في الصدر','قيء شديد ومتكرر بعد تناول دواء','تناول جرعة مضاعفة بكمية كبيرة بالخطأ'],
+t2ImpLabel:'⚠️ مهم: ',
+t2ImpText:'لا تخلط بين عرض جديد للمرض وأثر جانبي للدواء — أي عرض جديد يظهر بعد بدء دواء يجب إخبار الطبيب به حتى لو كان خفيفاً، فقد يحتاج الأمر لتغيير الدواء أو جرعته.',
+t2ImpTitle:'علامات أن إدارة الأدوية تسير بشكل جيد',
+improvements:['الالتزام بالمواعيد دون نسيان جرعات','تحسن الأعراض التي يُعالجها الدواء','عدم ظهور أي أعراض جانبية جديدة','فهم واضح لسبب كل دواء وموعده','زيارات منتظمة لمراجعة قائمة الأدوية مع الطبيب','شعور عام بالراحة والاستقرار'],
+collapsibles2:[['🩺','متى تُعاد مراجعة قائمة الأدوية؟',['بعد أي إقامة في المستشفى','عند ظهور أي عرض جديد','كل عدة أشهر مع الطبيب بشكل دوري','عند إضافة أي دواء أو مكمل جديد بدون روشتة','بعد أي سقوط أو حادث']]],
+t2Note:'📌 احتفظ بقائمة الأدوية وأرقام الطوارئ في مكان واضح (على الثلاجة أو في المحفظة) لتكون جاهزة عند أي طارئ.',
+quizBanner:'اختبر معلوماتك عن سلامة الأدوية عند كبار السن — 3 أسئلة سريعة',
+questions:[
+{q:'❓ ماذا تفعل إذا نُسيت جرعة دواء في موعدها؟',opts:['أ) تأخذ جرعة مضاعفة في الموعد التالي','ب) تسأل الطبيب المختص أو تتبع تعليمات الدواء دون مضاعفة','ج) تتجاهلها تماماً وتنتظر الموعد التالي دون أي خطوة أخرى','د) تأخذها بعد عدة أيام عندما تتذكر'],correct:1,feedbacks:['مضاعفة الجرعة قد تكون خطيرة وتزيد من الآثار الجانبية.','صحيح! التعليمات تختلف من دواء لآخر، والطبيب المختص يوجه للأنسب دون مضاعفة الجرعة.','تجاهل الجرعة دون سؤال قد لا يكون مناسباً لكل الأدوية — الأفضل السؤال.','الانتظار لعدة أيام قد يُفقد الدواء فاعليته أو يؤثر على العلاج.']},
+{q:'❓ ما أفضل وسيلة لتقليل خطر الخلط بين الأدوية أو نسيانها؟',opts:['أ) الاعتماد على الذاكرة فقط','ب) الاحتفاظ بكل الأدوية في علبة واحدة بدون تقسيم','ج) استخدام علبة أدوية مقسّمة بالأيام والمواعيد','د) تغيير مكان حفظ الأدوية كل أسبوع'],correct:2,feedbacks:['الاعتماد على الذاكرة فقط من أكثر أسباب الأخطاء في الأدوية.','خلط كل الأدوية معاً يزيد من احتمالية تناول الدواء الخطأ.','صحيح! العلبة المقسّمة بالأيام والمواعيد تُقلّل الأخطاء بشكل كبير وتُسهّل المتابعة.','تغيير المكان باستمرار يزيد من النسيان والارتباك.']},
+{q:'❓ متى يجب الاتصال بالطبيب أو الطوارئ فوراً بخصوص الأدوية؟',opts:['أ) عند الشعور بتحسن أسرع من المتوقع','ب) عند ظهور طفح جلدي واسع مع حرارة أو صعوبة في التنفس بعد دواء جديد','ج) عند نسيان جرعة واحدة فقط','د) عند الرغبة في تجربة دواء جديد بدون استشارة'],correct:1,feedbacks:['التحسن السريع جيد، ولكنه لا يستدعي الطوارئ — يمكن إخبار الطبيب في الموعد المعتاد.','صحيح! هذه علامات تحسس أو تأثير خطير تستدعي التدخل الطبي الفوري.','نسيان جرعة واحدة شائع وليس حالة طوارئ — يمكن سؤال الطبيب المختص عن الخطوة المناسبة.','تجربة دواء جديد بدون استشارة خطأ يجب تجنبه أصلاً، وليست هذه وحدها سبباً للطوارئ.']},
+],
+navPrev:'← الحلقة الرابعة: الإمساك',navEpisode:'الحلقة 5 من 12',navNext:'الحلقة القادمة ←',
+quizScore:(t)=>`نتيجتك: ${t} من 3 ${t===3?'🎉 ممتاز!':t===2?'👍 جيد جداً!':'💪 استمر في التعلم!'}`,
+},
+en:{
+pageTitle:'Elderly Home Care — Episode 5: Medications & Safety',
+badge:'Episode 5',h1:'Medications & Safety — How to Manage Them Safely?',
+hSub:'How to organize an older adult\'s medications and avoid mistakes? A practical step-by-step guide',
+tabs:['🚑 What to Do First','💊 Organization & Safety','🚨 Warning Signs','❓ Quiz'],
+t0Banner:'Many older adults take more than one medication daily, which requires careful organization to avoid mistakes. <strong>The solution lies in organization and ongoing communication with the physician or specialist</strong> — but some signs require immediate medical attention.',
+t0Alert:'If unusual symptoms appear after a new medication (severe dizziness, rash, difficulty breathing) — stop the medication and call the doctor immediately',
+t0Steps:[
+['Keep an updated list of all medications','Write down each medicine\'s name, dose and timing, and bring it to every doctor visit. Update it after any change.'],
+['Use a weekly pill organizer','Dividing doses by day and time of day (morning/noon/evening) greatly reduces the chance of missing or accidentally repeating a dose.'],
+['Use one main specialist physician if possible','Tell every doctor about everything being taken — including over-the-counter medicines, herbs and vitamins — to avoid duplication or interactions.'],
+['Link medication times to a fixed daily routine','For example, after breakfast, after lunch, before bed. Linking a dose to a fixed daily habit is easier than relying on memory alone.'],
+['Never change or stop a medication on your own','Even when feeling better or noticing a mild side effect — any change must only be made on the doctor\'s advice.'],
+],
+t0Note:'📌 Note: Check medication expiry dates regularly, and store them in a cool, dry place away from direct heat, light and children\'s reach. Don\'t keep expired medications.',
+t1FibreTitle:'Common Types of Medications for Older Adults',
+t1FibreHint:'Tap any type to see the most important note about it',
+foods:[
+['💊','Blood pressure medications','Fixed daily dose','Taken at the same time every day. If a dose is missed, don\'t double it — ask the physician or specialist what to do.'],
+['❤️','Heart medications','Never stop suddenly','Sudden stopping can be dangerous. Even when feeling better, continuing as the doctor prescribed is essential.'],
+['🩸','Diabetes medications','Linked to meals','Some are taken before eating and some after — correct timing matters to avoid low blood sugar.'],
+['🦴','Vitamins & calcium','Often with food','Usually taken with meals to improve absorption, and at a different time from other medications that may interact with them.'],
+['🌙','Sedatives & sleep aids','Watch fall risk','They increase drowsiness and dizziness — ensure good lighting and care when getting up at night.'],
+['🩹','Pain relievers','Avoid prolonged use','Repeated use without supervision may affect the stomach or kidneys — tell the doctor if needed continuously.'],
+['🫁','Inhalers','Correct technique matters','Incorrect use reduces effectiveness — ask the physician or specialist to demonstrate the right technique.'],
+['🧠','Memory & mood medications','Consistency matters a lot','They need fixed, regular timing, and any behaviour change afterwards should be reported to the doctor.'],
+],
+t1FluidTitle:'⏰ Steps to Organize Daily Doses',
+fluidSteps:['Prepare the weekly pill organizer once a week','Link each dose to a fixed time of day (breakfast, lunch, before bed)','Set a phone or clock reminder for each dose','Keep medications in a clear, well-lit place','Confirm the dose was actually taken, then mark it in a tracking notebook'],
+t1FluidNote:'📌 Don\'t crush or split any tablet before checking with the physician or specialist that this is allowed — some tablets lose effectiveness or become harmful when broken.\n📌 Always ask the physician or specialist about any interaction between medications and food or herbs.',
+t1ExTitle:'Daily Safety Practices When Taking Medication',
+t1ExHint:'Tap any practice to see the details',
+exercises:[
+['🔍','Always read the label','Before every dose','Check the name, dose and expiry date every time — especially if there are similarly-shaped medications.'],
+['💡','Good lighting','At the time of taking medication','Taking medication in a well-lit place reduces the chance of mixing up medications.'],
+['👓','Wear glasses if needed','When reading','If reading glasses are needed, they should be worn before reading any label or leaflet.'],
+['🗣️','Ask about every new medicine','Purpose & how to take it','Ask the physician or specialist: why this medicine? When to take it? With or without food?'],
+['📵','Never share medications','With anyone else','Similar symptoms don\'t mean the same treatment is suitable — sharing medications can be dangerous.'],
+['🧴','Safe, organized storage','Away from heat','Keep medications in their original containers, in a cool dry place, out of children\'s reach.'],
+],
+t1CautionTitle:'Common Mistakes to Watch For',
+cautions:[
+['⏰','Missing a dose then doubling it','Increases overdose risk'],
+['🥤','Taking medicine with the wrong drinks','Some juices interact with certain medicines'],
+['🔄','Sharing medications between people','Can be dangerous even with similar symptoms'],
+['🧠','Relying on memory alone','Increases chances of forgetting or repeating'],
+['🛑','Stopping treatment on your own','May lead to the condition worsening'],
+['🌙','Mixing sedatives without medical supervision','Greatly increases the risk of falls and confusion'],
+],
+t1TipTitle:'💡 Tips to Make Daily Medication Easier',
+tipList:['Link medication times to a fixed daily habit (after breakfast, before bed)','Use large labels or different colours if reading is difficult','Keep a small notebook to record each dose after taking it','Ask the physician or specialist whether some medications can be combined to reduce the number of pills'],
+t1ExtraTitle:'Additional Important Information',
+collapsibles1:[
+['🔍','Why do older adults take multiple medications?',['Multiple chronic conditions increase with age','Seeing more than one doctor for different specialties','New medications added without reviewing the full list','The risk of drug interactions increases with the number of medications']],
+['🌿','Notes on herbs & supplements',['Some herbs interact with heart, diabetes and blood-thinning medications','Tell the doctor about everything taken, even if it\'s "natural"','Don\'t start a new supplement without consulting first','Excess doses of some vitamins can be harmful']],
+],
+shareTitle:'🔗 Share this guide with someone you know',
+shareSub:'Every family caring for an older adult needs this information',
+shareCopy:'📋 Copy Link',
+disclaimer:'This guide is for general awareness only — it does not replace medical consultation',
+t2WarnTitle:'Call the Doctor or Go to A&E Immediately',
+warnings:['Severe difficulty breathing or swelling of the face or lips after a new medication','Loss of consciousness or severe dizziness with falling','Unusual bleeding in urine, stool, or gums','Widespread skin rash with fever','Sudden severe confusion or change in level of consciousness','Severely irregular heartbeat or chest pain','Severe, repeated vomiting after taking a medication','Accidentally taking a large double dose'],
+t2ImpLabel:'⚠️ Important: ',
+t2ImpText:'Don\'t confuse a new illness symptom with a medication side effect — any new symptom appearing after starting a medication should be reported to the doctor even if mild, as it may require changing the medication or its dose.',
+t2ImpTitle:'Signs That Medication Management Is Going Well',
+improvements:['Sticking to the schedule without missing doses','Improvement in the symptoms the medication treats','No new side effects appearing','A clear understanding of why and when each medicine is taken','Regular visits to review the medication list with the doctor','An overall feeling of comfort and stability'],
+collapsibles2:[['🩺','When should the medication list be reviewed?',['After any hospital stay','When any new symptom appears','Periodically every few months with the doctor','When adding any new over-the-counter medicine or supplement','After any fall or accident']]],
+t2Note:'📌 Keep the medication list and emergency numbers in a clear place (on the fridge or in a wallet) so they\'re ready in any emergency.',
+quizBanner:'Test your knowledge about medication safety for older adults — 3 quick questions',
+questions:[
+{q:'❓ What should you do if a medication dose is missed?',opts:['A) Take a double dose at the next time','B) Ask the physician or specialist, or follow the medicine\'s instructions without doubling','C) Ignore it and wait for the next dose without checking','D) Take it whenever remembered, even days later'],correct:1,feedbacks:['Doubling the dose can be dangerous and increase side effects.','Correct! Instructions differ between medicines, and the physician or specialist can advise the best option without doubling the dose.','Ignoring it without checking may not be right for every medicine — it\'s best to ask.','Waiting days may make the medication ineffective or affect treatment.']},
+{q:'❓ What is the best way to reduce the risk of mixing up or forgetting medications?',opts:['A) Relying on memory alone','B) Keeping all medications together in one box without dividing them','C) Using a pill organizer divided by day and time','D) Changing where medications are stored every week'],correct:2,feedbacks:['Relying on memory alone is one of the most common causes of medication errors.','Mixing all medications together increases the chance of taking the wrong one.','Correct! An organizer divided by day and time greatly reduces errors and makes tracking easier.','Constantly changing the storage place increases forgetting and confusion.']},
+{q:'❓ When should you call the doctor or go to A&E immediately regarding medications?',opts:['A) When feeling better faster than expected','B) When a widespread rash with fever or difficulty breathing appears after a new medication','C) When only a single dose is missed','D) When wanting to try a new medication without consulting anyone'],correct:1,feedbacks:['Feeling better quickly is good and not an emergency — it can be mentioned at the next regular appointment.','Correct! These are signs of a serious allergic or adverse reaction requiring immediate medical attention.','Missing a single dose is common and not an emergency — ask the physician or specialist for the right next step.','Trying a new medication without consulting anyone is a mistake to avoid in itself, not specifically an emergency on its own.']},
+],
+navPrev:'← Episode 4: Constipation',navEpisode:'Episode 5 of 12',navNext:'Next Episode →',
+quizScore:(t)=>`Your score: ${t} out of 3 ${t===3?'🎉 Excellent!':t===2?'👍 Well done!':'💪 Keep learning!'}`,
+}};
+
+let lang='ar';
+const scores={q1:null,q2:null,q3:null};
+const $=id=>document.getElementById(id);
+
+function render(l){
+  lang=l;const d=C[l];const isEn=l==='en';
+  document.documentElement.lang=l;
+  document.documentElement.dir=isEn?'ltr':'rtl';
+  document.body.style.fontFamily=isEn?"'Lato',sans-serif":"'Tajawal','Cairo',sans-serif";
+  document.title=d.pageTitle;
+  $('btnAr').classList.toggle('active',!isEn);
+  $('btnEn').classList.toggle('active',isEn);
+  $('hBadge').textContent=d.badge;$('hTitle').textContent=d.h1;$('hSub').textContent=d.hSub;
+  d.tabs.forEach((t,i)=>$('tab-btn-'+i).textContent=t);
+  $('t0Banner').innerHTML=d.t0Banner;$('t0Alert').textContent=d.t0Alert;
+  $('t0Steps').innerHTML=d.t0Steps.map((s,i)=>`<div class="step"><div class="step-num">${i+1}</div><div class="step-body"><h3>${s[0]}</h3><p>${s[1]}</p></div></div>`).join('');
+  $('t0Note').textContent=d.t0Note;
+  $('t1FibreTitle').textContent=d.t1FibreTitle;$('t1FibreHint').textContent=d.t1FibreHint;
+  $('t1FoodGrid').innerHTML=d.foods.map(f=>`<div class="food-card" onclick="toggleFood(this)"><div class="food-card-emoji">${f[0]}</div><div class="food-card-label">${f[1]}</div><div class="food-card-sub">${f[2]}</div><div class="food-detail">${f[3]}</div></div>`).join('');
+  $('t1FluidTitle').textContent=d.t1FluidTitle;
+  $('t1FluidSteps').innerHTML=d.fluidSteps.map((s,i)=>`<div class="recipe-step"><div class="recipe-num">${i+1}</div><span>${s}</span></div>`).join('');
+  $('t1FluidNote').textContent=d.t1FluidNote;
+  $('t1ExTitle').textContent=d.t1ExTitle;$('t1ExHint').textContent=d.t1ExHint;
+  $('t1ExGrid').innerHTML=d.exercises.map(e=>`<div class="exercise-card" onclick="toggleEx(this)"><div class="exercise-card-emoji">${e[0]}</div><div class="exercise-card-label">${e[1]}</div><div class="exercise-card-sub">${e[2]}</div><div class="exercise-detail">${e[3]}</div></div>`).join('');
+  $('t1CautionTitle').textContent=d.t1CautionTitle;
+  $('t1CautionGrid').innerHTML=d.cautions.map(c=>`<div class="caution-item"><span class="caution-emoji">${c[0]}</span><div><div>${c[1]}</div><div class="caution-detail">${c[2]}</div></div></div>`).join('');
+  $('t1TipTitle').textContent=d.t1TipTitle;$('t1TipList').innerHTML=d.tipList.map(t=>`<li>${t}</li>`).join('');
+  $('t1ExtraTitle').textContent=d.t1ExtraTitle;$('t1Collapsibles').innerHTML=d.collapsibles1.map(mkC).join('');
+  $('shareTitle').textContent=d.shareTitle;$('shareSub').textContent=d.shareSub;$('shareCopyBtn').textContent=d.shareCopy;$('disclaimer').textContent=d.disclaimer;
+  $('t2WarnTitle').textContent=d.t2WarnTitle;
+  $('t2WarnList').innerHTML=d.warnings.map(w=>`<li class="warning-item"><span class="warning-dot"></span><span>${w}</span></li>`).join('');
+  $('t2ImpLabel').textContent=d.t2ImpLabel;$('t2ImpText').textContent=d.t2ImpText;$('t2ImpTitle').textContent=d.t2ImpTitle;
+  $('t2ImpList').innerHTML=d.improvements.map(w=>`<li class="improvement-item"><span class="improvement-dot"></span><span>${w}</span></li>`).join('');
+  $('t2Collapsible').innerHTML=d.collapsibles2.map(mkC).join('');$('t2Note').textContent=d.t2Note;
+  $('quizBanner').textContent=d.quizBanner;renderQuiz(d);
+  $('navPrev').textContent=d.navPrev;$('navEpisode').textContent=d.navEpisode;$('navNext').textContent=d.navNext;
+  const sc=$('quiz-score');if(sc.dataset.total!==undefined&&sc.dataset.total!=='')sc.textContent=d.quizScore(parseInt(sc.dataset.total));
+}
+
+function mkC([icon,title,items]){return`<div class="collapsible" onclick="toggleCollapsible(this)"><div class="collapsible-header"><span class="c-icon">${icon}</span><span style="flex:1">${title}</span><span class="c-arrow">▶</span></div><div class="collapsible-body"><ul>${items.map(i=>`<li>${i}</li>`).join('')}</ul></div></div>`;}
+
+function renderQuiz(d){
+  $('quizContainer').innerHTML=d.questions.map((qd,qi)=>`<div class="quiz-q" id="q${qi+1}"><div class="quiz-question">${qd.q}</div><div class="quiz-options">${qd.opts.map((o,oi)=>`<button class="quiz-opt" onclick="answer(this,'q${qi+1}',${oi===qd.correct},${qi})">${o}</button>`).join('')}</div><div class="quiz-feedback" id="q${qi+1}-feedback"></div></div>`).join('');
+  ['q1','q2','q3'].forEach((qId,qi)=>{const q=$(qId);if(!q||scores[qId]===null)return;q.dataset.answered='true';const opts=q.querySelectorAll('.quiz-opt');opts.forEach(o=>{o.disabled=true;o.style.opacity='0.6';});const ci=C[lang].questions[qi].correct;opts[ci].classList.add('correct');opts[ci].style.opacity='1';const fb=$(qId+'-feedback');fb.textContent=(scores[qId]===1?'✅ ':'❌ ')+C[lang].questions[qi].feedbacks[ci];fb.className='quiz-feedback show '+(scores[qId]===1?'correct':'wrong');});
+}
+
+function setLang(l){render(l);}
+function openTab(i){document.querySelectorAll('.tab-panel').forEach((p,j)=>p.classList.toggle('active',j===i));document.querySelectorAll('.tab-btn').forEach((b,j)=>b.classList.toggle('active',j===i));}
+function toggleCollapsible(el){el.classList.toggle('open');}
+function toggleFood(el){const w=el.classList.contains('open');document.querySelectorAll('.food-card').forEach(c=>c.classList.remove('open'));if(!w)el.classList.add('open');}
+function toggleEx(el){const w=el.classList.contains('open');document.querySelectorAll('.exercise-card').forEach(c=>c.classList.remove('open'));if(!w)el.classList.add('open');}
+
+function answer(btn,qId,isCorrect,qIndex){
+  const q=$(qId);if(q.dataset.answered)return;q.dataset.answered='true';
+  const opts=q.querySelectorAll('.quiz-opt');opts.forEach(o=>{o.disabled=true;o.style.opacity='0.6';});
+  btn.style.opacity='1';btn.classList.add(isCorrect?'correct':'wrong');
+  const ci=C[lang].questions[qIndex].correct;opts[ci].classList.add('correct');opts[ci].style.opacity='1';
+  const chosenIdx=Array.from(opts).indexOf(btn);
+  const fb=$(qId+'-feedback');fb.textContent=(isCorrect?'✅ ':'❌ ')+C[lang].questions[qIndex].feedbacks[chosenIdx];
+  fb.className='quiz-feedback show '+(isCorrect?'correct':'wrong');
+  scores[qId]=isCorrect?1:0;
+  const done=Object.values(scores).filter(v=>v!==null).length;
+  if(done===3){const total=scores.q1+scores.q2+scores.q3;const sc=$('quiz-score');sc.dataset.total=total;sc.textContent=C[lang].quizScore(total);sc.classList.add('show');}
+}
+
+const PAGE_URL='https://randareda-droid.github.io/Patient-Guide-/week5.html';
+function shareWA(){window.open('https://wa.me/?text='+encodeURIComponent(C[lang].h1+'\n'+PAGE_URL),'_blank');}
+function shareLI(){window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(PAGE_URL),'_blank');}
+function shareFB(){window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(PAGE_URL),'_blank');}
+function copyLink(){navigator.clipboard.writeText(PAGE_URL).then(()=>alert(lang==='en'?'Link copied!':'تم نسخ الرابط!'));}
+
+render('ar');
+</script>
+</body>
+</html>
